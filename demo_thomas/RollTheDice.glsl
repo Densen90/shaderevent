@@ -4,7 +4,7 @@ vec3 lightDir = vec3(0.5,0.5,-1);
 
 vec4 objColor = vec4(0);
 
-uniform float divide;
+uniform float spinCube;
 
 uniform float cubeSize;
 float cubeRadius = cubeSize/4;
@@ -82,33 +82,17 @@ float dice(vec3 p, float dots, out float res) {
 
 float dist(vec3 p){
 	float plane = distPlane(p + vec3(0,4,0), vec3(0,1,0));
-
 	float rot = iGlobalTime * 50;
 	float dots0 = 10000;	
 	float res = 1000;
-	/*
-	float cube0 = dice(p0, dots0);
-	vec3 p1 = rotate(p + vec3(6,1,0), vec3(90,0,0));
-	float cube1 = dice(p1, dots0);
-	vec3 p2 = rotate(p + vec3(2,-2,0), vec3(0,0,rot));	
-	float cube2 = dice(p2,dots0);
-	vec3 p3 = rotate(p - vec3(2,0,0), vec3(0,0,0));	
-	float cube3 = dice(p3,dots0);
 
-	float dices = min(cube0, min(cube1,min(cube2,min(cube3,dots0))));
-
+	vec3 p0 = rotate(p, vec3(0,rot * p.y/spinCube,0));	
+	p0 = rotate(p0, vec3(45,0,45));
 	
-	// */
-	vec3 p0 = rotate(p, vec3(rot * p.y/divide));
-	float dices = dice(repeat(p0, vec3(5)), dots0, res);
-
 	
-	//float dice = dice(p0, dots0);
-
-	res = min(plane,dices);
-	
-	//objColor = (dices == dots0) ?  vec4(buttonColor,1) : vec4(color,1);	
-	
+	float dice = dice(p0, dots0, res);
+	res = min(plane,dice);
+	objColor = (res == plane) ? vec4(0.1) : objColor;			
 	return res;
 }
 
