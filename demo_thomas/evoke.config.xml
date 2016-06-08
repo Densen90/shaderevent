@@ -84,44 +84,118 @@
       <UniformName>divide</UniformName>
       <Keyframes>
         <Keyframe>
-          <Time>98.32063</Time>
-          <Value>200</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>131.115128</Time>
-          <Value>400</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>135.5653</Time>
+          <Time>37.1895</Time>
           <Value>150</Value>
         </Keyframe>
         <Keyframe>
-          <Time>137.74411</Time>
+          <Time>56.1151</Time>
+          <Value>400</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>60.5653</Time>
+          <Value>150</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>62.7441</Time>
           <Value>1200</Value>
         </Keyframe>
         <Keyframe>
-          <Time>139.930862</Time>
-          <Value>135.753036</Value>
+          <Time>64.9309</Time>
+          <Value>135.753</Value>
         </Keyframe>
         <Keyframe>
-          <Time>142.087891</Time>
+          <Time>67.0879</Time>
           <Value>1600</Value>
         </Keyframe>
         <Keyframe>
-          <Time>144.301163</Time>
-          <Value>433.651917</Value>
+          <Time>69.3012</Time>
+          <Value>433.6519</Value>
         </Keyframe>
         <Keyframe>
-          <Time>154.138931</Time>
+          <Time>79.1389</Time>
           <Value>2200</Value>
         </Keyframe>
         <Keyframe>
-          <Time>159.3747</Time>
+          <Time>84.3747</Time>
           <Value>175</Value>
         </Keyframe>
         <Keyframe>
-          <Time>165.971558</Time>
+          <Time>90.9716</Time>
           <Value>5000</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>spinCube</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>131.167786</Time>
+          <Value>-50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>135.59</Time>
+          <Value>-30</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>135.659973</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>139.994125</Time>
+          <Value>500</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>144.351288</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>144.45</Time>
+          <Value>-30</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>148.7335</Time>
+          <Value>-50</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>spiralRot</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>148.64</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>150</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>150.53685</Time>
+          <Value>45</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>152.32</Time>
+          <Value>45</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>152.736969</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>154.59</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>154.947815</Time>
+          <Value>135</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>156.79</Time>
+          <Value>135</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>157.138855</Time>
+          <Value>90</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -135,8 +209,16 @@
           <ShaderPath>.\Intro2.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>96.50221</Time>
+          <Time>54.44308</Time>
           <ShaderPath>.\Dice.glsl</ShaderPath>
+        </ShaderKeyframe>
+        <ShaderKeyframe>
+          <Time>104.043564</Time>
+          <ShaderPath>.\RollTheDice.glsl</ShaderPath>
+        </ShaderKeyframe>
+        <ShaderKeyframe>
+          <Time>137.233841</Time>
+          <ShaderPath>.\CubeSpirale.glsl</ShaderPath>
         </ShaderKeyframe>
       </ShaderKeyframes>
     </Track>
@@ -144,5 +226,5 @@
   <Textures>
     <string>.\cloud_tex.png</string>
   </Textures>
-  <SoundFileName>..\..\..\Users\Iommi\Desktop\Studium\MMPROG\Sound\Chill1.mp3</SoundFileName>
+  <SoundFileName>.\Chill1.mp3</SoundFileName>
 </DemoData2>
