@@ -158,6 +158,47 @@
         </Keyframe>
       </Keyframes>
     </Uniform>
+    <Uniform>
+      <UniformName>spiralRot</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>148.64</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>150</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>150.53685</Time>
+          <Value>45</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>152.32</Time>
+          <Value>45</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>152.736969</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>154.59</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>154.947815</Time>
+          <Value>135</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>156.79</Time>
+          <Value>135</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>157.138855</Time>
+          <Value>90</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
   </Uniforms>
   <Tracks>
     <Track>
@@ -174,6 +215,10 @@
         <ShaderKeyframe>
           <Time>104.043564</Time>
           <ShaderPath>.\RollTheDice.glsl</ShaderPath>
+        </ShaderKeyframe>
+        <ShaderKeyframe>
+          <Time>137.233841</Time>
+          <ShaderPath>.\CubeSpirale.glsl</ShaderPath>
         </ShaderKeyframe>
       </ShaderKeyframes>
     </Track>
