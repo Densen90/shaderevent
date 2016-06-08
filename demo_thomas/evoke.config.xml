@@ -125,6 +125,39 @@
         </Keyframe>
       </Keyframes>
     </Uniform>
+    <Uniform>
+      <UniformName>spinCube</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>131.167786</Time>
+          <Value>-50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>135.59</Time>
+          <Value>-30</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>135.659973</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>139.994125</Time>
+          <Value>500</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>144.351288</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>144.45</Time>
+          <Value>-30</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>148.7335</Time>
+          <Value>-50</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
   </Uniforms>
   <Tracks>
     <Track>
