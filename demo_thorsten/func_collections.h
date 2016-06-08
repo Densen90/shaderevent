@@ -210,3 +210,8 @@ float Difference(float object1, float object2)
 {
 	return min(object1, object2);
 }
+
+vec3 ApplyFog(vec3 originalColor, vec3 fogColor, float fogAmount)
+{
+    return mix( originalColor, fogColor, fogAmount );
+}

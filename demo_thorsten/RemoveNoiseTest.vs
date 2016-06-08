@@ -40,7 +40,7 @@ float dist(vec3 p)
 	//p = abs(sin(p));
 	float boxes = distRoundBox(Repeat(p, vec3(5, 5, 10)), vec3(0.5, 0.5, 0.5), 5.0); //5.0
 	float boxes1 = distRoundBox(Repeat(p, vec3(2.5, 2.5, 5)), vec3(0.5, 0.5, 0.5), .0);
-	float temp = Difference(boxes, boxes1)  * interpolate  * 0.5;
+	//float temp = Difference(boxes, boxes1)  * interpolate  * 0.5;
 
 	color = ColorScene(p);// vec3(0.1, 0.3, 0.66);
 	return abs(sin(temp)) + cos(temp * 0.5);
