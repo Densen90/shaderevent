@@ -93,6 +93,19 @@ float distSphere(vec3 p, float rad)
 }
 
 /**
+ * distance function for normal signed box
+ * @param  p   position of box
+ * @param  b   bounds
+ * @return     distance to box
+ */
+float distBox( vec3 p, vec3 b )
+{
+  vec3 d = abs(p) - b;
+  return min(max(d.x,max(d.y,d.z)),0.0) +
+         length(max(d,0.0));
+}
+
+/**
  * distance function for rounded box
  * @param  p position of box
  * @param  b bounds of box

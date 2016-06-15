@@ -1,6 +1,6 @@
-uniform float iGlobalTime;
-uniform vec2 iResolution;
-
+/******************************************************
+    THE CALCULATION FOR THE GRID CUBES
+******************************************************/
 uniform float uScale;
 uniform float uRepeatX;
 uniform float uMoveX;
@@ -9,7 +9,8 @@ uniform float uMoveY;
 uniform float uRepeatZ;
 uniform float uMoveZ;
 
-float WEIGHT = 3.0 / iResolution.x;
+float WEIGHT;
+float globalTime;
 const vec3 RED = vec3(1.0,0.0,0.0);
 const vec3 GREEN = vec3(0.0,1.0,0.0);
 const vec3 BLUE = vec3(0.0,0.8,1.0);
@@ -57,7 +58,7 @@ vec3 mix3(vec3 a, vec3 b, vec3 c, float t)
 
 vec3 fragment(vec3 p) 
 {
-    float t = sin(p.x*0.8+iGlobalTime*0.5)*0.5+0.5;
+    float t = sin(p.x*0.8+globalTime*0.5)*0.5+0.5;
     float fog = min(pow(p.z,3.0)*400.0,1.0);
     return mix3(RED,GREEN,BLUE,t) * fog;
 } 
@@ -103,17 +104,21 @@ float calcBox(vec2 uv, mat4 viewMat, vec3 move)
         i += line(uv,vert[3].xy,vert[7].xy,line_width);
 
     return i;
-}   
+}
 
-void main() 
+vec3 getGridCubeColor(vec2 fragCoord, vec2 resolution, float globTime, vec3 camPos)
 {
-	vec2 uv = gl_FragCoord.xy / iResolution.xy;
+    vec2 uv = fragCoord.xy / resolution.xy;
     uv = uv * 2.0 - 1.0;
-    uv.x *= iResolution.x / iResolution.y;
+    uv.x *= resolution.x / resolution.y;
+
+    WEIGHT = 3.0 / resolution.x;
+    globalTime = globTime;
+
     //uv = uv * (1.0 + pow(length(uv)*0.4,0.5)) * 0.6;
-    float time = iGlobalTime * 0.31415;
+    float time = globalTime * 0.31415;
     vec3 c = vec3(mix(vec3(0.19,0.13,0.1),vec3(1.0), 0.5*pow(length(uv)*0.5,2.0)));
-    mat4 cam = getPosMatrix(vec3(0.0,0.0,10.0));
+    mat4 cam = getPosMatrix(vec3(0.0,0.0,10.0)-camPos);
     
 
     mat4 rot = getRotMatrix(vec3(time,time*0.86,time*0.873));
@@ -145,6 +150,5 @@ void main()
         }
     }
 
-    // fragment
-	gl_FragColor = vec4(c,1.0);
+    return c;
 }
