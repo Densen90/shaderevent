@@ -120,6 +120,32 @@
         </Keyframe>
       </Keyframes>
     </Uniform>
+    <Uniform>
+      <UniformName>uCameraZ</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>23.56575</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>31.1962738</Time>
+          <Value>-5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>38.20116</Time>
+          <Value>0</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>uStartRotationTime</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>24.17795</Time>
+          <Value>24.17795</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
   </Uniforms>
   <Tracks>
     <Track>
@@ -128,6 +154,14 @@
         <ShaderKeyframe>
           <Time>0</Time>
           <ShaderPath>.\vol_lines.glsl</ShaderPath>
+        </ShaderKeyframe>
+        <ShaderKeyframe>
+          <Time>23.9153442</Time>
+          <ShaderPath>.\cube_transition.glsl</ShaderPath>
+        </ShaderKeyframe>
+        <ShaderKeyframe>
+          <Time>38.2</Time>
+          <ShaderPath>.\testshader.glsl</ShaderPath>
         </ShaderKeyframe>
       </ShaderKeyframes>
     </Track>
