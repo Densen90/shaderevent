@@ -84,37 +84,84 @@ float dist(vec3 p)
 {
 	//rotation around given axis aroud standard position, then translation
 	float cubeSize = 3.5;
-	float pyramid1 = sdPyramid((vec4(p,1.0)
-		*translationMatrix(vec3(0.0,0.0,0.0))
-		*rotationMatrix(vec3(1.0,0.0,0.0), iGlobalTime)).xyz
-		,0.5, 3.5, 3.5);
-	float cube = udBox((vec4(p,1.0)
-		*translationMatrix(vec3(0.0,-3.5,0.0))
+	
+	/*float cube = udBox((vec4(p,1.0)
+		//*translationMatrix(vec3(0.0,-3.5,0.0))
 		*rotationMatrix(vec3(1.0,0.0,0.0), iGlobalTime)).xyz, 
-		vec3(cubeSize));
-	//float pyramid1Subtracted = opI(cube, pyramid1);
-	/*float pyramid2 = sdPyramid((vec4(p,1.0)
-		*translationMatrix(vec3(0.0,-7.0,0.0))
-		*rotationMatrix(vec3(1.0,0.0,0.0), 180*RAD)).xyz
+		vec3(cubeSize));*/
+	//float pyramid1 = sdPyramid(p, 0.5, 3.5, 3.5);
+	/*float cube = udBox((vec4(p,1.0)
+		*translationMatrix(vec3(0.0,3.5,0.0))).xyz, vec3(cubeSize));*/
+	float pyramid1 = sdPyramid((vec4(p,1.0)
+		*translationMatrix(vec3(0.0,2.0,0.0)) //line a
+		*rotationMatrix(vec3(1.0,0.0,0.0), 90*RAD)).xyz //line b
+		,0.5, 3.5, 3.5); //height is 3.5 - 0.5 (because of block under pyramid)
+	float cube1 = udBox(((vec4(p,1.0)
+		*translationMatrix(vec3(0.0,2.0,0.0))) //line a
+		*rotationMatrix(vec3(1.0,0.0,0.0), 90*RAD) //line b
+		*translationMatrix(vec3(0.0,-3.5,0.0))
+		).xyz, vec3(cubeSize));
+	
+	float pyramid2 = sdPyramid((vec4(p,1.0)
+		*translationMatrix(vec3(0.0,-1.5,3.5)) //line a
+		*rotationMatrix(vec3(1.0,0.0,0.0), 180*RAD)).xyz //line b
 		,0.5, 3.5, 3.5);
+	float cube2 = udBox(((vec4(p,1.0)
+		*translationMatrix(vec3(0.0,-1.5,3.5))) //line a
+		*rotationMatrix(vec3(1.0,0.0,0.0), 180*RAD) //line b
+		*translationMatrix(vec3(0.0,-3.5,0.0))
+		).xyz, vec3(cubeSize));
+	
 	float pyramid3 = sdPyramid((vec4(p,1.0)
-		*translationMatrix(vec3(3.5,-3.5,0.0))
-		*rotationMatrix(vec3(0.0,0.0,1.0), 90*RAD)).xyz
+		*translationMatrix(vec3(0.0,5.5,3.5)) //line a
+		*rotationMatrix(vec3(1.0,0.0,0.0), 0)).xyz //line b
 		,0.5, 3.5, 3.5);
+	float cube3 = udBox(((vec4(p,1.0)
+		*translationMatrix(vec3(0.0,5.5,3.5))) //line a
+		*rotationMatrix(vec3(1.0,0.0,0.0), 0) //line b
+		*translationMatrix(vec3(0.0,-3.5,0.0))
+		).xyz, vec3(cubeSize));
+	
 	float pyramid4 = sdPyramid((vec4(p,1.0)
-		*translationMatrix(vec3(-3.5,-3.5,0.0))
-		*rotationMatrix(vec3(0.0,0.0,1.0), -90*RAD)).xyz
-		,0.5, 3.5, 3.5);*/
-	//float sphere = distSphere(p - vec3(sin(iGlobalTime*0.8),-0.5,5.3), 0.5);
+		*translationMatrix(vec3(3.5,2.0,3.5)) //line a
+		*rotationMatrix(vec3(0.0,0.0,1.0), 90*RAD)).xyz //line b
+		,0.5, 3.5, 3.5);
+	float cube4 = udBox(((vec4(p,1.0)
+		*translationMatrix(vec3(3.5,2.0,3.5))) //line a
+		*rotationMatrix(vec3(0.0,0.0,1.0), 90*RAD) //line b
+		*translationMatrix(vec3(0.0,-3.5,0.0))
+		).xyz, vec3(cubeSize));
 
-	//float dist = min(pyramid1Subtracted, cube);
+	float pyramid5 = sdPyramid((vec4(p,1.0)
+		*translationMatrix(vec3(-3.5,2.0,3.5)) //line a
+		*rotationMatrix(vec3(0.0,0.0,-1.0), 90*RAD)).xyz //line b
+		,0.5, 3.5, 3.5);
+	float cube5 = udBox(((vec4(p,1.0)
+		*translationMatrix(vec3(-3.5,2.0,3.5))) //line a
+		*rotationMatrix(vec3(0.0,0.0,-1.0), 90*RAD) //line b
+		*translationMatrix(vec3(0.0,-3.5,0.0))
+		).xyz, vec3(cubeSize));
+
+	float pyramid1Subtracted = opI(cube1, pyramid1);
+	float pyramid2Subtracted = opI(cube2, pyramid2);
+	float pyramid3Subtracted = opI(cube3, pyramid3);
+	float pyramid4Subtracted = opI(cube4, pyramid4);
+	float pyramid5Subtracted = opI(cube5, pyramid5);
+
 	/*dist = min(pyramid2, dist);
 	dist = min(pyramid3, dist);
 	dist = min(pyramid4, dist);*/
 
 	//color = (dist==pyramid1Subtracted) ? vec3(0.4, 0.5, 0.8) : vec3(0.8,0.5,0.4);
 	// return dist;
-	return min(pyramid1, cube);
+	float a = min(pyramid1Subtracted, pyramid2Subtracted);
+	float b = min(a, pyramid3Subtracted);
+	float c = min(b, pyramid4Subtracted);
+	float d = min(c, pyramid5Subtracted);
+
+	return d;
+	//return min(pyramid1, cube);
+	//return pyramid1;
 	//return pyramid1Subtracted;
 
 }
@@ -141,7 +188,7 @@ void main()
 	vec2 p = getScreenPos(60.0);
 
 	Camera cam;
-	cam.pos = vec3(0,4.0,-20.0);
+	cam.pos = vec3(0,0.0,-20.0);
 	cam.dir = normalize(vec4( p.x, p.y, 1,1 )*(rotationMatrix(vec3(1.0,0.0,0.0), 0.0))).xyz;
 
 	int steps = -1;
