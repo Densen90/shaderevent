@@ -6,6 +6,8 @@ vec4 objColor = vec4(0);
 
 uniform float divide;
 
+uniform float redMul;
+
 uniform float cubeSize;
 float cubeRadius = cubeSize/4;
 float dotSize = cubeRadius;
@@ -105,9 +107,10 @@ float dist(vec3 p){
 	
 	//float dice = dice(p0, dots0);
 
-	res = min(plane,dices);
+	res = min(plane,dices);	
+	vec4 planeColor = mix(vec4(0.01 * redMul,0.5,0.5,1),vec4(0.0,0.6,0.6,1),-p.z);
 	
-	//objColor = (dices == dots0) ?  vec4(buttonColor,1) : vec4(color,1);	
+	objColor = (res == plane) ?  planeColor : objColor;	
 	
 	return res;
 }

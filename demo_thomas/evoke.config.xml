@@ -9,16 +9,44 @@
           <Value>1</Value>
         </Keyframe>
         <Keyframe>
-          <Time>0.82</Time>
-          <Value>0.1</Value>
+          <Time>1.8295238</Time>
+          <Value>0.5</Value>
         </Keyframe>
         <Keyframe>
-          <Time>6.53</Time>
-          <Value>0.01</Value>
+          <Time>3.96285677</Time>
+          <Value>1</Value>
         </Keyframe>
         <Keyframe>
-          <Time>22.5026627</Time>
-          <Value>0</Value>
+          <Time>4.52102</Time>
+          <Value>0.05</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>6.12970448</Time>
+          <Value>0.05</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>6.687663</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>8.8251</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>10.4716988</Time>
+          <Value>0.5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>12.6398392</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>13.17349</Time>
+          <Value>0.05</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>15.3735571</Time>
+          <Value>0.05</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -112,6 +140,10 @@
           <Value>433.6519</Value>
         </Keyframe>
         <Keyframe>
+          <Time>78.7169342</Time>
+          <Value>2124.23633</Value>
+        </Keyframe>
+        <Keyframe>
           <Time>79.1389</Time>
           <Value>2200</Value>
         </Keyframe>
@@ -153,8 +185,16 @@
           <Value>-30</Value>
         </Keyframe>
         <Keyframe>
-          <Time>148.7335</Time>
+          <Time>146.45</Time>
           <Value>-50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>146.4776</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>148.7335</Time>
+          <Value>500</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -199,6 +239,39 @@
         </Keyframe>
       </Keyframes>
     </Uniform>
+    <Uniform>
+      <UniformName>redMul</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>52.5498428</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>56.9164619</Time>
+          <Value>5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>61.28381</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>65.63356</Time>
+          <Value>2</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>69.9837646</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>74.319046</Time>
+          <Value>2</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>78.7169342</Time>
+          <Value>1</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
   </Uniforms>
   <Tracks>
     <Track>
@@ -206,18 +279,22 @@
       <ShaderKeyframes>
         <ShaderKeyframe>
           <Time>0</Time>
+          <ShaderPath>.\Intro1.glsl</ShaderPath>
+        </ShaderKeyframe>
+        <ShaderKeyframe>
+          <Time>20.2235889</Time>
           <ShaderPath>.\Intro2.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>54.44308</Time>
+          <Time>52.79145</Time>
           <ShaderPath>.\Dice.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>104.043564</Time>
+          <Time>111.361069</Time>
           <ShaderPath>.\RollTheDice.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>137.233841</Time>
+          <Time>161.263428</Time>
           <ShaderPath>.\CubeSpirale.glsl</ShaderPath>
         </ShaderKeyframe>
       </ShaderKeyframes>
