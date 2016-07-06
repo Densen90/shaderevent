@@ -62,11 +62,11 @@ void main()
 	int steps = -1;
 
 	vec4 res = raymarch(cam.pos, cam.dir, steps);
-	vec3 currentCol = vec3(0);
+	vec4 currentCol = vec4(0);
 
 	if(res.a==1.0)
 	{
-		currentCol = color;
+		currentCol = vec4(color,1);
 		if(sideHitShaderOne) 
 		{
 			currentCol = getIntroColor(iResolution.xy, iGlobalTime-uStartRotationTime);
@@ -82,5 +82,5 @@ void main()
 		}
 	}
 
-	gl_FragColor = vec4(currentCol, 1.0);
+	gl_FragColor = currentCol;
 }

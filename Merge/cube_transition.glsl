@@ -12,7 +12,7 @@ uniform float uStartRotationTime;
 
 const vec3 lightDirTrans = normalize(vec3(0.8, 0.8, -1.0));
 
-vec3 color = vec3(1);
+vec4 color = vec4(1);
 bool sideHitShaderOne;
 bool sideHitShaderTwo;
 
@@ -61,7 +61,7 @@ void main()
 	int steps = -1;
 
 	vec4 res = raymarch(cam.pos, cam.dir, steps);
-	vec3 currentCol = vec3(0);
+	vec4 currentCol = vec4(0);
 
 	if(res.a==1.0)
 	{
@@ -81,5 +81,5 @@ void main()
 		}
 	}
 
-	gl_FragColor = vec4(currentCol, 1.0);
+	gl_FragColor = currentCol;
 }
