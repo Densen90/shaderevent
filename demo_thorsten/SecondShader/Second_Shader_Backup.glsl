@@ -2,17 +2,19 @@
 
 uniform float iGlobalTime;
 
-uniform float interpolate;
+uniform float rotatePX;
+uniform float rotatePY;
+uniform float rotatePZ;
 
 //Camera Position
-uniform float cameraX = 10.0;
-uniform float cameraY = 25.0;
-uniform float cameraZ = 10.0;
+uniform float iCamPosX = 10.0;
+uniform float iCamPosY = 25.0;
+uniform float iCamPosZ = 10.0;
 
 //Camera Rotation
-uniform float cameraAngleX = 90.0;
-uniform float cameraAngleY = 90.0;
-uniform float cameraAngleZ = 90.0;
+uniform float iCamRotX = 90.0;
+uniform float iCamRotY = 90.0;
+uniform float iCamRotZ = 90.0;
 
 const float toRadian = PI/180.0;
 const float glowEpsiolon = 0.1;
@@ -35,13 +37,17 @@ vec3 Repeat(vec3 P, vec3 b)
 
 float dist(vec3 p)
 {
-	//p = abs(sin(p));#
+	
 	float box2 = sdTorus88(Repeat(p + vec3(1), vec3(0.0, 1.0, 1.0)), vec2(5.0, 3.0));
-	p = rotate(p, vec3(iGlobalTime * 10, 0.0, iGlobalTime* 5));
+
+	p = rotate(p, vec3(rotatePX, rotatePX, rotatePZ));
 	color = ColorScene(p/2);
 	float box = sdTorus88(Repeat(p, vec3(8, 5, 2)), vec2(4.0, 2.0));
+	float box1 = distRoundBox(p, vec3(1, 5, 2), 2);
+
+	float temp = fOpUnionChamfer(box, box2, 8);
+	return Union(temp, box1);
 	
-	return fOpUnionChamfer(box, box2, 8);
 }
 
 vec3 lighting(vec3 pos, vec3 rd, vec3 n)
@@ -68,8 +74,8 @@ void main()
 	vec2 p = getScreenPos(45);
 
 	Camera cam;
-	cam.pos = rotate(vec3(0.0, -0.0, -50.0), vec3(0.0, 0, 0.0));
-	cam.dir = normalize(vec3(p.x, p.y, 1.0));
+	cam.pos = vec3(iCamPosX, iCamPosY, iCamPosZ);
+	cam.dir = rotate(normalize(vec3(p.x, p.y, 1.0)), vec3(iCamRotX, iCamRotY, iCamRotZ));
 
 	int steps = -1;
 
