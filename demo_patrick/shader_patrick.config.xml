@@ -15,7 +15,7 @@
       </Keyframes>
     </Uniform>
     <Uniform>
-      <UniformName>p5XRotation</UniformName>
+      <UniformName>p5Rotation</UniformName>
       <Keyframes>
         <Keyframe>
           <Time>0</Time>
@@ -41,7 +41,7 @@
       </Keyframes>
     </Uniform>
     <Uniform>
-      <UniformName>p6XRotation</UniformName>
+      <UniformName>p6Rotation</UniformName>
       <Keyframes>
         <Keyframe>
           <Time>0</Time>
@@ -67,7 +67,7 @@
       </Keyframes>
     </Uniform>
     <Uniform>
-      <UniformName>p4ZRotation</UniformName>
+      <UniformName>p4Rotation</UniformName>
       <Keyframes>
         <Keyframe>
           <Time>0</Time>
@@ -93,7 +93,7 @@
       </Keyframes>
     </Uniform>
     <Uniform>
-      <UniformName>p3XRotation</UniformName>
+      <UniformName>p3Rotation</UniformName>
       <Keyframes>
         <Keyframe>
           <Time>0</Time>
@@ -119,7 +119,7 @@
       </Keyframes>
     </Uniform>
     <Uniform>
-      <UniformName>p2XRotation</UniformName>
+      <UniformName>p2Rotation</UniformName>
       <Keyframes>
         <Keyframe>
           <Time>0</Time>
@@ -145,7 +145,7 @@
       </Keyframes>
     </Uniform>
     <Uniform>
-      <UniformName>p1XRotation</UniformName>
+      <UniformName>p1Rotation</UniformName>
       <Keyframes>
         <Keyframe>
           <Time>0</Time>

@@ -1,19 +1,28 @@
 #include "func_collections.h"
 
-
+uniform float iGlobalTime;
+uniform float p1Rotation;
 uniform float p1XRotation;
 uniform float p1ZTranslation;
+uniform float p2Rotation;
 uniform float p2XRotation;
 uniform float p2YTranslation;
+uniform float p3Rotation;
 uniform float p3XRotation;
 uniform float p3YTranslation;
+uniform float p4Rotation;
 uniform float p4ZRotation;
 uniform float p4XTranslation;
-uniform float p5XRotation;
+uniform float p5Rotation;
+uniform float p5ZRotation;
 uniform float p5XTranslation;
+uniform float p6Rotation;
 uniform float p6XRotation;
 uniform float p6ZTranslation;
 
+uniform float p16YZRotation;
+uniform float p23XYRotation;
+uniform float p45XYRotation;
 #define SPECULAR 20
 #define RAD PI / 180.0
 
@@ -39,11 +48,6 @@ mat4 translationMatrix(vec3 delta)
 					0.0,	1.0,	0.0,	delta.y,
 					0.0,	0.0,	1.0,	delta.z,
 					0.0,	0.0,	0.0,	1.0 	);
-}
-//subtraction
-float opS( float d1, float d2 )
-{
-    return max(-d1,d2);
 }
 float opI( float d1, float d2 )
 {
@@ -90,61 +94,61 @@ float dist(vec3 p)
 	
 	float pyramid1 = sdPyramid((vec4(p,1.0) //front pyramid
 		*translationMatrix(vec3(0.0,2.0,p1ZTranslation)) //line a
-		*rotationMatrix(vec3(1.0,0.0,0.0), p1XRotation*RAD)).xyz //line b
+		*rotationMatrix(vec3(p1XRotation,0.0,p16YZRotation), p1Rotation*RAD)).xyz //line b
 		,0.5, 3.5, 3.5); //height is 3.5 - 0.5 (because of block under pyramid)
 	float cube1 = udBox(((vec4(p,1.0)
 		*translationMatrix(vec3(0.0,2.0,p1ZTranslation))) //line a
-		*rotationMatrix(vec3(1.0,0.0,0.0), p1XRotation*RAD) //line b
-		*translationMatrix(vec3(0.0,-3.5,0.0))
-		).xyz, vec3(cubeSize));
-	
-	float pyramid2 = sdPyramid((vec4(p,1.0) //upper pyramid
-		*translationMatrix(vec3(0.0,p2YTranslation,3.5)) //line a
-		*rotationMatrix(vec3(1.0,0.0,0.0), p2XRotation*RAD)).xyz //line b
-		,0.5, 3.5, 3.5);
-	float cube2 = udBox(((vec4(p,1.0)
-		*translationMatrix(vec3(0.0,p2YTranslation,3.5))) //line a
-		*rotationMatrix(vec3(1.0,0.0,0.0), p2XRotation*RAD) //line b
-		*translationMatrix(vec3(0.0,-3.5,0.0))
-		).xyz, vec3(cubeSize));
-	
-	float pyramid3 = sdPyramid((vec4(p,1.0) //lower pyramid
-		*translationMatrix(vec3(0.0,p3YTranslation,3.5)) //line a
-		*rotationMatrix(vec3(1.0,0.0,0.0), 0)).xyz //line b
-		,0.5, 3.5, 3.5);
-	float cube3 = udBox(((vec4(p,1.0)
-		*translationMatrix(vec3(0.0,p3YTranslation,3.5))) //line a
-		*rotationMatrix(vec3(1.0,0.0,0.0), p3XRotation*RAD) //line b
-		*translationMatrix(vec3(0.0,-3.5,0.0))
-		).xyz, vec3(cubeSize));
-	
-	float pyramid4 = sdPyramid((vec4(p,1.0) //left pyramid
-		*translationMatrix(vec3(p4XTranslation,2.0,3.5)) //line a
-		*rotationMatrix(vec3(0.0,0.0,1.0), p4ZRotation*RAD)).xyz //line b
-		,0.5, 3.5, 3.5);
-	float cube4 = udBox(((vec4(p,1.0)
-		*translationMatrix(vec3(p4XTranslation,2.0,3.5))) //line a
-		*rotationMatrix(vec3(0.0,0.0,1.0), p4ZRotation*RAD) //line b
-		*translationMatrix(vec3(0.0,-3.5,0.0))
-		).xyz, vec3(cubeSize));
-
-	float pyramid5 = sdPyramid((vec4(p,1.0) //right pyramid
-		*translationMatrix(vec3(p5XTranslation,2.0,3.5)) //line a
-		*rotationMatrix(vec3(0.0,0.0,1.0), p5XRotation*RAD)).xyz //line b
-		,0.5, 3.5, 3.5);
-	float cube5 = udBox(((vec4(p,1.0)
-		*translationMatrix(vec3(p5XTranslation,2.0,3.5))) //line a
-		*rotationMatrix(vec3(0.0,0.0,1.0), p5XRotation*RAD) //line b
+		*rotationMatrix(vec3(p1XRotation,0.0,p16YZRotation), p1Rotation*RAD) //line b
 		*translationMatrix(vec3(0.0,-3.5,0.0))
 		).xyz, vec3(cubeSize));
 
 	float pyramid6 = sdPyramid((vec4(p,1.0) //back pyramid
 		*translationMatrix(vec3(0.0,2.0,p6ZTranslation)) //line a
-		*rotationMatrix(vec3(1.0,0.0,0.0), p6XRotation*RAD)).xyz //line b
+		*rotationMatrix(vec3(p6XRotation,p16YZRotation,0.0), p6Rotation*RAD)).xyz //line b
 		,0.5, 3.5, 3.5);
 	float cube6 = udBox(((vec4(p,1.0)
 		*translationMatrix(vec3(0.0,2.0,p6ZTranslation))) //line a
-		*rotationMatrix(vec3(1.0,0.0,0.0), p6XRotation*RAD) //line b
+		*rotationMatrix(vec3(p6XRotation,p16YZRotation,0.0), p6Rotation*RAD) //line b
+		*translationMatrix(vec3(0.0,-3.5,0.0))
+		).xyz, vec3(cubeSize));
+	
+	float pyramid2 = sdPyramid((vec4(p,1.0) //upper pyramid
+		*translationMatrix(vec3(0.0,p2YTranslation,3.5)) //line a
+		*rotationMatrix(vec3(p2XRotation,p23XYRotation,0.0), p2Rotation*RAD)).xyz //line b
+		,0.5, 3.5, 3.5);
+	float cube2 = udBox(((vec4(p,1.0)
+		*translationMatrix(vec3(0.0,p2YTranslation,3.5))) //line a
+		*rotationMatrix(vec3(p2XRotation,p23XYRotation,0.0), p2Rotation*RAD) //line b
+		*translationMatrix(vec3(0.0,-3.5,0.0))
+		).xyz, vec3(cubeSize));
+	
+	float pyramid3 = sdPyramid((vec4(p,1.0) //lower pyramid
+		*translationMatrix(vec3(0.0,p3YTranslation,3.5)) //line a
+		*rotationMatrix(vec3(p3XRotation,0.0,p23XYRotation), p3Rotation*RAD)).xyz //line b
+		,0.5, 3.5, 3.5);
+	float cube3 = udBox(((vec4(p,1.0)
+		*translationMatrix(vec3(0.0,p3YTranslation,3.5))) //line a
+		*rotationMatrix(vec3(p3XRotation,0.0,p23XYRotation), p3Rotation*RAD) //line b
+		*translationMatrix(vec3(0.0,-3.5,0.0))
+		).xyz, vec3(cubeSize));
+	
+	float pyramid4 = sdPyramid((vec4(p,1.0) //left pyramid
+		*translationMatrix(vec3(p4XTranslation,2.0,3.5)) //line a
+		*rotationMatrix(vec3(p45XYRotation,0.0,p4ZRotation), p4Rotation*RAD)).xyz //line b
+		,0.5, 3.5, 3.5);
+	float cube4 = udBox(((vec4(p,1.0)
+		*translationMatrix(vec3(p4XTranslation,2.0,3.5))) //line a
+		*rotationMatrix(vec3(p45XYRotation,0.0,p4ZRotation), p4Rotation*RAD) //line b
+		*translationMatrix(vec3(0.0,-3.5,0.0))
+		).xyz, vec3(cubeSize));
+
+	float pyramid5 = sdPyramid((vec4(p,1.0) //right pyramid
+		*translationMatrix(vec3(p5XTranslation,2.0,3.5)) //line a
+		*rotationMatrix(vec3(0.0,p45XYRotation,p5ZRotation), p5Rotation*RAD)).xyz //line b
+		,0.5, 3.5, 3.5);
+	float cube5 = udBox(((vec4(p,1.0)
+		*translationMatrix(vec3(p5XTranslation,2.0,3.5))) //line a
+		*rotationMatrix(vec3(0.0,p45XYRotation,p5ZRotation), p5Rotation*RAD) //line b
 		*translationMatrix(vec3(0.0,-3.5,0.0))
 		).xyz, vec3(cubeSize));
 
