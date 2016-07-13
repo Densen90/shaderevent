@@ -206,7 +206,7 @@ float calcLight(vec3 point){
     return max(AMBIENT, dot(normal, lightDir));
 }
 
-vec4 raymarch1(vec3 rayOrigin, vec3 rayDir, out int steps)
+vec4 raymarch6(vec3 rayOrigin, vec3 rayDir, out int steps)
 {
     float totalDist = 0.0;
     for(int j=0; j<MAXSTEPS; j++)
@@ -272,7 +272,7 @@ vec4 getOutroColor(vec2 resolution, float time){
 
     // marching and shading
 	int steps = -1;
-    vec4 res = raymarch1(cam.pos, cam.dir, steps);  
+    vec4 res = raymarch6(cam.pos, cam.dir, steps);  
 
 
 	vec3 color = bg;

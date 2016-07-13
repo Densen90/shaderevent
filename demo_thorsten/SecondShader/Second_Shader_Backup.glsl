@@ -40,7 +40,7 @@ float dist(vec3 p)
 	
 	float box2 = sdTorus88(Repeat(p + vec3(1), vec3(0.0, 1.0, 1.0)), vec2(5.0, 3.0));
 
-	p = rotate(p, vec3(rotatePX, rotatePY, rotatePZ));
+	p = rotate(p, vec3(rotatePX, rotatePX, rotatePZ));
 	color = ColorScene(p/2);
 	float box = sdTorus88(Repeat(p, vec3(8, 5, 2)), vec2(4.0, 2.0));
 	float box1 = distRoundBox(p, vec3(1, 5, 2), 2);

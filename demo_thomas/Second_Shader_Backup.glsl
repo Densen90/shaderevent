@@ -51,7 +51,7 @@ float dist(vec3 p)
 	float temp = fOpUnionChamfer(box, box2, 8);	
 	
 	float res = Union(temp, box1);	
-	return outro;
+	return res;
 }
 
 vec3 lighting(vec3 pos, vec3 rd, vec3 n)
@@ -79,7 +79,7 @@ void main()
 
 	Camera cam;
 	cam.pos = vec3(iCamPosX, iCamPosY, iCamPosZ);
-	cam.pos = vec3(0,-20,-40);
+	//cam.pos = vec3(0,-20,-40);
 	cam.dir = rotate(normalize(vec3(p.x, p.y, 1.0)), vec3(iCamRotX, iCamRotY, iCamRotZ));
 	//cam.dir = normalize(vec3(p.x, p.y, 1.0));
 	int steps = -1;

@@ -42,47 +42,47 @@ float distQuad(vec3 point, vec3 whd){
 }
 
 float createM(vec3 p){
-    float q1 = distQuad(p - vec3(-2.5,0,0), vec3(2,2.5,0.5));
-    float q2 = distQuad(p - vec3(-2.5,-1,0), vec3(1.0,2,0.6));    
+    float q1 = distQuad(p, vec3(2,2.5,0.5));
+    float q2 = distQuad(p - vec3(0,-1,0), vec3(1.0,2,0.6));    
     return max(q1,-q2);
 }
 
 float createU(vec3 p){
-    float q1 = distQuad(p - vec3(3,0,0), vec3(2,2.5,0.5));
-    float q2 = distQuad(p - vec3(3,1,0), vec3(1.0,2,0.6));    
+    float q1 = distQuad(p, vec3(2,2.5,0.5));
+    float q2 = distQuad(p - vec3(0,1,0), vec3(1.0,2,0.6));    
     return max(q1,-q2);
 }
 
 float createS(vec3 p){
-    float q1 = distQuad(p - vec3(8,0,0), vec3(1.5,2.5,0.5));
-    float q2 = distQuad(p - vec3(8.5,1,0), vec3(1.2,0.5,0.6));
-    float q3 = distQuad(p - vec3(7.5,-1,0), vec3(1.2,0.5,0.6));
+    float q1 = distQuad(p, vec3(1.5,2.5,0.5));
+    float q2 = distQuad(p - vec3(0.5,1,0), vec3(1.2,0.5,0.6));
+    float q3 = distQuad(p - vec3(-0.5,-1,0), vec3(1.2,0.5,0.6));
     float res = max(q1,-q2);
     return max(res,-q3);
 }
 
 float createI(vec3 p){
-    float q1 = distQuad(p - vec3(11,0,0), vec3(0.5,2.5,0.5));
+    float q1 = distQuad(p, vec3(0.5,2.5,0.5));
     return q1;
 }
 float createC(vec3 p){
-    float q1 = distQuad(p - vec3(14,0,0), vec3(1.5,2.5,0.5));
-    float q2 = distQuad(p - vec3(14.5,0,0), vec3(1.05,1.5,0.6));    
+    float q1 = distQuad(p, vec3(1.5,2.5,0.5));
+    float q2 = distQuad(p - vec3(0.5,0,0), vec3(1.05,1.5,0.6));    
     return max(q1,-q2);
 }
 
 float createB(vec3 p){
-    float q1 = distQuad(p - vec3(20,0,0), vec3(1.5,2.5,0.5));
-    float q3 = distQuad(p - vec3(21,1.5,0), vec3(1.5,1.05,0.6));
-    float q2 = distQuad(p - vec3(20,-1,0), vec3(0.5,0.5,0.6));
+    float q1 = distQuad(p, vec3(1.5,2.5,0.5));
+    float q3 = distQuad(p - vec3(1,1.5,0), vec3(1.5,1.05,0.6));
+    float q2 = distQuad(p - vec3(0,-1,0), vec3(0.5,0.5,0.6));
     float res = max(q1,-q2);
     return max(res,-q3);
 }
 
 float createY(vec3 p){
-    float q1 = distQuad(p - vec3(24,-2,0), vec3(1.5,2.5,0.5));
-    float q3 = distQuad(p - vec3(24,0,0), vec3(0.75,1.0,0.6));
-    float q2 = distQuad(p - vec3(23.5,-3,0), vec3(1.25,0.5,0.6));
+    float q1 = distQuad(p - vec3(0,-2.25,0), vec3(1.5,2.5,0.5));
+    float q3 = distQuad(p , vec3(0.75,1.0,0.6));
+    float q2 = distQuad(p - vec3(-0.5,-3,0), vec3(1.25,0.5,0.6));
     float res = max(q1,-q2);
     return max(res,-q3);
 }
@@ -94,22 +94,22 @@ float createD(vec3 p){
 }
 
 float createJ(vec3 p){
-    float q1 = distQuad(p - vec3(4,0,0), vec3(1.5,2.5,0.5));
-    float q2 = distQuad(p - vec3(3.5,0,0), vec3(1.05,1.5,0.6));    
+    float q1 = distQuad(p - vec3(0,0,0), vec3(1.5,2.5,0.5));
+    float q2 = distQuad(p - vec3(-.5,0,0), vec3(1.05,1.5,0.6));    
     return max(q1,-q2);
 }
 
 float createN(vec3 p){
-    float q1 = distQuad(p - vec3(11,0,0), vec3(0.5,2.5,0.5));
-    float q2 = distQuad(p - vec3(13.,0,0), vec3(0.5,2.5,0.5));
+    float q1 = distQuad(p - vec3(0,0,0), vec3(0.5,2.5,0.5));
+    float q2 = distQuad(p - vec3(2.,0,0), vec3(0.5,2.5,0.5));
     p = rotate(p, vec3(0,0,15));
-    float q3 = distQuad(p-vec3(11.5,-3.1,0), vec3(0.5,2.5,0.5));
+    float q3 = distQuad(p-vec3(1,-0.25,0), vec3(0.5,2.5,0.5));
     return min(q1,min(q2,q3));
 }
 
 float createO(vec3 p){
-    float q1 = distQuad(p - vec3(3,0,0), vec3(1.5,2.5,0.5));
-    float q2 = distQuad(p - vec3(3.0,0,0), vec3(0.75,1.5,0.6));    
+    float q1 = distQuad(p, vec3(1.5,2.5,0.5));
+    float q2 = distQuad(p, vec3(0.75,1.5,0.6));    
     return max(q1,-q2);
 }
 
@@ -117,23 +117,38 @@ float dist(vec3 p) {
 	//vec3 ori = p;
     p+=vec3(12,-5,0); 
 	float music = createM(p);
+    p-=vec3(5,0,0); 
 	music = min(music,createU(p));
+    p-=vec3(4.5,0,0); 
 	music = min(music,createS(p));
+    p-=vec3(3,0,0); 
 	music = min(music,createI(p));
-    music = min(music,createC(p));	
-	
+    p-=vec3(3,0,0); 
+    music = min(music,createC(p));
+
+	p-=vec3(6,0,0); 
     float by = createB(p);
+    p-=vec3(4,0,0); 
     by = min(by,createY(p));    
     vec3 p2 = p;
-    p+=vec3(1.5,8,0);  
+
+
+    p+=vec3(24,8,0);  
 
 	float DJ_Innos = createD(p);
+    p-=vec3(4,0,0); 
 	DJ_Innos = min(DJ_Innos,createJ(p));
-	DJ_Innos = min(DJ_Innos,createI(p + vec3(2,0,0)));
+
+    p-=vec3(5,0,0); 
+	DJ_Innos = min(DJ_Innos,createI(p));
+    p-=vec3(2.,0,0);  
 	DJ_Innos = min(DJ_Innos,createN(p));
-	DJ_Innos = min(DJ_Innos,createN(p - vec3(4,0,0)));
-	DJ_Innos = min(DJ_Innos,createO(p - vec3(17,0,0)));
-	DJ_Innos = min(DJ_Innos,createS(p - vec3(16,0,0)));
+    p-=vec3(3.5,0,0);  
+	DJ_Innos = min(DJ_Innos,createN(p));
+	p-=vec3(4.5,0,0);  
+    DJ_Innos = min(DJ_Innos,createO(p));
+	p-=vec3(3.5,0,0);  
+    DJ_Innos = min(DJ_Innos,createS(p));
     /*
 
     
