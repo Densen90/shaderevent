@@ -164,7 +164,7 @@
       <ShaderKeyframes>
         <ShaderKeyframe>
           <Time>0</Time>
-          <ShaderPath>.\header_example.glsl</ShaderPath>
+          <ShaderPath>.\Pyramids.glsl</ShaderPath>
         </ShaderKeyframe>
       </ShaderKeyframes>
     </Track>

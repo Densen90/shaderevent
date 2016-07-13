@@ -6,11 +6,19 @@ vec4 objColor = vec4(0);
 
 uniform float spinCube;
 
+uniform sampler2D tex1;
+
 in vec2 uv;
 
 uniform float cubeSize;
+uniform float camPosZ;
+
 float cubeRadius = cubeSize/4;
 float dotSize = cubeRadius;
+
+/*
+ * chain in z position, camera flight in z
+*/
 
 float distTorus(vec3 p, vec2 t){
     p.x *=1.62;
@@ -89,7 +97,7 @@ float dice(vec3 p, float dots, out float res) {
 }
 
 float chain(vec3 p){
-	p.y -= iGlobalTime * 2;	
+	p.y += iGlobalTime * 2;	
 	vec3 pt = p;
 	pt.x += (uv.x * 2);
     pt = rotate(pt, vec3(90,0,0));
@@ -104,29 +112,30 @@ float chain(vec3 p){
 }
 
 float dist(vec3 p){
-    float plane = distPlane(p + vec3(0,4,0), vec3(0,1,0));
+    //float plane = distPlane(p + vec3(0,4,0), vec3(0,1,0));
 
     float rot = iGlobalTime * 50;
     float dots0 = 1000; 
 	float res = 1000;
 	
 
-    vec3 p0 = rotate(p, vec3(0,rot,0));
+    vec3 p0 = rotate(p+vec3(0,2,0), vec3(0,rot,0));
     p0 = rotate(p0, vec3(0,rot * p.y/spinCube,0));
     p0 = rotate(p0, vec3(45, 0, 45));
     float dices = dice(p0, dots0, res);
     //float torus = distTorus(pt, vec2(3,1));
 
-    vec3 pc = rotate(p, vec3(0,0,90));
+    vec3 pc = p + vec3(0,2,0);
+    pc = rotate(pc, vec3(90,0,0));
     float ch = chain(pc+vec3(-1,0,0));
-    res = min(ch, min(plane,dices));
+    res = min(ch, min(5000,dices));
     vec3 color = mix(vec3(0.2,0.2,0.8), vec3(0,0.35,0.3),p.y);
     vec3 buttonColor = mix(vec3(0.7,0.7,0.4), vec3(0,0.6,0.6),p0.z);    
-    objColor = (res == plane || res == ch) ?  vec4(0.3) : objColor;    
+    objColor = ( res == ch) ?  vec4(0.3) : objColor;    
 
-	return uv.x < 0.5 ? res : min(plane,dices);
+	return p.z < 3  ? ch : 5000;
 	
-    return res;
+    //return ch;
 }
 
 
@@ -134,11 +143,11 @@ void main(){
 	//uv-=0.5;
     vec2 p = getScreenPos(90);
     Camera cam;
-    cam.pos = vec3(0,0,-10);
+    cam.pos = vec3(0,0,camPosZ);
     cam.dir = normalize(vec3(p.x, p.y, 1));
     int steps = -1;
     vec4 res = raymarch(cam.pos, cam.dir, steps);
-    vec4 color = vec4(0.1,0.2,0.1,1);
+    vec4 color = texture2D(tex1,uv);
     if(res.a ==1){
         color = objColor;
         vec3 n = getNormal(res.xyz);

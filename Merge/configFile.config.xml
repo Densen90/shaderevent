@@ -117,88 +117,40 @@
       <UniformName>spiralRot</UniformName>
       <Keyframes>
         <Keyframe>
-          <Time>23.9081154</Time>
-          <Value>0</Value>
+          <Time>52.4242363</Time>
+          <Value>16.97901</Value>
         </Keyframe>
         <Keyframe>
-          <Time>24.0801334</Time>
-          <Value>90</Value>
+          <Time>54.5902252</Time>
+          <Value>71.40132</Value>
         </Keyframe>
         <Keyframe>
-          <Time>25.2162323</Time>
-          <Value>90</Value>
+          <Time>56.72857</Time>
+          <Value>72.97783</Value>
         </Keyframe>
         <Keyframe>
-          <Time>25.3711987</Time>
-          <Value>0</Value>
+          <Time>58.9621735</Time>
+          <Value>7.50552464</Value>
         </Keyframe>
         <Keyframe>
-          <Time>26.3872528</Time>
-          <Value>0</Value>
+          <Time>61.092514</Time>
+          <Value>26.241972</Value>
         </Keyframe>
         <Keyframe>
-          <Time>26.5562782</Time>
-          <Value>180</Value>
+          <Time>63.3289528</Time>
+          <Value>67.71478</Value>
         </Keyframe>
         <Keyframe>
-          <Time>27.6493378</Time>
-          <Value>180</Value>
+          <Time>65.4793854</Time>
+          <Value>1.61091185</Value>
         </Keyframe>
         <Keyframe>
-          <Time>27.8053246</Time>
-          <Value>90</Value>
+          <Time>67.66589</Time>
+          <Value>72.13574</Value>
         </Keyframe>
         <Keyframe>
-          <Time>28.9133968</Time>
-          <Value>90</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>29.083374</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>29.9775</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>30.1295872</Time>
-          <Value>90</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>148.64</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>150</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>150.53685</Time>
-          <Value>45</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>152.32</Time>
-          <Value>45</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>152.736969</Time>
-          <Value>90</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>154.59</Time>
-          <Value>90</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>154.947815</Time>
-          <Value>135</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>156.79</Time>
-          <Value>135</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>157.138855</Time>
-          <Value>90</Value>
+          <Time>69.91</Time>
+          <Value>29.1142044</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -338,6 +290,46 @@
       <UniformName>cubeSize</UniformName>
       <Keyframes>
         <Keyframe>
+          <Time>52.4242363</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>54.5902252</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>54.62</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>56.72857</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>58.9621735</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>61.092514</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>63.3289528</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>65.4793854</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>67.66589</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>69.91</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
           <Time>98.32063</Time>
           <Value>1</Value>
         </Keyframe>
@@ -432,6 +424,10 @@
       <UniformName>spinCube</UniformName>
       <Keyframes>
         <Keyframe>
+          <Time>52.4242363</Time>
+          <Value>-50</Value>
+        </Keyframe>
+        <Keyframe>
           <Time>131.167786</Time>
           <Value>-50</Value>
         </Keyframe>
@@ -516,31 +512,31 @@
           <ShaderPath>.\cube_transition.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>53.287</Time>
+          <Time>51.1212769</Time>
           <ShaderPath>.\02_CubeSpirale.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>69.95836</Time>
+          <Time>69.7759857</Time>
           <ShaderPath>.\Dice.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>94.19832</Time>
+          <Time>88.971405</Time>
           <ShaderPath>.\RollTheDice.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>109.130951</Time>
+          <Time>103.904037</Time>
           <ShaderPath>.\Shader_DemoEvent.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>123.654472</Time>
+          <Time>118.427559</Time>
           <ShaderPath>.\Intro1.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>140.223557</Time>
+          <Time>134.996643</Time>
           <ShaderPath>..\demo_patrick\header_example.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>163.952118</Time>
+          <Time>158.7252</Time>
           <ShaderPath>.\Intro2.glsl</ShaderPath>
         </ShaderKeyframe>
       </ShaderKeyframes>

@@ -5,10 +5,11 @@ vec3 lightDir = vec3(0.5,0.5,-1);
 vec4 objColor = vec4(0);
 
 uniform float divide;
-
 uniform float redMul;
+uniform float rep;
+uniform float camPosZ;
 
-uniform float cubeSize;
+float cubeSize = 1;
 float cubeRadius = cubeSize/4;
 float dotSize = cubeRadius;
 
@@ -83,7 +84,7 @@ float dice(vec3 p, float dots, out float res) {
 }
 
 float dist(vec3 p){
-	float plane = distPlane(p + vec3(0,4,0), vec3(0,1,0));
+	//float plane = distPlane(p + vec3(0,4,0), vec3(0,1,0));
 
 	float rot = iGlobalTime * 50;
 	float dots0 = 10000;	
@@ -102,24 +103,24 @@ float dist(vec3 p){
 	
 	// */
 	vec3 p0 = rotate(p, vec3(rot * p.y/divide));
-	float dices = dice(repeat(p0, vec3(5)), dots0, res);
+	float dices = dice(repeat(p0, vec3(rep)), dots0, res);
 
 	
 	//float dice = dice(p0, dots0);
 
-	res = min(plane,dices);	
-	vec4 planeColor = mix(vec4(0.01 * redMul,0.5,0.5,1),vec4(0.0,0.6,0.6,1),-p.z);
+	//res = min(plane,dices);	
+	//vec4 planeColor = mix(vec4(0.01 * redMul,0.5,0.5,1),vec4(0.0,0.6,0.6,1),-p.z);
 	
-	objColor = (res == plane) ?  planeColor : objColor;	
+	//objColor = (res == plane) ?  planeColor : objColor;	
 	
-	return res;
+	return dices;
 }
 
 
 void main(){
 	vec2 p = getScreenPos(90);
 	Camera cam;
-	cam.pos = vec3(0,0,-10);
+	cam.pos = vec3(0,0,camPosZ);
 	cam.dir = normalize(vec3(p.x, p.y, 1));
 	int steps = -1;
 	vec4 res = raymarch(cam.pos, cam.dir, steps);
