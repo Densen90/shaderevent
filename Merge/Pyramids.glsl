@@ -1,6 +1,5 @@
 #include "func_collections.h"
 
-
 uniform float p1XRotation;
 uniform float p1ZTranslation;
 uniform float p2XRotation;

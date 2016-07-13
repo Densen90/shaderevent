@@ -1,5 +1,4 @@
 uniform vec2 iResolution;
-uniform float iGlobalTime;
 
 #ifdef HIGH_QUALITY
 	#define EPSILON 0.0001
@@ -69,6 +68,25 @@ vec4 raymarch(vec3 rayOrigin, vec3 rayDir, out int steps)
 		if(totalDist>=MAXDEPTH) break;
 	}
 	return vec4(0);
+}
+
+float sdBox( vec3 p, vec3 b ) 
+{	
+	vec3 d = abs(p) - b;
+	return min(max(d.x,max(d.y,d.z)),0.0) + length(max(d,0.0));
+}
+
+
+float lengthN(vec2 p, float N)
+{
+	float l = pow(abs(p.x), N) + pow(abs(p.y), N);
+	return pow(l, 1.0/N);
+}
+
+float sdTorus88( vec3 p, vec2 t )
+{
+  vec2 q = vec2(lengthN(p.xz, 8)-t.x,p.y);
+  return lengthN(q, 8)-t.y;
 }
 
 /**
@@ -200,4 +218,50 @@ vec3 ScreenSettings(vec3 inCol, float bright, float saturation, float contrast)
 	vec3 contrastColor = mix( vec3(0.5), saturationColor, contrast );
 
 	return contrastColor;
+}
+
+float Union(float object1, float object2)
+{
+	return min(object1, object2);
+}
+
+float Difference(float object1, float object2)
+{
+	return max(-object1, object2);
+}
+
+vec3 ApplyFog(vec3 originalColor, vec3 fogColor, float fogAmount)
+{
+    return mix( originalColor, fogColor, fogAmount );
+}
+
+float fOpUnionStairs(float a, float b, float r, float n) {
+	float s = r/n;
+	float u = b-r;
+	return min(min(a,b), 0.5 * (u + a + abs ((mod (u - a + s, 2 * s)) - s)));
+}
+
+// We can just call Union since stairs are symmetric.
+float fOpIntersectionStairs(float a, float b, float r, float n) {
+	return -fOpUnionStairs(-a, -b, r, n);
+}
+
+float fOpDifferenceStairs(float a, float b, float r, float n) {
+	return -fOpUnionStairs(-a, b, r, n);
+}
+
+float fOpUnionChamfer(float a, float b, float r) {
+	return min(min(a, b), (a - r + b)*sqrt(0.5));
+}
+
+// Intersection has to deal with what is normally the inside of the resulting object
+// when using union, which we normally don't care about too much. Thus, intersection
+// implementations sometimes differ from union implementations.
+float fOpIntersectionChamfer(float a, float b, float r) {
+	return max(max(a, b), (a + r + b)*sqrt(0.5));
+}
+
+// Difference can be built from Intersection or Union:
+float fOpDifferenceChamfer (float a, float b, float r) {
+	return fOpIntersectionChamfer(a, -b, r);
 }

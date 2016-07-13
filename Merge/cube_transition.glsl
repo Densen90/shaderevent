@@ -2,6 +2,7 @@
 #include "01_header_intro.h"
 #include "02_header_CubeSpirale.h"
 
+
 /******************************************************
 	THE CALCULATIONS FOR THE SINGLE CUBE
 *******************************************************/
@@ -77,7 +78,7 @@ void main()
 		else
 		{
 			vec3 n = getNormal(res.xyz);
-			currentCol *= lighting(res.xyz, cam.dir, n);
+			currentCol *= vec4(lighting(res.xyz, cam.dir, n),1);
 		}
 	}
 

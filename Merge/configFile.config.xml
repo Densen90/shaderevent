@@ -65,6 +65,26 @@
           <Time>15.3735571</Time>
           <Value>0.05</Value>
         </Keyframe>
+        <Keyframe>
+          <Time>17.4299316</Time>
+          <Value>0.05</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>17.6365833</Time>
+          <Value>0.05</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>21.8410015</Time>
+          <Value>0.05</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>26.4709282</Time>
+          <Value>0.05</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>39.88</Time>
+          <Value>0.05</Value>
+        </Keyframe>
       </Keyframes>
     </Uniform>
     <Uniform>
@@ -75,24 +95,24 @@
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
-          <Time>15.6215858</Time>
-          <Value>-5</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>22.8563519</Time>
+          <Time>17.4299316</Time>
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
-          <Time>23.56575</Time>
-          <Value>0</Value>
+          <Time>21.8410015</Time>
+          <Value>-3.77922583</Value>
         </Keyframe>
         <Keyframe>
-          <Time>31.1962738</Time>
-          <Value>-5</Value>
+          <Time>26.4709282</Time>
+          <Value>0</Value>
         </Keyframe>
         <Keyframe>
           <Time>38.20116</Time>
           <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>39.88</Time>
+          <Value>-5</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -108,14 +128,50 @@
           <Value>8.386821</Value>
         </Keyframe>
         <Keyframe>
-          <Time>24.17795</Time>
-          <Value>24.17795</Value>
+          <Time>17.4299316</Time>
+          <Value>17.2964</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>17.6365833</Time>
+          <Value>17.5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>21.8410015</Time>
+          <Value>17.5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>26.4709282</Time>
+          <Value>17.5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>39.88</Time>
+          <Value>17.5</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
     <Uniform>
       <UniformName>spiralRot</UniformName>
       <Keyframes>
+        <Keyframe>
+          <Time>17.4299316</Time>
+          <Value>16.97901</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>17.6365833</Time>
+          <Value>16.97901</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>21.8410015</Time>
+          <Value>16.97901</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>26.4709282</Time>
+          <Value>16.97901</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>39.88</Time>
+          <Value>16.97901</Value>
+        </Keyframe>
         <Keyframe>
           <Time>52.4242363</Time>
           <Value>16.97901</Value>
@@ -498,6 +554,162 @@
         </Keyframe>
       </Keyframes>
     </Uniform>
+    <Uniform>
+      <UniformName>p5XTranslation</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>-10</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100</Time>
+          <Value>-3.5</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>p5XRotation</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>-90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100</Time>
+          <Value>-90</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>p6ZTranslation</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>-7</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100</Time>
+          <Value>0</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>p6XRotation</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100</Time>
+          <Value>90</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>p4XTranslation</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>10</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100</Time>
+          <Value>3.5</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>p4ZRotation</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100</Time>
+          <Value>90</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>p3YTranslation</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>12.5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100</Time>
+          <Value>5.5</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>p3XRotation</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100</Time>
+          <Value>0</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>p2YTranslation</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>-5.5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100</Time>
+          <Value>-1.5</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>p2XRotation</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>180</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100</Time>
+          <Value>180</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>p1ZTranslation</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>14</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100</Time>
+          <Value>7</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>p1XRotation</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>-90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100</Time>
+          <Value>-90</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
   </Uniforms>
   <Tracks>
     <Track>
@@ -508,35 +720,59 @@
           <ShaderPath>.\vol_lines.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>29.762989</Time>
+          <Time>17.4895916</Time>
           <ShaderPath>.\cube_transition.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>51.1212769</Time>
+          <Time>26.2372456</Time>
           <ShaderPath>.\02_CubeSpirale.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>69.7759857</Time>
+          <Time>36.87896</Time>
+          <ShaderPath>.\cube_transition.glsl</ShaderPath>
+        </ShaderKeyframe>
+        <ShaderKeyframe>
+          <Time>46.8919563</Time>
           <ShaderPath>.\Dice.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>88.971405</Time>
+          <Time>56.8789558</Time>
+          <ShaderPath>.\cube_transition.glsl</ShaderPath>
+        </ShaderKeyframe>
+        <ShaderKeyframe>
+          <Time>67.08737</Time>
           <ShaderPath>.\RollTheDice.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>103.904037</Time>
+          <Time>76.87895</Time>
+          <ShaderPath>.\cube_transition.glsl</ShaderPath>
+        </ShaderKeyframe>
+        <ShaderKeyframe>
+          <Time>87.0200043</Time>
           <ShaderPath>.\Shader_DemoEvent.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>118.427559</Time>
+          <Time>96.87895</Time>
+          <ShaderPath>.\cube_transition.glsl</ShaderPath>
+        </ShaderKeyframe>
+		<ShaderKeyframe>
+          <Time>105.244446</Time>
+          <ShaderPath>.\Pyramids.glsl</ShaderPath>
+        </ShaderKeyframe>
+		<ShaderKeyframe>
+          <Time>110.87895</Time>
+          <ShaderPath>.\cube_transition.glsl</ShaderPath>
+        </ShaderKeyframe>
+        <ShaderKeyframe>
+          <Time>115.543526</Time>
           <ShaderPath>.\Intro1.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>134.996643</Time>
-          <ShaderPath>..\demo_patrick\header_example.glsl</ShaderPath>
+          <Time>120.878952</Time>
+          <ShaderPath>.\cube_transition.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>158.7252</Time>
+          <Time>126.841171</Time>
           <ShaderPath>.\Intro2.glsl</ShaderPath>
         </ShaderKeyframe>
       </ShaderKeyframes>
