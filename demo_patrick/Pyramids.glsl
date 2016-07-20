@@ -144,11 +144,11 @@ float dist(vec3 p)
 
 	float pyramid5 = sdPyramid((vec4(p,1.0) //right pyramid
 		*translationMatrix(vec3(p5XTranslation,2.0,3.5)) //line a
-		*rotationMatrix(vec3(0.0,p45XYRotation,p5ZRotation), p5Rotation*RAD)).xyz //line b
+		*rotationMatrix(vec3(p45XYRotation,0.0,p5ZRotation), p5Rotation*RAD)).xyz //line b
 		,0.5, 3.5, 3.5);
 	float cube5 = udBox(((vec4(p,1.0)
 		*translationMatrix(vec3(p5XTranslation,2.0,3.5))) //line a
-		*rotationMatrix(vec3(0.0,p45XYRotation,p5ZRotation), p5Rotation*RAD) //line b
+		*rotationMatrix(vec3(p45XYRotation,0.0,p5ZRotation), p5Rotation*RAD) //line b
 		*translationMatrix(vec3(0.0,-3.5,0.0))
 		).xyz, vec3(cubeSize));
 
@@ -192,8 +192,8 @@ void main()
 	Camera cam;
 	/*cam.pos = vec3(0,0.0,-20.0);
 	cam.dir = normalize(vec4( p.x, p.y, 1,1 )*(rotationMatrix(vec3(1.0,0.0,0.0), 0.0))).xyz;*/
-	cam.pos = vec3(-2,8.0,-20.0);
-	cam.dir = normalize(vec4( p.x, p.y, 1,1 )*(rotationMatrix(vec3(1.0,0.0,0.0), 0.6))).xyz;
+	cam.pos = vec3(-6,10.0,-25.0);
+	cam.dir = normalize(vec4( p.x, p.y, 1,1 )*(rotationMatrix(vec3(1.0,1.0,0.0), 0.6))).xyz;
 	int steps = -1;
 
 	vec4 res = raymarch(cam.pos, cam.dir, steps);

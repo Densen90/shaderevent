@@ -29,7 +29,7 @@ float dist(vec3 p)
 	vec3 cubePos = p - vec3(0.0,0.0,0.0);
 	float time = iGlobalTime-uStartRotationTime;
 	//time = clamp(0, iGlobalTime, time);
-	cubePos = rotate(cubePos, vec3(time*20, time*20, 0));
+	cubePos = rotate(cubePos, vec3(time*20, time*20, time*20));
 	float cube = distBox(cubePos, vec3(0.3));
 
 	float intersShaderOne = distBox(cubePos + vec3(0,0,0.201), vec3(0.29, 0.29, 0.1));

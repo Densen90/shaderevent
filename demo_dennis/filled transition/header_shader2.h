@@ -293,8 +293,9 @@ vec4 getShader2Color(vec2 resolution, float time)
 
         currentCol *= lighting2(res.xyz, cam2.dir, n);
     }
+//    return vec4(1.0);
 
-    return vec4(currentCol, 1.0);
+   return vec4(currentCol, 1.0);
 	
 }
 
