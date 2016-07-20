@@ -144,11 +144,12 @@ float createG(vec3 p){
 }
 
 float dist6(vec3 p) { 
-    p.x-= floating;
+    //p.x-= floating;
 
     //vec3 ori = p;
-    p+=vec3(16,-5,0);  
+    p+=vec3(5,-5,0);  
     float c = createC(p);
+ 
     p-=vec3(3,0,0);
     float r = createR(p);
     p-=vec3(4,0,0);
@@ -188,7 +189,8 @@ float dist6(vec3 p) {
 
     float name = min(b2,min(l,min(o,min(x,min(b3,min(e3,min(r2,g)))))));    
     
-    return min(str, name);    
+    return min(str, name); 
+
 }
 
 
@@ -251,23 +253,12 @@ float shadow1(vec3 ro, vec3 rd)
     return res;
 }
 
-vec4 getOutroColor(vec2 resolution, float time){
+vec4 getOutroColor(Camera cam){
     
-    introTime = time;
-    // init cam, add shake    
-    float tanFov = tan(90.0 / 2.0 * 3.14159 / 180.0) / resolution.x;
-    vec2 p = tanFov * (gl_FragCoord.xy * 2.0 - resolution.xy);
-    float factor = noise() * 2;
-
-    cam.pos = vec3(0 , 0 , -25);
-    //vec3 camDir = normalize(vec3(p.x,p.y,1));
-    cam.dir = normalize(vec3(p.x + factor * shake, p.y + factor * shake, 1.0));
-
-    
+  
 	// use uv to draw bg
-	vec2 uv = gl_FragCoord.xy / resolution.xy;
-    uv -=0.5;
-    float point = length(uv);    
+
+    float point = length(uv-0.5);    
     vec3 bg = mix(vec3(0.78,0.32,0.78),vec3(0.2,0.8,0.35), point);    
 
     // marching and shading

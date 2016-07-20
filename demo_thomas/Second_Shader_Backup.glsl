@@ -23,13 +23,13 @@ const float glowEpsiolon = 0.1;
 #define SPECULAR 20
 
 vec3 lightDir1 = vec3(0.0, 5.0, -5.0);
-vec3 color = vec3(0.0);
+vec4 color = vec4(0.0);
 vec3 glow = vec3(0);
 
-vec3 ColorScene(vec3 p)
+vec4 ColorScene(vec3 p)
 {
 	vec3 color = 0.1 *(sin(abs(p)) - p);
-	return color;
+	return vec4(color,1);
 }
 vec3 Repeat(vec3 P, vec3 b)
 {
@@ -43,7 +43,7 @@ float dist(vec3 p)
 
 	float box2 = sdTorus88(Repeat(p + vec3(1), vec3(0.0, 1.0, 1.0)), vec2(5.0, 3.0));
 
-	//p = rotate(p, vec3(rotatePX, rotatePX, rotatePZ));
+	p = rotate(p, vec3(rotatePX, rotatePX, rotatePZ));
 	color = ColorScene(p/2);
 	float box = sdTorus88(Repeat(p, vec3(8, 5, 2)), vec2(4.0, 2.0));
 	float box1 = distRoundBox(p, vec3(1, 5, 2), 2);
@@ -79,23 +79,31 @@ void main()
 
 	Camera cam;
 	cam.pos = vec3(iCamPosX, iCamPosY, iCamPosZ);
-	//cam.pos = vec3(0,-20,-40);
 	cam.dir = rotate(normalize(vec3(p.x, p.y, 1.0)), vec3(iCamRotX, iCamRotY, iCamRotZ));
-	//cam.dir = normalize(vec3(p.x, p.y, 1.0));
 	int steps = -1;
 
 	vec4 res = raymarch(cam.pos, cam.dir, steps);
-	vec3 currentCol = vec3(1);
+	vec4 currentCol = vec4(1);
 
-	if(res.a == 1.0)
+
+	p = getScreenPos(90);
+	Camera cam2;
+	cam2.pos = vec3(0,0,-25);
+	cam2.dir = normalize(vec3(p.x, p.y, 1.0));
+
+	if(res.a ==1.0)
 	{
 		currentCol = color;
 		vec3 n = getNormal(res.xyz);
 
 		currentCol *= lighting(res.xyz, cam.dir, n);
-
-
 	}
+	//currentCol = color;
+		//vec3 n = getNormal(res.xyz);
 
-	gl_FragColor = vec4(currentCol, 1.0);
+		currentCol += getOutroColor(cam2);
+
+
+
+	gl_FragColor = currentCol;
 }
