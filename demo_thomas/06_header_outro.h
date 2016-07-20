@@ -1,9 +1,9 @@
 uniform float shake;
 uniform float floating;
 
-uniform sampler2D tex;
+uniform sampler2D tex0;
 
-in vec2 uv;
+vec2 uv6;
 
 #define RAD PI / 180.0
 #define PI 3.14159
@@ -17,11 +17,10 @@ in vec2 uv;
 vec3 lightDir = normalize(vec3(0.5,0.5,-1));
 float introTime;
 
-struct Camera
-{
+struct Camera{
     vec3 pos;
     vec3 dir;
-} cam;
+};
 
 vec3 rotate6( vec3 p, vec3 r )
 {
@@ -41,17 +40,14 @@ vec3 rotate6( vec3 p, vec3 r )
     return xRot * yRot * zRot * p;
 }
 
-vec3 repeat(vec3 p, vec3 c ){
-    return mod(p, c) - 0.5 * c;
-}
 /*
  * idea: let the letters appear from the right floating and docking to their place
  *       maybe let the camera shake on impact
  *       add some particles / damage to the letters **??**
  */
 
-float noise(){
-    return texture2D(tex,uv).r - 0.25;
+float noise6(){
+    return texture2D(tex0,uv6).r - 0.25;
 }
 
 
@@ -144,7 +140,8 @@ float createG(vec3 p){
 }
 
 float dist6(vec3 p) { 
-    //p.x-= floating;
+    p.x-= floating;
+	p = rotate6(p, vec3(0,-30,0));  	
 
     //vec3 ori = p;
     p+=vec3(5,-5,0);  
@@ -169,7 +166,7 @@ float dist6(vec3 p) {
     float str =  min(c,min(r,min(e,min(a,min(t,min(e2,min(d, min(b,y))))))));
 
     //p+=vec3(30,8,0);  
-    p-=vec3(8,0,0);
+    p-=vec3(8,0,5);
 
     float b2 = createB(p);
     p-=vec3(3,0,0);  
@@ -253,20 +250,17 @@ float shadow1(vec3 ro, vec3 rd)
     return res;
 }
 
-vec4 getOutroColor(Camera cam){
+vec4 getOutroColor(Camera cam, vec2 uv){
     
   
-	// use uv to draw bg
-
-    float point = length(uv-0.5);    
-    vec3 bg = mix(vec3(0.78,0.32,0.78),vec3(0.2,0.8,0.35), point);    
+	uv6 = uv;	
 
     // marching and shading
 	int steps = -1;
     vec4 res = raymarch6(cam.pos, cam.dir, steps);  
 
 
-	vec3 color = bg;
+	vec3 color;
 	if(res.a == 1){										// not sure why this is needed ...
 		color = mix(vec3(0.2,0.2,0.8), vec3(0,0.35,0.3), (res.y + EPSILON));
 		vec3 diffuse =  vec3(calcLight(res.xyz));	

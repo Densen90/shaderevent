@@ -206,6 +206,32 @@
         </Keyframe>
       </Keyframes>
     </Uniform>
+    <Uniform>
+      <UniformName>floating</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>6.332454</Time>
+          <Value>-100</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>floating2</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>6.39400053</Time>
+          <Value>35</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>10.5800009</Time>
+          <Value>-80</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
   </Uniforms>
   <Tracks>
     <Track>
@@ -219,5 +245,5 @@
     </Track>
   </Tracks>
   <Textures />
-  <SoundFileName>..\..\Merge\Chill1.mp3</SoundFileName>
+  <SoundFileName />
 </DemoData2>

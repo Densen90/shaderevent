@@ -14,16 +14,56 @@
         </Keyframe>
       </Keyframes>
     </Uniform>
-	    <Uniform>
+    <Uniform>
       <UniformName>shake</UniformName>
       <Keyframes>
         <Keyframe>
           <Time>0</Time>
-          <Value>0.4</Value>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>1.8295238</Time>
+          <Value>0.5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>3.96285677</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>4.52102</Time>
+          <Value>0.05</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>6.12970448</Time>
+          <Value>0.05</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>6.687663</Time>
+          <Value>1</Value>
         </Keyframe>
         <Keyframe>
           <Time>8.386821</Time>
           <Value>0.01</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>8.8251</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>10.4716988</Time>
+          <Value>0.5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>12.6398392</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>13.17349</Time>
+          <Value>0.05</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>15.3735571</Time>
+          <Value>0.05</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -42,6 +82,18 @@
           <Time>22.8563519</Time>
           <Value>0</Value>
         </Keyframe>
+        <Keyframe>
+          <Time>23.56575</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>31.1962738</Time>
+          <Value>-5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>38.20116</Time>
+          <Value>0</Value>
+        </Keyframe>
       </Keyframes>
     </Uniform>
     <Uniform>
@@ -54,6 +106,10 @@
         <Keyframe>
           <Time>8.386821</Time>
           <Value>8.386821</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>24.17795</Time>
+          <Value>24.17795</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -108,9 +164,45 @@
           <Time>30.1295872</Time>
           <Value>90</Value>
         </Keyframe>
+        <Keyframe>
+          <Time>148.64</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>150</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>150.53685</Time>
+          <Value>45</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>152.32</Time>
+          <Value>45</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>152.736969</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>154.59</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>154.947815</Time>
+          <Value>135</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>156.79</Time>
+          <Value>135</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>157.138855</Time>
+          <Value>90</Value>
+        </Keyframe>
       </Keyframes>
     </Uniform>
-	    <Uniform>
+    <Uniform>
       <UniformName>uMoveY</UniformName>
       <Keyframes>
         <Keyframe>
@@ -226,81 +318,6 @@
         <Keyframe>
           <Time>1.55677652</Time>
           <Value>1</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
-      <UniformName>uCameraZ</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>23.56575</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>31.1962738</Time>
-          <Value>-5</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>38.20116</Time>
-          <Value>0</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
-      <UniformName>uStartRotationTime</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>24.17795</Time>
-          <Value>24.17795</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-	 <Uniform>
-      <UniformName>shake</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>0</Time>
-          <Value>1</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>1.8295238</Time>
-          <Value>0.5</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>3.96285677</Time>
-          <Value>1</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>4.52102</Time>
-          <Value>0.05</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>6.12970448</Time>
-          <Value>0.05</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>6.687663</Time>
-          <Value>1</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>8.8251</Time>
-          <Value>1</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>10.4716988</Time>
-          <Value>0.5</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>12.6398392</Time>
-          <Value>1</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>13.17349</Time>
-          <Value>0.05</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>15.3735571</Time>
-          <Value>0.05</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -453,47 +470,6 @@
       </Keyframes>
     </Uniform>
     <Uniform>
-      <UniformName>spiralRot</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>148.64</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>150</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>150.53685</Time>
-          <Value>45</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>152.32</Time>
-          <Value>45</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>152.736969</Time>
-          <Value>90</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>154.59</Time>
-          <Value>90</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>154.947815</Time>
-          <Value>135</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>156.79</Time>
-          <Value>135</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>157.138855</Time>
-          <Value>90</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
       <UniformName>redMul</UniformName>
       <Keyframes>
         <Keyframe>
@@ -534,50 +510,6 @@
         <ShaderKeyframe>
           <Time>0</Time>
           <ShaderPath>.\Shader_DemoEvent.glsl</ShaderPath>
-        </ShaderKeyframe>
-		 <ShaderKeyframe>
-          <Time>0</Time>
-          <ShaderPath>.\01_intro.glsl</ShaderPath>
-        </ShaderKeyframe>
-        <ShaderKeyframe>
-          <Time>8.386821</Time>
-          <ShaderPath>.\cube_transition.glsl</ShaderPath>
-        </ShaderKeyframe>
-        <ShaderKeyframe>
-          <Time>22.3989487</Time>
-          <ShaderPath>.\02_CubeSpirale.glsl</ShaderPath>
-        </ShaderKeyframe>
-		<ShaderKeyframe>
-          <Time>0</Time>
-          <ShaderPath>.\vol_lines.glsl</ShaderPath>
-        </ShaderKeyframe>
-        <ShaderKeyframe>
-          <Time>23.9153442</Time>
-          <ShaderPath>.\cube_transition.glsl</ShaderPath>
-        </ShaderKeyframe>
-        <ShaderKeyframe>
-          <Time>38.2</Time>
-          <ShaderPath>.\testshader.glsl</ShaderPath>
-        </ShaderKeyframe>
-		 <ShaderKeyframe>
-          <Time>0</Time>
-          <ShaderPath>.\Intro1.glsl</ShaderPath>
-        </ShaderKeyframe>
-        <ShaderKeyframe>
-          <Time>20.2235889</Time>
-          <ShaderPath>.\Intro2.glsl</ShaderPath>
-        </ShaderKeyframe>
-        <ShaderKeyframe>
-          <Time>52.79145</Time>
-          <ShaderPath>.\Dice.glsl</ShaderPath>
-        </ShaderKeyframe>
-        <ShaderKeyframe>
-          <Time>111.361069</Time>
-          <ShaderPath>.\RollTheDice.glsl</ShaderPath>
-        </ShaderKeyframe>
-        <ShaderKeyframe>
-          <Time>161.263428</Time>
-          <ShaderPath>.\CubeSpirale.glsl</ShaderPath>
         </ShaderKeyframe>
       </ShaderKeyframes>
     </Track>

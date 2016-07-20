@@ -19,11 +19,7 @@ vec3 lightDir = normalize(vec3(0.5,0.5,-1));
 vec3 repeat(vec3 p, vec3 c ){
     return mod(p, c) - 0.5 * c;
 }
-/*
- * idea: let the letters appear from the right floating and docking to their place
- *       maybe let the camera shake on impact
- *       add some particles / damage to the letters **??**
- */
+
 
 float noise(){
     return texture2D(tex,uv).r - 0.25;
@@ -103,7 +99,7 @@ float createN(vec3 p){
     float q1 = distQuad(p - vec3(0,0,0), vec3(0.5,2.5,0.5));
     float q2 = distQuad(p - vec3(2.,0,0), vec3(0.5,2.5,0.5));
     p = rotate(p, vec3(0,0,15));
-    float q3 = distQuad(p-vec3(1,-0.25,0), vec3(0.5,2.5,0.5));
+    float q3 = distQuad(p-vec3(1,-0.3,0), vec3(0.5,2.5,0.5));
     return min(q1,min(q2,q3));
 }
 
@@ -133,7 +129,7 @@ float dist(vec3 p) {
     vec3 p2 = p;
 
 
-    p+=vec3(24,8,0);  
+    p-=vec3(6,0,0);  
 
 	float DJ_Innos = createD(p);
     p-=vec3(4,0,0); 
@@ -141,7 +137,7 @@ float dist(vec3 p) {
 
     p-=vec3(5,0,0); 
 	DJ_Innos = min(DJ_Innos,createI(p));
-    p-=vec3(2.,0,0);  
+    p-=vec3(1.5,0,0);  
 	DJ_Innos = min(DJ_Innos,createN(p));
     p-=vec3(3.5,0,0);  
 	DJ_Innos = min(DJ_Innos,createN(p));
