@@ -26,6 +26,9 @@ float distTorus(vec3 p, vec2 t){
     return length(q)-t.y;
 }
 
+vec3 repeat(vec3 p, vec3 c ){
+    return mod(p, c) - 0.5 * c;
+}
 
 float oneDot(vec3 p, vec3 offset, vec3 cutPlane){
     float cut = distRoundBox(p + offset, cutPlane,0.01);
@@ -33,9 +36,7 @@ float oneDot(vec3 p, vec3 offset, vec3 cutPlane){
     return max(cut,sphere);
 }
 
-vec3 repeat(vec3 p, vec3 c ){
-    return mod(p, c) - 0.5 * c;
-}
+
 
 float addDots(in vec3 p) {  
     float one = oneDot(p, vec3(0,cubeSize + cubeRadius,0), vec3(1,0.0001,1));
@@ -97,16 +98,16 @@ float dice(vec3 p, float dots, out float res) {
 }
 
 float chain(vec3 p){
-	p.y += iGlobalTime * 2;	
+	p.y += move * 2;	
 	vec3 pt = p;
 	pt.x += (uv.x * 2);
     pt = rotate(pt, vec3(90,0,0));
-	pt.y += sin(iGlobalTime)/3;
+	pt.y += sin(move)/3;
     float t2 = distTorus(repeat(pt + vec3(0,0,0), vec3(0,0,3)),vec2(1,0.2));
 	vec3 pt2 = p;
 	pt2.x += uv.x * 2;
     pt2 = rotate(pt2, vec3(90,45,0));
-	pt2.y += sin(iGlobalTime)/3;
+	pt2.y += sin(move)/3;
     float t3 = distTorus(repeat(pt2 - vec3(0,0,1.5), vec3(0,0,3)),vec2(1,0.2));	
     return min(t2,t3);
 }
@@ -133,9 +134,9 @@ float dist(vec3 p){
     vec3 buttonColor = mix(vec3(0.7,0.7,0.4), vec3(0,0.6,0.6),p0.z);    
     objColor = ( res == ch) ?  vec4(0.3) : objColor;    
 
-	return p.z < 3  ? ch : 5000;
+	return p.z > 3  ? ch : res;
 	
-    //return ch;
+    //return res;
 }
 
 
@@ -148,13 +149,13 @@ void main(){
     int steps = -1;
     vec4 res = raymarch(cam.pos, cam.dir, steps);
     vec4 color = texture2D(tex1,uv);
+    //vec4 color = vec4(1);
     if(res.a ==1){
         color = objColor;
         vec3 n = getNormal(res.xyz);
         color *= max(AMBIENT, dot(n, lightDir));
         color *=shadow(res.xyz,n);
         color +=ambientOcclusion(res.xyz,n) * AMBIENT;
-        color *=1;
     }
     gl_FragColor = color;
 

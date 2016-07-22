@@ -2,8 +2,6 @@
 #include "06_header_outro.h"
 #include "07_header_outro.h"
 
-uniform float iGlobalTime;
-
 in vec2 uv;
 
 uniform float rotatePX;

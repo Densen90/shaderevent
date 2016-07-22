@@ -4,19 +4,6 @@ uniform float iGlobalTime;
 
 uniform float interpolate;
 
-//Camera Position
-uniform float cameraX = 10.0;
-uniform float cameraY = 25.0;
-uniform float cameraZ = 10.0;
-
-//Camera Rotation
-uniform float cameraAngleX = 90.0;
-uniform float cameraAngleY = 90.0;
-uniform float cameraAngleZ = 90.0;
-
-const float toRadian = PI/180.0;
-const float glowEpsiolon = 0.1;
-
 #define SPECULAR 20
 
 vec3 lightDir = vec3(0.0, 5.0, -5.0);

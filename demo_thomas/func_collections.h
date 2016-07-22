@@ -1,4 +1,5 @@
 uniform vec2 iResolution;
+uniform float iGlobalTime;
 
 #ifdef HIGH_QUALITY
 	#define EPSILON 0.0001
