@@ -35,6 +35,7 @@ bool sideHitShaderTwo;
 bool sideHitShaderThree;
 bool sideHitShaderFour;
 bool sideHitShaderFive;
+bool sideHitShaderSix;
 
 float dist(vec3 p)
 {
@@ -48,14 +49,16 @@ float dist(vec3 p)
 	float intersShaderThree = distBox(cubePos - vec3(0,0,0.201), vec3(0.29, 0.29, 0.1));
 	float intersShaderFour = distBox(cubePos + vec3(0.201, 0, 0), vec3(0.1, 0.29, 0.29));
 	float intersShaderFive = distBox(cubePos - vec3(0, 0.201, 0), vec3(0.29, 0.1, 0.29));
+	float intersShaderSix = distBox(cubePos + vec3(0, 0.201, 0), vec3(0.29, 0.1, 0.29));
 
-	float dist = min(cube, min(intersShaderOne, min(intersShaderTwo,min(intersShaderThree, min(intersShaderFour, intersShaderFive)))));
+	float dist = min(cube, min(intersShaderOne, min(intersShaderTwo,min(intersShaderThree, min(intersShaderFour, min(intersShaderFive, intersShaderSix))))));
 
 	sideHitShaderOne = (dist==intersShaderOne);
 	sideHitShaderTwo = (dist==intersShaderTwo);
 	sideHitShaderThree = (dist==intersShaderThree);
 	sideHitShaderFour = (dist==intersShaderFour);
 	sideHitShaderFive = (dist==intersShaderFive);
+	sideHitShaderSix = (dist==intersShaderSix);
 
 	return dist;
 }
@@ -96,7 +99,7 @@ void main()
 	if(res.a==1.0)	{
 		currentCol = color;
 		if(sideHitShaderOne){
-			currentCol =  getGridCubeColor(gl_FragCoord.xy, iResolution, iGlobalTime, vec3(0,0,uCameraZ));
+			currentCol =  getGridCubeColor(gl_FragCoord.xy, iResolution, iGlobalTime, res.xyz);
 		}
 		else if(sideHitShaderTwo){
 			currentCol = getTwistDiceColor(cam, uv, cubeRotation);
@@ -116,6 +119,13 @@ void main()
 			cam.pos = vec3(0,0,-10);
 			currentCol = getKnobsColor(iResolution, cubeRotation);
 			//currentCol = vec4(1,0,0,0);
+		}
+		else if(sideHitShaderSix){
+			currentCol = vec4(1,0.5,0,0);
+		}
+		else
+		{
+			currentCol = vec4(lighting(res.xyz, cam.dir, getNormal(res.xyz)), 0);
 		}
 	}
 	gl_FragColor = currentCol;

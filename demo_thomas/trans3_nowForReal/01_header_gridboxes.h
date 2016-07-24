@@ -121,7 +121,7 @@ vec4 getGridCubeColor(vec2 fragCoord, vec2 resolution, float globTime, vec3 camP
     mat4 cam = getPosMatrix(vec3(0.0,0.0,10.0)-camPos);
     
 
-    mat4 rot = getRotMatrix(vec3(time,time*0.86,time*0.873));
+    mat4 rot = getRotMatrix(vec3(time,time*0.86,time*0.873) );
     // rot = getRotMatrix(vec3(2.0, 1.0, 2.0));
     // rot = getRotMatrix(vec3(0));
     
