@@ -26,8 +26,7 @@ float distRoundBox2(vec3 p, vec3 b, float r)
  	return length(max(abs(p)-b,0.0))-r;
 }
 
-vec3 rotate2( vec3 p, vec3 r )
-{
+vec3 rotate2( vec3 p, vec3 r ){
     r.x *= PI/180.0;
     r.y *= PI/180.0;
     r.z *= PI/180.0;
@@ -52,7 +51,6 @@ float marchCubeFrame(vec3 p, float size){
 
 float spirale(vec3 p, float size){
 	float rot = spiralRot;		
-
 	vec3 p0 = rotate2(p, vec3(0,0,rot));
 	float frame1 = marchCubeFrame(p0,3 * size);
 	p0 = rotate2(p, vec3(0,0,-rot));	
@@ -75,6 +73,7 @@ float spirale(vec3 p, float size){
  
 float dist2(vec3 p){
 	p = rotate2(p, rot2);
+	p = rotate2(p, vec3(0,90,0));
 	//float plane = distPlane(p + vec3(0,8,0), vec3(0,1,0));
 	float frame1 = spirale(repeatSpiral(p, vec3(2,2,0)), 0.5);	
 	return frame1;

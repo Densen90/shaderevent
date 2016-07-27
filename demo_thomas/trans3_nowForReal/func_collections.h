@@ -27,6 +27,23 @@ float dist(vec3 p);
 /**
  * Camera structure which can be used for a representation of a camera in 3D space
  */
+
+vec3 ApplyFog(vec3 originalColor, vec3 fogColor, float fogAmount)
+{
+    return mix( originalColor, fogColor, fogAmount );
+}
+
+float fOpUnionStairs(float a, float b, float r, float n) {
+	float s = r/n;
+	float u = b-r;
+	return min(min(a,b), 0.5 * (u + a + abs ((mod (u - a + s, 2 * s)) - s)));
+}
+
+float fOpIntersectionStairs(float a, float b, float r, float n) {
+	return -fOpUnionStairs(-a, -b, r, n);
+}
+
+ 
 struct Camera
 {
 	vec3 pos;

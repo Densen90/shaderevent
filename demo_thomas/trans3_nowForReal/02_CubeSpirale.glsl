@@ -15,8 +15,7 @@ float marchCubeFrame(vec3 p, float size){
 }
 
 float spirale(vec3 p, float size){
-	float rot = spiralRot;		
-
+	float rot = spiralRot;	
 	vec3 p0 = rotate(p, vec3(0,0,rot));
 	float frame1 = marchCubeFrame(p0,3 * size);
 	p0 = rotate(p, vec3(0,0,-rot));	

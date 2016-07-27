@@ -98,16 +98,16 @@ float dice(vec3 p, float dots, out float res) {
 }
 
 float chain(vec3 p){
-	p.y += move * 2;	
+	p.y += iGlobalTime * 2;	
 	vec3 pt = p;
 	pt.x += (uv.x * 2);
     pt = rotate(pt, vec3(90,0,0));
-	pt.y += sin(move)/3;
+	pt.y += sin(iGlobalTime)/3;
     float t2 = distTorus(repeat(pt + vec3(0,0,0), vec3(0,0,3)),vec2(1,0.2));
 	vec3 pt2 = p;
 	pt2.x += uv.x * 2;
     pt2 = rotate(pt2, vec3(90,45,0));
-	pt2.y += sin(move)/3;
+	pt2.y += sin(iGlobalTime)/3;
     float t3 = distTorus(repeat(pt2 - vec3(0,0,1.5), vec3(0,0,3)),vec2(1,0.2));	
     return min(t2,t3);
 }
@@ -134,9 +134,9 @@ float dist(vec3 p){
     vec3 buttonColor = mix(vec3(0.7,0.7,0.4), vec3(0,0.6,0.6),p0.z);    
     objColor = ( res == ch) ?  vec4(0.3) : objColor;    
 
-	return p.z > 3  ? ch : res;
+	//return p.z > 3  ? ch : res;
 	
-    //return res;
+    return res;
 }
 
 

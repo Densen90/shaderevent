@@ -111,7 +111,7 @@ void main()
 			//currentCol = vec4(1,0,0,0);
 		}
 		else if(sideHitShaderFour){
-			cam.pos = vec3(0,0,-10);
+			cam.pos = vec3(0,0,-17.5);
 			currentCol = getSpiralColor(cam, uv, cubeRotation);
 			//currentCol = vec4(1,0,0,0);
 		}

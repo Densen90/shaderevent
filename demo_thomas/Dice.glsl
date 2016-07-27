@@ -2,6 +2,10 @@
 
 vec3 lightDir = vec3(0.5,0.5,-1);
 
+//lower tresh to 10 to fade to black
+
+uniform float tresh;
+
 vec4 objColor = vec4(0);
 
 uniform float divide;
@@ -86,7 +90,8 @@ float dice(vec3 p, float dots, out float res) {
 float dist(vec3 p){
 	//float plane = distPlane(p + vec3(0,4,0), vec3(0,1,0));
 
-	float rot = iGlobalTime * 50;
+	//float rot = iGlobalTime * 50;
+
 	float dots0 = 10000;	
 	float res = 1000;
 	/*
@@ -102,7 +107,10 @@ float dist(vec3 p){
 
 	
 	// */
-	vec3 p0 = rotate(p, vec3(rot * p.y/divide));
+	if(distance(p, vec3(0,0,0)) > tresh){
+		return 0;
+	}
+	vec3 p0 = rotate(p, vec3(p.y/divide));
 	float dices = dice(repeat(p0, vec3(rep)), dots0, res);
 
 	
@@ -120,7 +128,7 @@ float dist(vec3 p){
 void main(){
 	vec2 p = getScreenPos(90);
 	Camera cam;
-	cam.pos = vec3(0,0,camPosZ);
+	cam.pos = vec3(0,iGlobalTime,camPosZ);
 	cam.dir = normalize(vec3(p.x, p.y, 1));
 	int steps = -1;
 	vec4 res = raymarch(cam.pos, cam.dir, steps);
