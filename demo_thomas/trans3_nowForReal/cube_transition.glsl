@@ -76,7 +76,7 @@ vec3 lighting(vec3 pos, vec3 rd, vec3 n)
 
 	light *= shadow(pos, lightDir0);
 	light += ambientOcclusion(pos, n) * AMBIENT;
-	return light;
+	return light;	
 } 
 
 void main()
@@ -91,15 +91,16 @@ void main()
 	vec3 cubeRotation = vec3(rotateCubeX, rotateCubeY, rotateCubeZ);
 	
 	vec4 res = raymarch(cam.pos, cam.dir, steps);
-	vec4 currentCol = vec4(0);
+	vec4 currentCol = vec4(0.);
 	cam.pos = vec3(0, 0, -25);
 
 	//cam.pos = vec3(0,0,-10);
 	//cam.dir = normalize(vec3(p.x, p.y, 1));
 	if(res.a==1.0)	{
 		currentCol = color;
-		if(sideHitShaderOne){
-			currentCol =  getGridCubeColor(gl_FragCoord.xy, iResolution, iGlobalTime, res.xyz);
+		if(sideHitShaderOne){			
+			currentCol =  getGridCubeColor(gl_FragCoord.xy, iResolution, iGlobalTime, res.xyz);			 
+				
 		}
 		else if(sideHitShaderTwo){
 			currentCol = getTwistDiceColor(cam, uv, cubeRotation);

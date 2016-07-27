@@ -419,15 +419,14 @@
           <ShaderPath>.\Dice.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>34.84281</Time>
+          <Time>39</Time>
           <ShaderPath>.\RollTheDice.glsl</ShaderPath>
         </ShaderKeyframe>
       </ShaderKeyframes>
     </Track>
   </Tracks>
   <Textures>
-    <string>.\cloud_tex.png</string>
     <string>.\dice2.png</string>
   </Textures>
-  <SoundFileName>.\Chill1.mp3</SoundFileName>
+  <SoundFileName>.\ThomasTrack.mp3</SoundFileName>
 </DemoData2>

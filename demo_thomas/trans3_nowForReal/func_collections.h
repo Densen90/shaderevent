@@ -27,10 +27,25 @@ float dist(vec3 p);
 /**
  * Camera structure which can be used for a representation of a camera in 3D space
  */
+ 
+float lengthN(vec2 p, float N){
+	float l = pow(abs(p.x), N) + pow(abs(p.y), N);
+	return pow(l, 1.0/N);
+}
 
-vec3 ApplyFog(vec3 originalColor, vec3 fogColor, float fogAmount)
-{
-    return mix( originalColor, fogColor, fogAmount );
+float sdTorus88( vec3 p, vec2 t ){
+  vec2 q = vec2(lengthN(p.xz, 8)-t.x,p.y);
+  return lengthN(q, 8)-t.y;
+}
+
+ 
+ 
+vec3 ApplyFog(vec3 originalColor, vec3 fogColor, float fogAmount){
+    return mix( originalColor, fogColor, fogAmount );	
+}
+
+float fOpUnionChamfer(float a, float b, float r) {
+	return min(min(a, b), (a - r + b)*sqrt(0.5));
 }
 
 float fOpUnionStairs(float a, float b, float r, float n) {

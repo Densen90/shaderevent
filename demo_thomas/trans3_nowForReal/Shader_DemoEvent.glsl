@@ -2,8 +2,6 @@
 
 uniform float iGlobalTime;
 
-uniform float interpolate;
-
 #define SPECULAR 20
 
 vec3 lightDir = vec3(0.0, 5.0, -5.0);
@@ -11,8 +9,7 @@ vec3 color = vec3(1.0);
 vec3 glow = vec3(0);
 
 
-vec3 Repeat(vec3 P, vec3 b)
-{
+vec3 Repeat(vec3 P, vec3 b){
 	return mod(P, b) - 0.5 * b;
 }
 
@@ -25,6 +22,7 @@ vec3 ColorScene(vec3 p)
 float dist(vec3 p)
 {
 	//p = abs(sin(p));
+	float interpolate = iGlobalTime/2 + 10;	
 	float boxes = distRoundBox(Repeat(p, vec3(5, 5, 5)), vec3(0.5, 0.5, 0.5), 5.0); //5.0
 	float boxes1 = distRoundBox(Repeat(p, vec3(10, 10, 10)), vec3(0.5, 0.5, 0.5), .0);
 	float temp = fOpIntersectionStairs(boxes, boxes1, 0, .5 )  * interpolate  * 0.5;

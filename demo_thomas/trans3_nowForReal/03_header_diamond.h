@@ -70,7 +70,7 @@ vec3 rotate4( vec3 p, vec3 r )
 float dist4(vec3 p) 
 { 
     p = rotate4(p, rot4);
-    float interpolate = (iGlobalTime/2 +10) - 20;
+    float interpolate = (iGlobalTime/2 +10);	
     float boxes = distRoundBox4(Repeat(p, vec3(5, 5, 5)), vec3(0.5, 0.5, 0.5), 5.0); //5.0
     float boxes1 = distRoundBox4(Repeat(p, vec3(10, 10, 10)), vec3(0.5, 0.5, 0.5), .0);
     float temp = fOpIntersectionStairs1(boxes, boxes1, 0, .5 )  * interpolate  * 0.5;
