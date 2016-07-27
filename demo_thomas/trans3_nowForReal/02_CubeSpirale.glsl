@@ -3,9 +3,15 @@
 vec3 lightDir = vec3(0.5,0.5,-1);
 
 uniform float spiralRot; 
+vec4 color = vec4(0,0.5,0.3,0);
 
 vec3 repeat(vec3 p, vec3 c ){
     return mod(p, c) - 0.5 * c;
+}
+
+vec3 ColorScene(vec3 p){
+	vec3 color = 0.1 *(sin(abs(p)) - p);
+	return color;
 }
 
 float marchCubeFrame(vec3 p, float size){
@@ -38,6 +44,7 @@ float spirale(vec3 p, float size){
  
 float dist(vec3 p){
 	//float plane = distPlane(p + vec3(0,8,0), vec3(0,1,0));
+	color = vec4(ColorScene(p),1);
 	float frame1 = spirale(repeat(p, vec3(2,2,0)), 0.5);	
 	return frame1;
 }
@@ -48,8 +55,8 @@ void main(){
 	cam.pos = vec3(0,0,-10);
 	cam.dir = normalize(vec3(p.x, p.y, 1));
 	int steps = -1;
-	vec4 res = raymarch(cam.pos, cam.dir, steps);
-	vec4 color = vec4(0.1,0.2,0.1,1);
+	
+	vec4 res = raymarch(cam.pos, cam.dir, steps);	
 	if(res.a ==1){
 		color = vec4(1);
 		vec3 n = getNormal(res.xyz);
