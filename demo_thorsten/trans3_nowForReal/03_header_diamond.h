@@ -1,4 +1,5 @@
 uniform float iGlobalTime;
+uniform float colorUniform;
 
 #define PI 3.14159
 #define AMBIENT 0.1
@@ -9,6 +10,7 @@ uniform float iGlobalTime;
 #define SOFTSDHADOWFAC 2.0
 #define SPECULAR 20
 
+in vec2 uv;
 vec3 lightDir1 = normalize(vec3(0.5,0.5,-1));
 float shaderTime1;
 
@@ -29,7 +31,7 @@ vec3 Repeat(vec3 P, vec3 b)
 
 vec3 ColorScene(vec3 p)
 {
-    vec3 color = 0.1 *(sin(abs(p)) - p);
+    vec3 color = mix(vec3(0.247, 0.278, 0.729), vec3(0.0, 0.564, 0.671), p.x);
     return color;
 }
 
@@ -70,7 +72,7 @@ vec3 rotate4( vec3 p, vec3 r )
 float dist4(vec3 p) 
 { 
     p = rotate4(p, rot4);
-    float interpolate = (iGlobalTime/2 +10);	
+    float interpolate = iGlobalTime/10;	
     float boxes = distRoundBox4(Repeat(p, vec3(5, 5, 5)), vec3(0.5, 0.5, 0.5), 5.0); //5.0
     float boxes1 = distRoundBox4(Repeat(p, vec3(10, 10, 10)), vec3(0.5, 0.5, 0.5), .0);
     float temp = fOpIntersectionStairs1(boxes, boxes1, 0, .5 )  * interpolate  * 0.5;

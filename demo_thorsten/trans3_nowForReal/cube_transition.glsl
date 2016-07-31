@@ -5,13 +5,14 @@
 
 #include "05_header_twistDice.h"
 #include "06_header_knobs.h"
+#include "07_header_pyramids.h"
 
 
 /******************************************************
 	THE CALCULATIONS FOR THE SINGLE CUBE // //#include "04_header_dices.h"
 *******************************************************/
 
-in vec2 uv;
+//in vec2 uv;
 
 //Camera uniforms
 uniform float mainCamX;
@@ -29,7 +30,7 @@ uniform float uCameraZ;
 
 const vec3 lightDir0 = normalize(vec3(0.8, 0.8, -1.0));
 
-vec4 color = vec4(1);
+vec4 color = vec4(1); 
 bool sideHitShaderOne;
 bool sideHitShaderTwo;
 bool sideHitShaderThree;
@@ -122,7 +123,8 @@ void main()
 			//currentCol = vec4(1,0,0,0);
 		}
 		else if(sideHitShaderSix){
-			currentCol = vec4(1,0.5,0,0);
+			cam.pos = vec3(-6,10.0,-25.0);
+			currentCol = getShaderPyramidsColor(iResolution, cubeRotation);
 		}
 		else
 		{
