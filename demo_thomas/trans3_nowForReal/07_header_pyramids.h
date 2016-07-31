@@ -31,9 +31,9 @@ uniform float p45XYRotation;
 #define SOFTSDHADOWFAC 2.0
 #define RAD PI / 180.0
 
-vec3 lightDir2 = normalize(vec3(0.8,0.8,-1));
-vec3 color2 = vec3(1.0,0.5,0.5);
-float shaderTime2;
+vec3 lightDirPyramids = normalize(vec3(0.8,0.8,-1));
+vec3 colorPyramids = vec3(1.0,0.5,0.5);
+float shaderTimePyramids;
 
 struct Camera
 {
@@ -41,7 +41,7 @@ struct Camera
     vec3 dir;
 } cam2;
 
-vec3 rotate2( vec3 p, vec3 r )
+vec3 rotatePyramids( vec3 p, vec3 r )
 {
     r.x *= PI/180.0;
     r.y *= PI/180.0;
@@ -117,7 +117,7 @@ float udBox( vec3 p, vec3 b )
   return length(max(abs(p)-b,0.0));
 }
 
-float dist2(vec3 p)
+float distPyramids(vec3 p)
 {
     //rotation around given axis aroud standard position, then translation
     float cubeSize = 3.5;
@@ -198,14 +198,14 @@ float dist2(vec3 p)
     return e;
 }
 
-vec4 raymarch2(vec3 rayOrigin, vec3 rayDir, out int steps)
+vec4 raymarchPyramids(vec3 rayOrigin, vec3 rayDir, out int steps)
 {
     float totalDist = 0.0;
     for(int j=0; j<MAXSTEPS; j++)
     {
         steps = j;
         vec3 p = rayOrigin + totalDist*rayDir;
-        float d = dist2(p);
+        float d = distPyramids(p);
         if(abs(d)<EPSILON)  //if it is near the surface, return an intersection
         {
             return vec4(p, 1.0);
@@ -216,25 +216,25 @@ vec4 raymarch2(vec3 rayOrigin, vec3 rayDir, out int steps)
     return vec4(0);
 }
 
-float ambientOcclusion2(vec3 p, vec3 n)
+float ambientOcclusionPyramids(vec3 p, vec3 n)
 {
     float res = 0.0;
     float fac = 1.0;
     for(float i=0.0; i<AOSAMPLES; i++)
     {
         float distOut = i*0.3;  //go on normal ray AOSAMPLES times with factor 0.3
-        res += fac * (distOut - dist2(p + n*distOut));   //look for every step, how far the nearest object is
+        res += fac * (distOut - distPyramids(p + n*distOut));   //look for every step, how far the nearest object is
         fac *= 0.5; //for every step taken on the normal ray, the fac decreases, so the shadow gets brighter
     }
     return 1.0 - clamp(res, 0.0, 1.0);
 }
 
-float shadow2(vec3 ro, vec3 rd)
+float shadowPyramids(vec3 ro, vec3 rd)
 {
     float res = 1.0;
     for( float t=0.01; t<32.0; )
     {
-        float h = dist2(ro + rd*t);
+        float h = distPyramids(ro + rd*t);
         if( h<EPSILON )
             return AMBIENT;
         res = min( res, SOFTSDHADOWFAC*h/t );
@@ -243,35 +243,35 @@ float shadow2(vec3 ro, vec3 rd)
     return res;
 }
 
-vec3 getNormal2(vec3 p)
+vec3 getNormalPyramids(vec3 p)
 {
     float h = EPSILON;
     return normalize(vec3(
-        dist2(p + vec3(h, 0, 0)) - dist2(p - vec3(h, 0, 0)),
-        dist2(p + vec3(0, h, 0)) - dist2(p - vec3(0, h, 0)),
-        dist2(p + vec3(0, 0, h)) - dist2(p - vec3(0, 0, h))));
+        distPyramids(p + vec3(h, 0, 0)) - distPyramids(p - vec3(h, 0, 0)),
+        distPyramids(p + vec3(0, h, 0)) - distPyramids(p - vec3(0, h, 0)),
+        distPyramids(p + vec3(0, 0, h)) - distPyramids(p - vec3(0, 0, h))));
 }
 
-vec3 lighting2(vec3 pos, vec3 rd, vec3 n)
+vec3 lightingPyramids(vec3 pos, vec3 rd, vec3 n)
 {
-    vec3 light = vec3(max(AMBIENT, dot(n, lightDir2)));  //lambert light with light Color
+    vec3 light = vec3(max(AMBIENT, dot(n, lightDirPyramids)));  //lambert light with light Color
 
     //specular
-    vec3 reflection = normalize(reflect(lightDir2, n));
+    vec3 reflection = normalize(reflect(lightDirPyramids, n));
     vec3 viewDirection = normalize(pos);
     float spec = max(AMBIENT, dot(reflection, viewDirection));
 
     light += pow(spec, SPECULAR);
 
     //light *= shadow(pos, lightDir2);
-    light += ambientOcclusion2(pos, n) * AMBIENT;
+    light += ambientOcclusionPyramids(pos, n) * AMBIENT;
     return light;
 }
 /**************/
 
-vec4 getShader2Color(vec2 resolution, float time)
+vec4 getShaderPyramidsColor(vec2 resolution, float time)
 {
-    shaderTime2 = time;
+    shaderTimePyramids = time;
  
     float tanFov = tan(90.0 / 2.0 * 3.14159 / 180.0) / resolution.x;
     vec2 p = tanFov * (gl_FragCoord.xy * 2.0 - resolution.xy);
@@ -283,15 +283,15 @@ vec4 getShader2Color(vec2 resolution, float time)
 
     // marching and shading
 	int steps = -1;
-    vec4 res = raymarch2(cam2.pos, cam2.dir, steps);    
+    vec4 res = raymarchPyramids(cam2.pos, cam2.dir, steps);    
     vec3 currentCol = vec3(1);
 
     if(res.a==1.0)
     {
-        currentCol = color2;
-        vec3 n = getNormal2(res.xyz);
+        currentCol = colorPyramids;
+        vec3 n = getNormalPyramids(res.xyz);
 
-        currentCol *= lighting2(res.xyz, cam2.dir, n);
+        currentCol *= lightingPyramids(res.xyz, cam2.dir, n);
     }
 //    return vec4(1.0);
 
