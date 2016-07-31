@@ -313,7 +313,7 @@
         </Keyframe>
         <Keyframe>
           <Time>69.83459</Time>
-          <Value>270</Value>
+          <Value>90</Value>
         </Keyframe>
         <Keyframe>
           <Time>88.4085541</Time>
@@ -398,7 +398,7 @@
         </Keyframe>
         <Keyframe>
           <Time>69.83459</Time>
-          <Value>-90</Value>
+          <Value>0</Value>
         </Keyframe>
         <Keyframe>
           <Time>88.4085541</Time>
@@ -463,7 +463,7 @@
         </Keyframe>
         <Keyframe>
           <Time>69.8625946</Time>
-          <Value>720</Value>
+          <Value>0</Value>
         </Keyframe>
         <Keyframe>
           <Time>88.4085541</Time>
@@ -921,40 +921,6 @@
       </Keyframes>
     </Uniform>
     <Uniform>
-      <UniformName>p5Rotation</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>0</Time>
-          <Value>-90</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>62.66</Time>
-          <Value>-90</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>100</Time>
-          <Value>0</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
-      <UniformName>p6Rotation</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>0</Time>
-          <Value>-90</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>62.66</Time>
-          <Value>-90</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>100</Time>
-          <Value>0</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
       <UniformName>p45Translation</UniformName>
       <Keyframes>
         <Keyframe>
@@ -962,8 +928,16 @@
           <Value>3.5</Value>
         </Keyframe>
         <Keyframe>
-          <Time>69.77</Time>
+          <Time>60.75</Time>
           <Value>3.5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>61.1534271</Time>
+          <Value>7</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>69.77</Time>
+          <Value>7</Value>
         </Keyframe>
         <Keyframe>
           <Time>100</Time>
@@ -984,7 +958,7 @@
         </Keyframe>
         <Keyframe>
           <Time>100</Time>
-          <Value>0</Value>
+          <Value>90</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -992,15 +966,75 @@
       <UniformName>p3Rotation</UniformName>
       <Keyframes>
         <Keyframe>
-          <Time>0</Time>
+          <Time>4.2</Time>
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
-          <Time>62.66</Time>
+          <Time>66.22</Time>
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
-          <Time>100</Time>
+          <Time>66.4</Time>
+          <Value>-270</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>66.44</Time>
+          <Value>-270</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>66.56</Time>
+          <Value>-90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>67.5156</Time>
+          <Value>-90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>67.6956</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>67.7356</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>67.8556</Time>
+          <Value>-90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>67.9556</Time>
+          <Value>-90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>68.1556</Time>
+          <Value>-270</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>68.2</Time>
+          <Value>-270</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>68.32</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>68.42</Time>
+          <Value>-90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>68.62</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>68.67</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>68.77</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>104.2</Time>
           <Value>0</Value>
         </Keyframe>
       </Keyframes>
@@ -1013,29 +1047,20 @@
           <Value>-1.5</Value>
         </Keyframe>
         <Keyframe>
+          <Time>60.75</Time>
+          <Value>-1.5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>61.1534271</Time>
+          <Value>-5</Value>
+        </Keyframe>
+        <Keyframe>
           <Time>69.77</Time>
-          <Value>-1.5</Value>
+          <Value>-5</Value>
         </Keyframe>
         <Keyframe>
           <Time>100</Time>
           <Value>-1.5</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
-      <UniformName>p2Rotation</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>0</Time>
-          <Value>180</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>62.66</Time>
-          <Value>180</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>100</Time>
-          <Value>0</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -1047,8 +1072,16 @@
           <Value>7</Value>
         </Keyframe>
         <Keyframe>
-          <Time>69.77</Time>
+          <Time>60.75</Time>
           <Value>7</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>61.1534271</Time>
+          <Value>10.5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>69.77</Time>
+          <Value>10.5</Value>
         </Keyframe>
         <Keyframe>
           <Time>100</Time>
@@ -1061,132 +1094,75 @@
       <Keyframes>
         <Keyframe>
           <Time>0</Time>
+          <Value>-90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>62.02</Time>
+          <Value>-90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>62.2</Time>
+          <Value>-270</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>62.24</Time>
+          <Value>-270</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>62.36</Time>
+          <Value>-90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>63.3156</Time>
+          <Value>-90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>63.4956</Time>
           <Value>90</Value>
         </Keyframe>
         <Keyframe>
-          <Time>62.66</Time>
+          <Time>63.5356</Time>
           <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>63.6556</Time>
+          <Value>-90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>63.7556</Time>
+          <Value>-90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>63.9556</Time>
+          <Value>-270</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>64</Time>
+          <Value>-270</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>64.12</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>64.22</Time>
+          <Value>-90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>64.42</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>64.47</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>64.57</Time>
+          <Value>-90</Value>
         </Keyframe>
         <Keyframe>
           <Time>100</Time>
-          <Value>0</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
-      <UniformName>p1XRotation</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>0</Time>
-          <Value>1</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>193.306</Time>
-          <Value>1</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
-      <UniformName>p2XRotation</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>0</Time>
-          <Value>1</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>193.306</Time>
-          <Value>1</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
-      <UniformName>p3XRotation</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>0</Time>
-          <Value>1</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>193.306</Time>
-          <Value>1</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
-      <UniformName>p4ZRotation</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>0</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>193.306</Time>
-          <Value>0</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
-      <UniformName>p5ZRotation</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>0</Time>
-          <Value>1</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>193.306</Time>
-          <Value>1</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
-      <UniformName>p6XRotation</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>0</Time>
-          <Value>1</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>193.306</Time>
-          <Value>1</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
-      <UniformName>p16YZRotation</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>0</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>193.306</Time>
-          <Value>0</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
-      <UniformName>p23XYRotation</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>0</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>193.306</Time>
-          <Value>0</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
-      <UniformName>p45XYRotation</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>0</Time>
-          <Value>1</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>193.306</Time>
-          <Value>1</Value>
+          <Value>-90</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>

@@ -2,25 +2,12 @@
 
 uniform float iGlobalTime;
 uniform float p1Rotation;
-uniform float p1XRotation;
 uniform float p16Translation;
-uniform float p2Rotation;
-uniform float p2XRotation;
 uniform float p3Rotation;
-uniform float p3XRotation;
 uniform float p23Translation;
 uniform float p4Rotation;
-uniform float p4ZRotation;
 uniform float p45Translation;
-uniform float p5Rotation;
-uniform float p5ZRotation;
-uniform float p6Rotation;
-uniform float p6XRotation;
-uniform float p6ZTranslation;
 
-uniform float p16YZRotation;
-uniform float p23XYRotation;
-uniform float p45XYRotation;
 #define SPECULAR 20
 #define RAD PI / 180.0
 
@@ -91,20 +78,20 @@ float dist(vec3 p)
 	float cubeSize = 3.5;
 	
 	float pyramid1 = sdPyramid((vec4(p,1.0) //back pyramid
-		*translationMatrix(vec3(0.0,2.0,p6ZTranslation)) //line a
+		*translationMatrix(vec3(0.0,2.0,p16Translation)) //line a
 		*rotationMatrix(vec3(1.0,0.0,0.0), p1Rotation*RAD)).xyz //line b
 		,0.5, 3.5, 3.5); //height is 3.5 - 0.5 (because of block under pyramid)
 	float cube1 = udBox(((vec4(p,1.0)
-		*translationMatrix(vec3(0.0,2.0,p6ZTranslation))) //line a
+		*translationMatrix(vec3(0.0,2.0,p16Translation))) //line a
 		*rotationMatrix(vec3(1.0,0.0,0.0), p1Rotation*RAD) //line b
 		*translationMatrix(vec3(0.0,-3.5,0.0))
 		).xyz, vec3(cubeSize));
 	float pyramid6 = sdPyramid((vec4(p,1.0) //front pyramid
-		*translationMatrix(vec3(0.0,2.0,-p6ZTranslation+7)) //line a
+		*translationMatrix(vec3(0.0,2.0,-p16Translation+7)) //line a
 		*rotationMatrix(vec3(1.0,0.0,0.0), -p1Rotation*RAD)).xyz //line b
 		,0.5, 3.5, 3.5);
 	float cube6 = udBox(((vec4(p,1.0)
-		*translationMatrix(vec3(0.0,2.0,-p6ZTranslation+7))) //line a
+		*translationMatrix(vec3(0.0,2.0,-p16Translation+7))) //line a
 		*rotationMatrix(vec3(1.0,0.0,0.0), -p1Rotation*RAD) //line b
 		*translationMatrix(vec3(0.0,-3.5,0.0))
 		).xyz, vec3(cubeSize));
