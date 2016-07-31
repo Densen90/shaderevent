@@ -5,6 +5,7 @@
 
 #include "05_header_twistDice.h"
 #include "06_header_knobs.h"
+#include "07_header_pyramids.h"
 
 
 /******************************************************
@@ -122,7 +123,8 @@ void main()
 			//currentCol = vec4(1,0,0,0);
 		}
 		else if(sideHitShaderSix){
-			currentCol = vec4(1,0.5,0,0);
+			cam.pos = vec3(-6,10.0,-25.0);
+			currentCol = getShaderPyramidsColor(iResolution, cubeRotation);
 		}
 		else
 		{
