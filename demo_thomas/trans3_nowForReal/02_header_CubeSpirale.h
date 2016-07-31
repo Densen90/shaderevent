@@ -10,6 +10,7 @@ vec3 lightDirSpiral = vec3(0.5,0.5,-1);
 uniform float spiralRot;
 float spiralTime;
 vec3 rot2;
+vec2 uv2;
 
 struct Camera
 {
@@ -124,9 +125,11 @@ vec4 getSpiralColor(Camera cam, vec2 uv, vec3 cubeRotation){
 
 	int steps = -1;
 	vec4 res = raymarch2(cam.pos, cam.dir, steps);
-	vec4 color = vec4(0.1,0.2,0.1,1);
+	vec4 color = vec4(0.247, 0.278, 0.729, 1.0);	
+	uv2 = uv-0.5;
+
 	if(res.a ==1){
-		color = vec4(1);
+		color = color = mix(vec4(0.608, 0.780, 0.0  , 1.0), vec4(0.247, 0.278, 0.729, 1.0), abs(uv2.x)) ;
 		vec3 n = getNormal2(res.xyz);
 		color *= max(AMBIENT, dot(n, lightDirSpiral));
 		//color *=shadow(res.xyz,n);

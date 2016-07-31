@@ -18,7 +18,8 @@ uniform float move;
 
 uniform sampler2D tex1;
 
-float cubeRadius5,dotSize5 = cubeSize5/4;
+float cubeRadius5 = 0.25;
+float dotSize5 = 0.25;
 vec4 objColor = vec4(0);
 vec3 rot5;
 
@@ -148,6 +149,7 @@ float chain(vec3 p){
 
 float dist5(vec3 p) { 
     p = rotate5(p, rot5);
+	p = rotate5(p, vec3(0,270,0));
     float rot = move * 50;
     float dots0 = 1000; 
 	float res = 1000;
@@ -158,14 +160,14 @@ float dist5(vec3 p) {
     //float torus = distTorus(pt, vec2(3,1));
 
     vec3 pc = p + vec3(0,2,0);
-    pc = rotate5(pc, vec3(0,0,90));
+    pc = rotate5(pc, vec3(90,0,0));
     float ch = chain(pc+vec3(-1,0,0));
     res = min(ch, min(5000,dices));
     vec3 color = mix(vec3(0.2,0.2,0.8), vec3(0,0.35,0.3),p.y);
     vec3 buttonColor = mix(vec3(0.7,0.7,0.4), vec3(0,0.6,0.6),p0.z);    
     objColor = ( res == ch) ?  vec4(0.3) : objColor;    
 
-	return p.x > 2.5  ? ch : dices;
+	return p.z > 2.5  ? dices : res;
     //return res;
 }
 
@@ -177,11 +179,6 @@ vec3 getNormal5(vec3 p)
         dist5(p + vec3(h, 0, 0)) - dist5(p - vec3(h, 0, 0)),
         dist5(p + vec3(0, h, 0)) - dist5(p - vec3(0, h, 0)),
         dist5(p + vec3(0, 0, h)) - dist5(p - vec3(0, 0, h))));
-}
-
-float calcLight5(vec3 point){
-    vec3 normal = getNormal5(point);  
-    return max(AMBIENT, dot(normal, lightDir5));
 }
 
 vec4 raymarch5(vec3 rayOrigin, vec3 rayDir, out int steps)
