@@ -6,10 +6,11 @@ vec3 lightDir = vec3(0.5,0.5,-1);
 
 uniform float tresh;
 
+uniform float iGlobalTime;
+
 vec4 objColor = vec4(0);
 
 uniform float divide;
-uniform float redMul;
 uniform float rep;
 uniform float camPosY;
 uniform float camPosZ;
@@ -93,6 +94,8 @@ float dist(vec3 p){
 
 	//float rot = iGlobalTime * 50;
 
+	float dots0 = 10000;	
+	float res = 1000;
 	/*
 	float cube0 = dice(p0, dots0);
 	vec3 p1 = rotate(p + vec3(6,1,0), vec3(90,0,0));
@@ -106,14 +109,11 @@ float dist(vec3 p){
 
 	
 	// */
-	float dots0 = 10000;	
-	float res = 1000;
 	if(distance(p, vec3(0,0,0)) > tresh){
 		return 0;
 	}
 	vec3 p0 = rotate(p, vec3(p.y/divide));
 	float dices = dice(repeat(p0, vec3(rep)), dots0, res);
-	return dices;
 
 	
 	//float dice = dice(p0, dots0);
@@ -123,13 +123,14 @@ float dist(vec3 p){
 	
 	//objColor = (res == plane) ?  planeColor : objColor;	
 	
+	return dices;
 }
 
 
 void main(){
 	vec2 p = getScreenPos(90);
 	Camera cam;
-	cam.pos = vec3(0,camPosY,camPosZ);
+	cam.pos = vec3(0,iGlobalTime,0);
 	cam.dir = normalize(vec3(p.x, p.y, 1));
 	int steps = -1;
 	vec4 res = raymarch(cam.pos, cam.dir, steps);
@@ -139,8 +140,7 @@ void main(){
 		vec3 n = getNormal(res.xyz);
 		color *= max(AMBIENT, dot(n, lightDir));
 		//color *=shadow(res.xyz,n);
-		color +=ambientOcclusion(res.xyz,n) * AMBIENT;
-		color *=1;
+		//color +=ambientOcclusion(res.xyz,n) * AMBIENT;
 	}
 	gl_FragColor = color;
 

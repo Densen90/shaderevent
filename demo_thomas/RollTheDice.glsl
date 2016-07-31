@@ -12,9 +12,11 @@ in vec2 uv;
 
 uniform float cubeSize;
 uniform float camPosZ;
+// try different cams ??
 
 float cubeRadius = cubeSize/4;
 float dotSize = cubeRadius;
+uniform float chainMove;
 
 /*
  * chain in z position, camera flight in z
@@ -98,16 +100,20 @@ float dice(vec3 p, float dots, out float res) {
 }
 
 float chain(vec3 p){
-	p.y += iGlobalTime * 2;	
+    //chain move ... needed? or just move camera?
+    // YES! needed to twist the dice but dont move it ...
+	p.y += chainMove;	
 	vec3 pt = p;
 	pt.x += (uv.x * 2);
     pt = rotate(pt, vec3(90,0,0));
-	pt.y += sin(iGlobalTime)/3;
+    //swing one 
+	//pt.y += sin(iGlobalTime)/3;
     float t2 = distTorus(repeat(pt + vec3(0,0,0), vec3(0,0,3)),vec2(1,0.2));
 	vec3 pt2 = p;
 	pt2.x += uv.x * 2;
     pt2 = rotate(pt2, vec3(90,45,0));
-	pt2.y += sin(iGlobalTime)/3;
+    // swing two
+	//pt2.y += sin(iGlobalTime)/3;
     float t3 = distTorus(repeat(pt2 - vec3(0,0,1.5), vec3(0,0,3)),vec2(1,0.2));	
     return min(t2,t3);
 }

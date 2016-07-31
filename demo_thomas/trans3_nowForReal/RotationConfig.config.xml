@@ -60,6 +60,10 @@
           <Time>31.9890022</Time>
           <Value>0</Value>
         </Keyframe>
+        <Keyframe>
+          <Time>116.062859</Time>
+          <Value>0</Value>
+        </Keyframe>
       </Keyframes>
     </Uniform>
     <Uniform>
@@ -143,23 +147,7 @@
           <Value>-0.994354</Value>
         </Keyframe>
         <Keyframe>
-          <Time>24.43</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>26.36</Time>
-          <Value>-2</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>26.506</Time>
-          <Value>-1.904803</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>27.74</Time>
-          <Value>-1.100196</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>29.42733</Time>
+          <Time>26.19</Time>
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
@@ -175,23 +163,15 @@
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
-          <Time>46.69</Time>
-          <Value>-5.985816</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>49.409</Time>
+          <Time>52.4106674</Time>
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
-          <Time>52.52858</Time>
-          <Value>-5</Value>
+          <Time>56.78477</Time>
+          <Value>-7.67</Value>
         </Keyframe>
         <Keyframe>
-          <Time>61.19</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>65.45339</Time>
+          <Time>61.1235237</Time>
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
@@ -236,16 +216,12 @@
           <Value>9.943541</Value>
         </Keyframe>
         <Keyframe>
-          <Time>24.43</Time>
+          <Time>26.19</Time>
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
           <Time>34.94</Time>
           <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>34.95</Time>
-          <Value>-14.88571</Value>
         </Keyframe>
         <Keyframe>
           <Time>35.433</Time>
@@ -260,32 +236,12 @@
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
-          <Time>40.75241</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>42.363</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
           <Time>43.6046257</Time>
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
-          <Time>46.47467</Time>
-          <Value>90</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>48.1229973</Time>
-          <Value>159.6848</Value>
-        </Keyframe>
-        <Keyframe>
           <Time>51.5159073</Time>
           <Value>270</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>55.763</Time>
-          <Value>160.2576</Value>
         </Keyframe>
         <Keyframe>
           <Time>58.482</Time>
@@ -296,15 +252,7 @@
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
-          <Time>61.19</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
           <Time>65.45339</Time>
-          <Value>270</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>69.83459</Time>
           <Value>270</Value>
         </Keyframe>
         <Keyframe>
@@ -337,7 +285,7 @@
           <Value>105</Value>
         </Keyframe>
         <Keyframe>
-          <Time>24.43</Time>
+          <Time>26.19</Time>
           <Value>90</Value>
         </Keyframe>
         <Keyframe>
@@ -350,23 +298,11 @@
         </Keyframe>
         <Keyframe>
           <Time>43.6657028</Time>
-          <Value>-180</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>46.47467</Time>
-          <Value>270</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>48.1229973</Time>
-          <Value>270</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>51.5159073</Time>
-          <Value>0</Value>
+          <Value>-90</Value>
         </Keyframe>
         <Keyframe>
           <Time>55.763</Time>
-          <Value>128.956</Value>
+          <Value>-90</Value>
         </Keyframe>
         <Keyframe>
           <Time>58.482</Time>
@@ -377,15 +313,7 @@
           <Value>-180</Value>
         </Keyframe>
         <Keyframe>
-          <Time>61.19</Time>
-          <Value>-180</Value>
-        </Keyframe>
-        <Keyframe>
           <Time>65.45339</Time>
-          <Value>-90</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>69.83459</Time>
           <Value>-90</Value>
         </Keyframe>
         <Keyframe>
@@ -418,16 +346,12 @@
           <Value>2.38645</Value>
         </Keyframe>
         <Keyframe>
-          <Time>24.43</Time>
+          <Time>26.19</Time>
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
           <Time>26.36</Time>
           <Value>19.81379</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>27.74</Time>
-          <Value>10.89952</Value>
         </Keyframe>
         <Keyframe>
           <Time>29.42733</Time>
@@ -464,23 +388,15 @@
       <Keyframes>
         <Keyframe>
           <Time>0</Time>
-          <Value>0</Value>
+          <Value>50</Value>
         </Keyframe>
         <Keyframe>
-          <Time>8.457001</Time>
-          <Value>8.457001</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>10.2660007</Time>
-          <Value>10.2660007</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>11.85</Time>
-          <Value>11.85</Value>
+          <Time>25.6737919</Time>
+          <Value>50</Value>
         </Keyframe>
         <Keyframe>
           <Time>100</Time>
-          <Value>100</Value>
+          <Value>50</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -492,20 +408,16 @@
           <Value>50</Value>
         </Keyframe>
         <Keyframe>
-          <Time>8.457001</Time>
-          <Value>54.2285</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>10.2660007</Time>
-          <Value>55.133</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>11.85</Time>
-          <Value>55.925</Value>
-        </Keyframe>
-        <Keyframe>
           <Time>100</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>176.692322</Time>
           <Value>100</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>192.523178</Time>
+          <Value>150</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -513,24 +425,44 @@
       <UniformName>spiralRot</UniformName>
       <Keyframes>
         <Keyframe>
-          <Time>67.69848</Time>
-          <Value>60.12435</Value>
+          <Time>36.9989662</Time>
+          <Value>180</Value>
         </Keyframe>
         <Keyframe>
-          <Time>74.2011261</Time>
-          <Value>90</Value>
+          <Time>42.7979736</Time>
+          <Value>60</Value>
         </Keyframe>
         <Keyframe>
-          <Time>78.60852</Time>
-          <Value>-180</Value>
+          <Time>43.68327</Time>
+          <Value>20</Value>
         </Keyframe>
         <Keyframe>
-          <Time>82.9594955</Time>
-          <Value>-90</Value>
+          <Time>45.40531</Time>
+          <Value>45</Value>
         </Keyframe>
         <Keyframe>
-          <Time>87.3174744</Time>
-          <Value>270</Value>
+          <Time>45.8247</Time>
+          <Value>120</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>47.7356834</Time>
+          <Value>95</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>48.0329857</Time>
+          <Value>15</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>49.9503365</Time>
+          <Value>45</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>50.20063</Time>
+          <Value>125</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>52.3684044</Time>
+          <Value>160</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -745,31 +677,11 @@
           <Value>24.09</Value>
         </Keyframe>
         <Keyframe>
-          <Time>4.54637146</Time>
-          <Value>24.09</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>8.4145565</Time>
-          <Value>24.09</Value>
-        </Keyframe>
-        <Keyframe>
           <Time>24.0856972</Time>
           <Value>24.09</Value>
         </Keyframe>
         <Keyframe>
-          <Time>29.160759</Time>
-          <Value>29.6032944</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>35.9595375</Time>
-          <Value>36.9891472</Value>
-        </Keyframe>
-        <Keyframe>
           <Time>52.5387726</Time>
-          <Value>55</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>58.85571</Time>
           <Value>55</Value>
         </Keyframe>
       </Keyframes>
@@ -897,6 +809,10 @@
         <Keyframe>
           <Time>43.7088661</Time>
           <Value>11.3056154</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>116.062859</Time>
+          <Value>23.2724514</Value>
         </Keyframe>
         <Keyframe>
           <Time>193.306</Time>
@@ -1609,6 +1525,185 @@
         </Keyframe>
       </Keyframes>
     </Uniform>
+    <Uniform>
+      <UniformName>divide</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>43.68327</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>45.40531</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>45.8247</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>45.9031334</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>47.7356834</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>48.0329857</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>48.03939</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>50.2078476</Time>
+          <Value>1</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>193.306</Time>
+          <Value>1</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>rep</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>8.63</Time>
+          <Value>5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>8.646439</Time>
+          <Value>2.4</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>17.39888</Time>
+          <Value>2.4</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>17.39918</Time>
+          <Value>5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>21.54946</Time>
+          <Value>5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>21.86522</Time>
+          <Value>2.4</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>25.92379</Time>
+          <Value>2.4</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>26.2185974</Time>
+          <Value>5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>30.2792435</Time>
+          <Value>5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>30.6042786</Time>
+          <Value>2.4</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>34.94686</Time>
+          <Value>2.4</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>34.97088</Time>
+          <Value>5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>43.0723152</Time>
+          <Value>5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>56.78358</Time>
+          <Value>2.7495985</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>61.15182</Time>
+          <Value>2.5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>69.83521</Time>
+          <Value>5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>78.59759</Time>
+          <Value>2.5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>89.87084</Time>
+          <Value>2.4</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>92.60201</Time>
+          <Value>2.359</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>tresh</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>3.5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>19.9886742</Time>
+          <Value>3.5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>32.698513</Time>
+          <Value>66</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>43.68327</Time>
+          <Value>66</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>45.40531</Time>
+          <Value>66</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>45.8247</Time>
+          <Value>66</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>45.9031334</Time>
+          <Value>66</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>47.7356834</Time>
+          <Value>66</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>48.0329857</Time>
+          <Value>66</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>48.03939</Time>
+          <Value>66</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>50.2078476</Time>
+          <Value>66</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
   </Uniforms>
   <Tracks>
     <Track>
@@ -1623,8 +1718,8 @@
           <ShaderPath>.\cube_transition.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>24.42</Time>
-          <ShaderPath>.\RollTheDice.glsl</ShaderPath>
+          <Time>26.19</Time>
+          <ShaderPath>.\DiceUniverse.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
           <Time>34.95</Time>
@@ -1654,21 +1749,27 @@
           <Time>87.31</Time>
           <ShaderPath>.\cube_transition.glsl</ShaderPath>
         </ShaderKeyframe>
-		<ShaderKeyframe>
+        <ShaderKeyframe>
           <Time>96.13</Time>
           <ShaderPath>.\Shader_DemoEvent.glsl</ShaderPath>
         </ShaderKeyframe>
-		<ShaderKeyframe>
-          <Time>131.00</Time>
+        <ShaderKeyframe>
+          <Time>131</Time>
           <ShaderPath>.\cube_transition.glsl</ShaderPath>
         </ShaderKeyframe>
-		<ShaderKeyframe>
+        <ShaderKeyframe>
           <Time>139.84</Time>
           <ShaderPath>.\Second_Shader_Backup.glsl</ShaderPath>
+        </ShaderKeyframe>
+        <ShaderKeyframe>
+          <Time>167.587265</Time>
+          <ShaderPath>.\RollTheDice.glsl</ShaderPath>
         </ShaderKeyframe>
       </ShaderKeyframes>
     </Track>
   </Tracks>
-  <Textures />
+  <Textures>
+    <string>..\dice2.png</string>
+  </Textures>
   <SoundFileName>.\ThomasTrack.mp3</SoundFileName>
 </DemoData2>

@@ -11,8 +11,8 @@ uniform sampler2D tex1;
 
 in vec2 uv;
 
-float cubeSize = 3;
-uniform float camPosZ;
+float cubeSize = 1;
+uniform float camPosZ, move;
 
 float cubeRadius = cubeSize/4;
 float dotSize = cubeRadius;
@@ -36,8 +36,6 @@ float oneDot(vec3 p, vec3 offset, vec3 cutPlane){
     float sphere = distSphere(p + offset, dotSize);
     return max(cut,sphere);
 }
-
-
 
 float addDots(in vec3 p) {  
     float one = oneDot(p, vec3(0,cubeSize + cubeRadius,0), vec3(1,0.0001,1));
@@ -68,7 +66,7 @@ float addDots(in vec3 p) {
 
     six = min(six,oneDot(p, vec3(-cubeSize/2 - cubeSize/10,-cubeSize - cubeRadius,-cubeSize/2 - cubeSize/10), vec3(1,0.0001,1)));
     six = min(six,oneDot(p, vec3(cubeSize/2 - cubeSize/10,-cubeSize - cubeRadius,-cubeSize/2 - cubeSize/10), vec3(1,0.0001,1)));
-
+    /*
     float seven = oneDot(p, vec3(cubeSize/2 - cubeSize/2,-cubeSize - cubeRadius,-cubeSize/2 - cubeSize/4), vec3(1,0.0001,1));
     seven = min(seven,oneDot(p, vec3(cubeSize/2 + cubeSize/4,-cubeSize - cubeRadius,(-cubeSize/2 - cubeSize/3)/2.6), vec3(1,0.0001,1)));
     seven = min(seven,oneDot(p, vec3(-cubeSize/2 - cubeSize/4,-cubeSize - cubeRadius,(-cubeSize/2 - cubeSize/3)/2.6), vec3(1,0.0001,1)));
@@ -78,7 +76,7 @@ float addDots(in vec3 p) {
     seven = min(seven,oneDot(p, vec3(cubeSize/2 + cubeSize/4,-cubeSize - cubeRadius,(cubeSize/2 + cubeSize/3)/2.6), vec3(1,0.0001,1)));
     seven = min(seven,oneDot(p, vec3(-cubeSize/2 - cubeSize/5,-cubeSize - cubeRadius,(cubeSize/2 + cubeSize/3)/2.6), vec3(1,0.0001,1)));
     seven = min(seven,oneDot(p, vec3(cubeSize/2 - cubeSize/2,-cubeSize - cubeRadius,cubeSize/2 + cubeSize/4), vec3(1,0.0001,1)));
-
+    */
 
     float dots = min(one,min(two,min(three, min(four, min(five, six))))); 
 //  objColor = (res == dots) ?  vec4(0) : vec4(1);
@@ -86,7 +84,7 @@ float addDots(in vec3 p) {
 }
 
 float dice(vec3 p, float dots, out float res) {
-	float cube = distRoundBox(p, vec3(cubeSize),cubeRadius);
+	float cube = distRoundBox(p, vec3(cubeSize),0.25);
 	float dots1 = addDots(p);
 	dots = min(dots,dots1);
 	res = min(cube,dots);
@@ -116,7 +114,7 @@ float chain(vec3 p){
 float dist(vec3 p){
     //float plane = distPlane(p + vec3(0,4,0), vec3(0,1,0));
 
-    float rot = iGlobalTime * 50;
+    float rot = move * 50;
     float dots0 = 1000; 
 	float res = 1000;
 	

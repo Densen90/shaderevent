@@ -2,15 +2,21 @@
 #include "01_header_gridboxes.h"
 #include "02_header_CubeSpirale.h"
 #include "03_header_diamond.h"
-
+#include "04_header_dices.h"
 #include "05_header_twistDice.h"
 #include "06_header_knobs.h"
 #include "07_header_pyramids.h"
 
 
 /******************************************************
-	THE CALCULATIONS FOR THE SINGLE CUBE // //#include "04_header_dices.h"
+	THE CALCULATIONS FOR THE SINGLE CUBE // //#include ""
 *******************************************************/
+vec4 col1 = vec4(0.878, 0.239, 0.659, 1.0);
+vec4 col2 = vec4(0.247, 0.278, 0.729, 1.0);
+vec4 col3 = vec4(0.0  , 0.565, 0.671, 1.0);
+vec4 col4 = vec4(0.0  , 0.690, 0.553, 1.0);
+vec4 col5 = vec4(0.608, 0.780, 0.0  , 1.0);
+
 
 in vec2 uv;
 
@@ -85,7 +91,7 @@ void main()
 	vec2 p = getScreenPos(60.0);
 
 	Camera cam;
-	cam.pos = vec3(mainCamX, mainCamY, mainCamZ);
+	cam.pos = vec3(0, 0, mainCamZ);
 	cam.dir = normalize(vec3( p.x, p.y, 1 ));
 
 	int steps = -1;
@@ -95,15 +101,21 @@ void main()
 	vec4 currentCol = vec4(0.);
 	cam.pos = vec3(0, 0, -25);
 
+	p = getScreenPos(90.0);
+	Camera cam2;
+	cam2.pos = vec3(0, 0, 0);
+	cam2.dir = normalize(vec3( p.x, p.y, 1 ));
+
 	//cam.pos = vec3(0,0,-10);
 	//cam.dir = normalize(vec3(p.x, p.y, 1));
 	if(res.a==1.0)	{
 		currentCol = color;
 		if(sideHitShaderOne){			
-			currentCol =  getGridCubeColor(gl_FragCoord.xy, iResolution, iGlobalTime, res.xyz);			 
+			//currentCol =  getGridCubeColor(gl_FragCoord.xy, iResolution, iGlobalTime, res.xyz);			 
 				
 		}
-		else if(sideHitShaderTwo){
+		else if(sideHitShaderSix){
+			cam.pos = vec3(0,0,-17);
 			currentCol = getTwistDiceColor(cam, uv, cubeRotation);
 			//currentCol = vec4(1,0,0,0);
 		}
@@ -122,12 +134,18 @@ void main()
 			currentCol = getKnobsColor(iResolution, cubeRotation);
 			//currentCol = vec4(1,0,0,0);
 		}
+<<<<<<< HEAD
+		else if(sideHitShaderTwo){
+			cam.pos = vec3(0,0,0);
+			currentCol = getDiceUniverseColor(cam2, uv, cubeRotation);
+			//currentCol = vec4(1);
+=======
 		else if(sideHitShaderSix){
 			cam.pos = vec3(-6,10.0,-25.0);
 			currentCol = getShaderPyramidsColor(iResolution, cubeRotation);
+>>>>>>> d5328d5bf83c853bbeb83c0e8db3fea32e1d70cb
 		}
-		else
-		{
+		else {
 			currentCol = vec4(lighting(res.xyz, cam.dir, getNormal(res.xyz)), 0);
 		}
 	}
