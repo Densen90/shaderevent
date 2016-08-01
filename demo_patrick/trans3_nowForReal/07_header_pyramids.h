@@ -16,7 +16,7 @@ uniform float p45Translation;
 #define RAD PI / 180.0
 
 vec3 lightDirPyramids = normalize(vec3(0.8,0.8,-1));
-vec3 colorPyramids = vec3(1.0,0.5,0.5);
+vec3 globalColor = vec3(1);
 float shaderTimePyramids;
 
 struct Camera
@@ -55,6 +55,36 @@ mat4 rotationMatrix(vec3 axis, float angle)
                 oc * axis.x * axis.y + axis.z * s,  oc * axis.y * axis.y + c,           oc * axis.y * axis.z - axis.x * s,  0.0,
                 oc * axis.z * axis.x - axis.y * s,  oc * axis.y * axis.z + axis.x * s,  oc * axis.z * axis.z + c,           0.0,
                 0.0,                                0.0,                                0.0,                                1.0);
+}
+mat4 lookAt(vec3 eye, vec3 center, vec3 up)
+{
+    vec3 zaxis = normalize(center - eye);
+    vec3 xaxis = normalize(cross(up, zaxis));
+    vec3 yaxis = cross(zaxis, xaxis);
+
+    mat4 matrix;
+    //Column Major
+    matrix[0][0] = xaxis.x;
+    matrix[1][0] = yaxis.x;
+    matrix[2][0] = zaxis.x;
+    matrix[3][0] = 0;
+
+    matrix[0][1] = xaxis.y;
+    matrix[1][1] = yaxis.y;
+    matrix[2][1] = zaxis.y;
+    matrix[3][1] = 0;
+
+    matrix[0][2] = xaxis.z;
+    matrix[1][2] = yaxis.z;
+    matrix[2][2] = zaxis.z;
+    matrix[3][2] = 0;
+
+    matrix[0][3] = -dot(xaxis, eye);
+    matrix[1][3] = -dot(yaxis, eye);
+    matrix[2][3] = -dot(zaxis, eye);
+    matrix[3][3] = 1;
+
+    return matrix;
 }
 mat4 translationMatrix(vec3 delta)
 {
@@ -170,11 +200,16 @@ float distPyramids(vec3 p)
     float pyramid6Subtracted = opI(cube6, pyramid6);
     float pyramid5Subtracted = opI(cube5, pyramid5);
 
-    float a = min(pyramid1Subtracted, pyramid2Subtracted);
-    float b = min(a, pyramid3Subtracted);
-    float c = min(b, pyramid4Subtracted);
-    float d = min(c, pyramid5Subtracted);
-    float e = min(d, pyramid6Subtracted);
+    float a = min(pyramid1Subtracted, pyramid6Subtracted);
+    globalColor = vec3(0,0.69,0.55);
+    float b = min(a, pyramid2Subtracted);
+    globalColor = b < a ? vec3(0,0.56,0.67) : globalColor;
+    float c = min(b, pyramid3Subtracted);
+    globalColor = c < b ? vec3(0,0.56,0.67) : globalColor;
+    float d = min(c, pyramid4Subtracted);
+    globalColor = d < c ? vec3(0.25,0.28,0.73) : globalColor;
+    float e = min(d, pyramid5Subtracted);
+    globalColor = e < d ? vec3(0.25,0.28,0.73) : globalColor;
 
     return e;
 }
@@ -259,17 +294,18 @@ vec4 getShaderPyramidsColor(vec2 resolution, float time)
 
     /*cam.pos = vec3(0,0.0,-20.0);
     cam.dir = normalize(vec4( p.x, p.y, 1,1 )*(rotationMatrix(vec3(1.0,0.0,0.0), 0.0))).xyz;*/
-    cam2.pos = vec3(-6,10.0,-25.0);
-    cam2.dir = normalize(vec4( p.x, p.y, 1,1 )*(rotationMatrix(vec3(1.0,1.0,0.0), 0.6))).xyz;
+    cam2.pos = vec3(-20,20.0,-25.0);
+    cam2.dir = normalize(vec3( p.x, p.y, 1));
+    cam2.dir = (lookAt(cam2.pos, vec3(0,-3,0), vec3(0.0,1.0,0.0))*vec4(cam2.dir.xyz, 1.0)).xyz;
 
     // marching and shading
 	int steps = -1;
     vec4 res = raymarchPyramids(cam2.pos, cam2.dir, steps);    
-    vec3 currentCol = vec3(1);
+    vec3 currentCol = vec3(0.61, 0.78, 0);
 
     if(res.a==1.0)
     {
-        currentCol = colorPyramids;
+        currentCol = globalColor;
         vec3 n = getNormalPyramids(res.xyz);
 
         currentCol *= lightingPyramids(res.xyz, cam2.dir, n);
