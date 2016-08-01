@@ -7,14 +7,14 @@ uniform float rotatePY;
 uniform float rotatePZ;
 
 //Camera Position
-uniform float knobsCamPosX = 10.0;
-uniform float knobsCamPosY = 25.0;
-uniform float knobsCamPosZ = 10.0;
+uniform float iCamPosX = 10.0;
+uniform float iCamPosY =  .0;
+uniform float iCamPosZ = 10.0;
 
 //Camera Rotation
-uniform float knobsCamRotX = 90.0;
-uniform float knobsCamRotY = 90.0;
-uniform float knobsCamRotZ = 90.0;
+uniform float iCamRotX = 90.0;
+uniform float iCamRotY = 90.0;
+uniform float iCamRotZ = 90.0;
 
 const float toRadian = PI/180.0;
 const float glowEpsiolon = 0.1;
@@ -27,7 +27,7 @@ vec3 glow = vec3(0);
 
 vec3 ColorScene(vec3 p)
 {
-	vec3 color = 0.1 *(sin(abs(p)) - p);
+	vec3 color = mix(vec3(0.878, 0.239, 0.658), vec3(0.607, 0.780, 0.0), p.x /10 );
 	return color;
 }
 vec3 Repeat(vec3 P, vec3 b)
@@ -72,8 +72,8 @@ void main()
 	vec2 p = getScreenPos(45);
 
 	Camera cam;
-	cam.pos = vec3(knobsCamPosX, knobsCamPosY, knobsCamPosZ);
-	cam.dir = rotate(normalize(vec3(p.x, p.y, 1.0)), vec3(knobsCamRotX, knobsCamRotY, knobsCamRotZ));
+	cam.pos = vec3(iCamPosX, iCamPosY, iCamPosZ);
+	cam.dir = rotate(normalize(vec3(p.x, p.y, 1.0)), vec3(iCamRotX, iCamRotY, iCamRotZ));
 
 	int steps = -1;
 

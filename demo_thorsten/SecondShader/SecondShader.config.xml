@@ -2,19 +2,6 @@
 <DemoData2 xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Uniforms>
     <Uniform>
-      <UniformName>iCamPosX</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>0</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>8.4145565</Time>
-          <Value>0</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
       <UniformName>iCamRotX</UniformName>
       <Keyframes>
         <Keyframe>
@@ -107,17 +94,8 @@
       </Keyframes>
     </Uniform>
     <Uniform>
-      <UniformName>iCamRotZ</UniformName>
-      <Keyframes>
-        <Keyframe>
-          <Time>24.0856972</Time>
-          <Value>0</Value>
-        </Keyframe>
-      </Keyframes>
-    </Uniform>
-    <Uniform>
       <UniformName>rotatePX</UniformName>
-      <Keyframes>
+      <Keyframes>    
         <Keyframe>
           <Time>0</Time>
           <Value>240</Value>

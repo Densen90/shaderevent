@@ -230,6 +230,18 @@
           <Time>97.50668</Time>
           <Value>0</Value>
         </Keyframe>
+        <Keyframe>
+          <Time>131.122131</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>135.42</Time>
+          <Value>-5</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>139.691711</Time>
+          <Value>0</Value>
+        </Keyframe>
       </Keyframes>
     </Uniform>
     <Uniform>
@@ -335,6 +347,18 @@
           <Time>97.50668</Time>
           <Value>0</Value>
         </Keyframe>
+        <Keyframe>
+          <Time>131.122131</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>135.42</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>139.691711</Time>
+          <Value>270</Value>
+        </Keyframe>
       </Keyframes>
     </Uniform>
     <Uniform>
@@ -424,6 +448,18 @@
           <Time>97.50668</Time>
           <Value>180</Value>
         </Keyframe>
+        <Keyframe>
+          <Time>131.122131</Time>
+          <Value>180</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>135.42</Time>
+          <Value>180</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>139.691711</Time>
+          <Value>0</Value>
+        </Keyframe>
       </Keyframes>
     </Uniform>
     <Uniform>
@@ -495,6 +531,18 @@
         </Keyframe>
         <Keyframe>
           <Time>97.50668</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>131.122131</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>135.42</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>139.691711</Time>
           <Value>0</Value>
         </Keyframe>
       </Keyframes>
@@ -768,11 +816,11 @@
       <UniformName>iCamPosY</UniformName>
       <Keyframes>
         <Keyframe>
-          <Time>0</Time>
+          <Time>119.44</Time>
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
-          <Time>24.0856972</Time>
+          <Time>143.5257</Time>
           <Value>-40</Value>
         </Keyframe>
       </Keyframes>
@@ -781,35 +829,35 @@
       <UniformName>iCamRotY</UniformName>
       <Keyframes>
         <Keyframe>
-          <Time>0</Time>
+          <Time>119.44</Time>
           <Value>24.09</Value>
         </Keyframe>
         <Keyframe>
-          <Time>4.54637146</Time>
+          <Time>123.986374</Time>
           <Value>24.09</Value>
         </Keyframe>
         <Keyframe>
-          <Time>8.4145565</Time>
+          <Time>127.854553</Time>
           <Value>24.09</Value>
         </Keyframe>
         <Keyframe>
-          <Time>24.0856972</Time>
+          <Time>143.5257</Time>
           <Value>24.09</Value>
         </Keyframe>
         <Keyframe>
-          <Time>29.160759</Time>
-          <Value>29.6032944</Value>
+          <Time>148.600754</Time>
+          <Value>29.60329</Value>
         </Keyframe>
         <Keyframe>
-          <Time>35.9595375</Time>
-          <Value>36.9891472</Value>
+          <Time>155.399536</Time>
+          <Value>36.98915</Value>
         </Keyframe>
         <Keyframe>
-          <Time>52.5387726</Time>
+          <Time>171.978775</Time>
           <Value>55</Value>
         </Keyframe>
         <Keyframe>
-          <Time>58.85571</Time>
+          <Time>178.295715</Time>
           <Value>55</Value>
         </Keyframe>
       </Keyframes>
@@ -818,11 +866,11 @@
       <UniformName>iCamPosZ</UniformName>
       <Keyframes>
         <Keyframe>
-          <Time>0</Time>
+          <Time>119.44</Time>
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
-          <Time>24.0856972</Time>
+          <Time>143.5257</Time>
           <Value>50</Value>
         </Keyframe>
       </Keyframes>
@@ -840,27 +888,27 @@
       <UniformName>rotatePX</UniformName>
       <Keyframes>
         <Keyframe>
-          <Time>0</Time>
+          <Time>123.306</Time>
           <Value>240</Value>
         </Keyframe>
         <Keyframe>
-          <Time>4.54637146</Time>
-          <Value>253.907318</Value>
+          <Time>127.546371</Time>
+          <Value>253.9073</Value>
         </Keyframe>
         <Keyframe>
-          <Time>8.4145565</Time>
-          <Value>265.740082</Value>
+          <Time>131.4146</Time>
+          <Value>265.7401</Value>
         </Keyframe>
         <Keyframe>
-          <Time>29.160759</Time>
-          <Value>329.202576</Value>
+          <Time>152.1608</Time>
+          <Value>329.2026</Value>
         </Keyframe>
         <Keyframe>
-          <Time>35.9595375</Time>
+          <Time>158.9595</Time>
           <Value>350</Value>
         </Keyframe>
         <Keyframe>
-          <Time>58.85571</Time>
+          <Time>180.8557</Time>
           <Value>580</Value>
         </Keyframe>
       </Keyframes>
@@ -869,27 +917,27 @@
       <UniformName>rotatePY</UniformName>
       <Keyframes>
         <Keyframe>
-          <Time>0</Time>
+          <Time>153.306</Time>
           <Value>120</Value>
         </Keyframe>
         <Keyframe>
-          <Time>4.54637146</Time>
-          <Value>126.953659</Value>
+          <Time>157.5464</Time>
+          <Value>126.9537</Value>
         </Keyframe>
         <Keyframe>
-          <Time>8.4145565</Time>
-          <Value>132.870041</Value>
+          <Time>161.4146</Time>
+          <Value>132.87</Value>
         </Keyframe>
         <Keyframe>
-          <Time>29.160759</Time>
-          <Value>164.601288</Value>
+          <Time>182.9595</Time>
+          <Value>164.6013</Value>
         </Keyframe>
         <Keyframe>
-          <Time>35.9595375</Time>
+          <Time>188.9595</Time>
           <Value>175</Value>
         </Keyframe>
         <Keyframe>
-          <Time>58.85571</Time>
+          <Time>210.8557</Time>
           <Value>255</Value>
         </Keyframe>
       </Keyframes>
@@ -898,31 +946,27 @@
       <UniformName>rotatePZ</UniformName>
       <Keyframes>
         <Keyframe>
-          <Time>0</Time>
+          <Time>123.306</Time>
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
-          <Time>4.54637146</Time>
-          <Value>5.68935871</Value>
+          <Time>127.546371</Time>
+          <Value>5.689359</Value>
         </Keyframe>
         <Keyframe>
-          <Time>8.4145565</Time>
-          <Value>10.5300312</Value>
+          <Time>131.4146</Time>
+          <Value>10.53003</Value>
         </Keyframe>
         <Keyframe>
-          <Time>29.160759</Time>
-          <Value>36.4919624</Value>
+          <Time>152.1608</Time>
+          <Value>36.49196</Value>
         </Keyframe>
         <Keyframe>
-          <Time>35.9595375</Time>
+          <Time>158.9595</Time>
           <Value>45</Value>
         </Keyframe>
         <Keyframe>
-          <Time>58.85571</Time>
-          <Value>0</Value>
-        </Keyframe>
-        <Keyframe>
-          <Time>193.306</Time>
+          <Time>180.8557</Time>
           <Value>0</Value>
         </Keyframe>
       </Keyframes>
@@ -2014,6 +2058,82 @@
         <Keyframe>
           <Time>130.984634</Time>
           <Value>50</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>knobsCamPosY</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>193.306</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>200</Time>
+          <Value>-40</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>knobsCamPosZ</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>117.0857</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>193.306</Time>
+          <Value>0</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>knobsCamRotX</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>193.306</Time>
+          <Value>24.09</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>197.306</Time>
+          <Value>45</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>211.306</Time>
+          <Value>24.09</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>217.0857</Time>
+          <Value>45</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>222.160767</Time>
+          <Value>29.6032944</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>228.959534</Time>
+          <Value>36.9891472</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>knobsCamRotY</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>193.306</Time>
+          <Value>24.09</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>198.306</Time>
+          <Value>29.6032944</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>200.306</Time>
+          <Value>36.9891472</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>214.538773</Time>
+          <Value>55</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
