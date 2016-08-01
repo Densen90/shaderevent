@@ -15,6 +15,9 @@ uniform float p45Translation;
 #define SOFTSDHADOWFAC 2.0
 #define RAD PI / 180.0
 
+const float glowEpsiolon = 0.2;
+
+vec3 glowPyramids = vec3(0);
 vec3 lightDirPyramids = normalize(vec3(0.8,0.8,-1));
 vec3 globalColor = vec3(1);
 float shaderTimePyramids;
@@ -207,9 +210,9 @@ float distPyramids(vec3 p)
     float c = min(b, pyramid3Subtracted);
     globalColor = c < b ? vec3(0,0.56,0.67) : globalColor;
     float d = min(c, pyramid4Subtracted);
-    globalColor = d < c ? vec3(0.25,0.28,0.73) : globalColor;
+    globalColor = d < c ?    vec3(0.61, 0.78, 0) : globalColor;
     float e = min(d, pyramid5Subtracted);
-    globalColor = e < d ? vec3(0.25,0.28,0.73) : globalColor;
+    globalColor = e < d ? vec3(0.61, 0.78, 0) : globalColor;
 
     return e;
 }
@@ -217,6 +220,7 @@ float distPyramids(vec3 p)
 vec4 raymarchPyramids(vec3 rayOrigin, vec3 rayDir, out int steps)
 {
     float totalDist = 0.0;
+    glowPyramids = vec3(0);
     for(int j=0; j<MAXSTEPS; j++)
     {
         steps = j;
@@ -225,6 +229,10 @@ vec4 raymarchPyramids(vec3 rayOrigin, vec3 rayDir, out int steps)
         if(abs(d)<EPSILON)  //if it is near the surface, return an intersection
         {
             return vec4(p, 1.0);
+        }
+        if(d < glowEpsiolon)
+        {
+            glowPyramids +=  globalColor;
         }
         totalDist += d;
         if(totalDist>=MAXDEPTH) break;
@@ -301,11 +309,11 @@ vec4 getShaderPyramidsColor(vec2 resolution, float time)
     // marching and shading
 	int steps = -1;
     vec4 res = raymarchPyramids(cam2.pos, cam2.dir, steps);    
-    vec3 currentCol = vec3(0.61, 0.78, 0);
+    vec3 currentCol = vec3(0.95);
 
     if(res.a==1.0)
     {
-        currentCol = globalColor;
+        currentCol = globalColor+glowPyramids*0.1 ;
         vec3 n = getNormalPyramids(res.xyz);
 
         currentCol *= lightingPyramids(res.xyz, cam2.dir, n);

@@ -12,7 +12,9 @@ uniform float p45Translation;
 #define RAD PI / 180.0
 
 const vec3 lightDir = normalize(vec3(0.8, 0.8, -1.0));
+const float glowEpsiolon = 0.2;
 
+vec3 glow = vec3(0);
 vec3 globalColor = vec3(1);
 vec3 color = vec3(1.0,0.5,0.5);
 
@@ -102,6 +104,28 @@ float udBox( vec3 p, vec3 b )
 {
   return length(max(abs(p)-b,0.0));
 }
+vec4 raymarchPyramids(vec3 rayOrigin, vec3 rayDir, out int steps)
+{
+	float totalDist = 0.0;
+	glow = vec3(0);
+	for(int j=0; j<MAXSTEPS; j++)
+	{
+		steps = j;
+		vec3 p = rayOrigin + totalDist*rayDir;
+		float d = dist(p);
+		if(abs(d)<EPSILON)	//if it is near the surface, return an intersection
+		{
+			return vec4(p, 1.0);
+		}
+		if(d < glowEpsiolon)
+		{
+			glow +=  globalColor;
+		}
+		totalDist += d;
+		if(totalDist>=MAXDEPTH) break;
+	}
+	return vec4(0);
+}
 
 float dist(vec3 p)
 {
@@ -179,9 +203,9 @@ float dist(vec3 p)
 	float c = min(b, pyramid3Subtracted);
 	globalColor = c < b ? vec3(0,0.56,0.67) : globalColor;
 	float d = min(c, pyramid4Subtracted);
-	globalColor = d < c ? vec3(0.25,0.28,0.73) : globalColor;
+	globalColor = d < c ?    vec3(0.61, 0.78, 0) : globalColor;
 	float e = min(d, pyramid5Subtracted);
-	globalColor = e < d ? vec3(0.25,0.28,0.73) : globalColor;
+	globalColor = e < d ? vec3(0.61, 0.78, 0) : globalColor;
 
 	return e;
 }
@@ -216,12 +240,12 @@ void main()
 	cam.dir = (lookAt(cam.pos, vec3(0,-3,0), vec3(0.0,1.0,0.0))*vec4(cam.dir.xyz, 1.0)).xyz;
 	int steps = -1;
 
-	vec4 res = raymarch(cam.pos, cam.dir, steps);
+	vec4 res = raymarchPyramids(cam.pos, cam.dir, steps);
 	vec3 currentCol = vec3(0.95);
 
 	if(res.a==1.0)
 	{
-		currentCol = globalColor;
+		currentCol = globalColor+glow*0.1 ;
 		vec3 n = getNormal(res.xyz);
 
 		currentCol *= lighting(res.xyz, cam.dir, n);
