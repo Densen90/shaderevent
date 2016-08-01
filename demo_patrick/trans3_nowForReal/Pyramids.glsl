@@ -212,12 +212,12 @@ void main()
 	cam.dir = normalize(vec4( p.x, p.y, 1,1 )*(rotationMatrix(vec3(1.0,0.0,0.0), 0.0))).xyz;*/
 	
 	cam.pos = vec3(-20,20.0,-25.0);
-	cam.dir = normalize(vec3( p.x, p.y, 1));//*(rotationMatrix(vec3(0.0,1.0,0.0), 0.6))).xyz;
+	cam.dir = normalize(vec3( p.x, p.y, 1));
 	cam.dir = (lookAt(cam.pos, vec3(0,-3,0), vec3(0.0,1.0,0.0))*vec4(cam.dir.xyz, 1.0)).xyz;
 	int steps = -1;
 
 	vec4 res = raymarch(cam.pos, cam.dir, steps);
-	vec3 currentCol = vec3(0.61, 0.78, 0);
+	vec3 currentCol = vec3(0.95);
 
 	if(res.a==1.0)
 	{
