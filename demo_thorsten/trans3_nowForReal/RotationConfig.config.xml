@@ -211,11 +211,23 @@
           <Value>0</Value>
         </Keyframe>
         <Keyframe>
+          <Time>90.54202</Time>
+          <Value>-3.67221355</Value>
+        </Keyframe>
+        <Keyframe>
           <Time>91.69597</Time>
           <Value>-5</Value>
         </Keyframe>
         <Keyframe>
+          <Time>95.9449158</Time>
+          <Value>-0.1455841</Value>
+        </Keyframe>
+        <Keyframe>
           <Time>96.07234</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>97.50668</Time>
           <Value>0</Value>
         </Keyframe>
       </Keyframes>
@@ -309,11 +321,19 @@
         </Keyframe>
         <Keyframe>
           <Time>88.4085541</Time>
-          <Value>270</Value>
+          <Value>90</Value>
         </Keyframe>
         <Keyframe>
-          <Time>91.70728</Time>
-          <Value>-3.05830765</Value>
+          <Time>90.54202</Time>
+          <Value>64.5219</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>95.9449158</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>97.50668</Time>
+          <Value>0</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -390,11 +410,19 @@
         </Keyframe>
         <Keyframe>
           <Time>88.4085541</Time>
-          <Value>-90</Value>
+          <Value>0</Value>
         </Keyframe>
         <Keyframe>
-          <Time>91.70728</Time>
-          <Value>65.32598</Value>
+          <Time>90.54202</Time>
+          <Value>50.9562</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>95.9449158</Time>
+          <Value>180</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>97.50668</Time>
+          <Value>180</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -451,11 +479,23 @@
         </Keyframe>
         <Keyframe>
           <Time>88.4085541</Time>
-          <Value>720</Value>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>90.54202</Time>
+          <Value>349.247559</Value>
         </Keyframe>
         <Keyframe>
           <Time>91.70728</Time>
           <Value>540</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>95.9449158</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>97.50668</Time>
+          <Value>0</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -1609,6 +1649,374 @@
         </Keyframe>
       </Keyframes>
     </Uniform>
+    <Uniform>
+      <UniformName>colorUniform</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>90.54202</Time>
+          <Value>0.7324223</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>193.306</Time>
+          <Value>0.334240615</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>diamondCamRotateZ</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>95.94</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>96.58647</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100.410423</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>102.780045</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>103.149544</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>104.869026</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>107.094063</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>109.132423</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>109.3151</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>111.448074</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>113.479515</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>117.822693</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>120.0385</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>122.354126</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>126.573547</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>130.984634</Time>
+          <Value>90</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>diamondCamRodiamondCamRotateXtateX</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>95.94</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100.568748</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>105.00589</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>109.256233</Time>
+          <Value>90</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>diamondCamRotateY</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>95.94</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100.410423</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>102.592468</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>104.869026</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>107.094063</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>109.3151</Time>
+          <Value>180</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>109.402359</Time>
+          <Value>180</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>111.448074</Time>
+          <Value>180</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>113.479515</Time>
+          <Value>180</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>113.54</Time>
+          <Value>180</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>118.1</Time>
+          <Value>270</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>120.0385</Time>
+          <Value>270</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>120.37</Time>
+          <Value>270</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>122.354126</Time>
+          <Value>180</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>126.49</Time>
+          <Value>180</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>131.088165</Time>
+          <Value>0</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>diamondCamRotateX</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>95.94</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100.410423</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>102.780045</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>104.869026</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>107.094063</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>109.132423</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>109.3151</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>111.448074</Time>
+          <Value>90</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>113.54</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>117.822693</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>117.938072</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>120.0385</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>120.207115</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>122.354126</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>126.573547</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>126.720154</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>130.984634</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>131.088165</Time>
+          <Value>0</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>diamondCamPosX</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>96.58647</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100.410423</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>102.592468</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>109.132423</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>113.479515</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>117.822693</Time>
+          <Value>25</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>120.0385</Time>
+          <Value>25</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>126.573547</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>130.984634</Time>
+          <Value>0</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>diamondCamPosY</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>96.58647</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100.410423</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>102.592468</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>109.132423</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>113.479515</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>117.822693</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>120.0385</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>126.573547</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>130.984634</Time>
+          <Value>50</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>diamondCamPosZ</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>96.58647</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>100.410423</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>102.83</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>109.132423</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>113.479515</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>117.822693</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>126.573547</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>130.984634</Time>
+          <Value>50</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
   </Uniforms>
   <Tracks>
     <Track>
@@ -1654,15 +2062,15 @@
           <Time>87.31</Time>
           <ShaderPath>.\cube_transition.glsl</ShaderPath>
         </ShaderKeyframe>
-		<ShaderKeyframe>
+        <ShaderKeyframe>
           <Time>96.13</Time>
           <ShaderPath>.\Shader_DemoEvent.glsl</ShaderPath>
         </ShaderKeyframe>
-		<ShaderKeyframe>
-          <Time>131.00</Time>
+        <ShaderKeyframe>
+          <Time>131</Time>
           <ShaderPath>.\cube_transition.glsl</ShaderPath>
         </ShaderKeyframe>
-		<ShaderKeyframe>
+        <ShaderKeyframe>
           <Time>139.84</Time>
           <ShaderPath>.\Second_Shader_Backup.glsl</ShaderPath>
         </ShaderKeyframe>

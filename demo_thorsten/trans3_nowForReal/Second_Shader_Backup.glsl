@@ -7,14 +7,14 @@ uniform float rotatePY;
 uniform float rotatePZ;
 
 //Camera Position
-uniform float iCamPosX = 10.0;
-uniform float iCamPosY = 25.0;
-uniform float iCamPosZ = 10.0;
+uniform float knobsCamPosX = 10.0;
+uniform float knobsCamPosY = 25.0;
+uniform float knobsCamPosZ = 10.0;
 
 //Camera Rotation
-uniform float iCamRotX = 90.0;
-uniform float iCamRotY = 90.0;
-uniform float iCamRotZ = 90.0;
+uniform float knobsCamRotX = 90.0;
+uniform float knobsCamRotY = 90.0;
+uniform float knobsCamRotZ = 90.0;
 
 const float toRadian = PI/180.0;
 const float glowEpsiolon = 0.1;
@@ -72,8 +72,8 @@ void main()
 	vec2 p = getScreenPos(45);
 
 	Camera cam;
-	cam.pos = vec3(iCamPosX, iCamPosY, iCamPosZ);
-	cam.dir = rotate(normalize(vec3(p.x, p.y, 1.0)), vec3(iCamRotX, iCamRotY, iCamRotZ));
+	cam.pos = vec3(knobsCamPosX, knobsCamPosY, knobsCamPosZ);
+	cam.dir = rotate(normalize(vec3(p.x, p.y, 1.0)), vec3(knobsCamRotX, knobsCamRotY, knobsCamRotZ));
 
 	int steps = -1;
 
