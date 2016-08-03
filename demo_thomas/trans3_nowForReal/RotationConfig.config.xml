@@ -806,11 +806,31 @@
           <Time>35.9595375</Time>
           <Value>36.9891472</Value>
         </Keyframe>
+        <Keyframe>
+          <Time>183.253281</Time>
+          <Value>24</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>185.445328</Time>
+          <Value>45</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>187.598221</Time>
+          <Value>24</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>189.800156</Time>
+          <Value>36.9891472</Value>
+        </Keyframe>
       </Keyframes>
     </Uniform>
     <Uniform>
       <UniformName>iCamPosY</UniformName>
       <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>0</Value>
+        </Keyframe>
         <Keyframe>
           <Time>119.44</Time>
           <Value>0</Value>
@@ -819,11 +839,31 @@
           <Time>143.5257</Time>
           <Value>-40</Value>
         </Keyframe>
+        <Keyframe>
+          <Time>176.769928</Time>
+          <Value>-10</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>178.952835</Time>
+          <Value>-10</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>189.800156</Time>
+          <Value>-20</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>192.175491</Time>
+          <Value>-22.5</Value>
+        </Keyframe>
       </Keyframes>
     </Uniform>
     <Uniform>
       <UniformName>iCamRotY</UniformName>
       <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>24.09</Value>
+        </Keyframe>
         <Keyframe>
           <Time>119.44</Time>
           <Value>24.09</Value>
@@ -854,6 +894,10 @@
         </Keyframe>
         <Keyframe>
           <Time>178.295715</Time>
+          <Value>24</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>189.800156</Time>
           <Value>55</Value>
         </Keyframe>
       </Keyframes>
@@ -862,6 +906,10 @@
       <UniformName>iCamPosZ</UniformName>
       <Keyframes>
         <Keyframe>
+          <Time>0</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
           <Time>119.44</Time>
           <Value>0</Value>
         </Keyframe>
@@ -869,11 +917,27 @@
           <Time>143.5257</Time>
           <Value>50</Value>
         </Keyframe>
+        <Keyframe>
+          <Time>183.253281</Time>
+          <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>189.800156</Time>
+          <Value>20</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>192.175491</Time>
+          <Value>30</Value>
+        </Keyframe>
       </Keyframes>
     </Uniform>
     <Uniform>
       <UniformName>iCamRotZ</UniformName>
       <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>0</Value>
+        </Keyframe>
         <Keyframe>
           <Time>24.0856972</Time>
           <Value>0</Value>
@@ -905,7 +969,11 @@
         </Keyframe>
         <Keyframe>
           <Time>180.8557</Time>
-          <Value>580</Value>
+          <Value>240</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>189.800156</Time>
+          <Value>350</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -926,15 +994,15 @@
         </Keyframe>
         <Keyframe>
           <Time>182.9595</Time>
-          <Value>164.6013</Value>
+          <Value>120</Value>
         </Keyframe>
         <Keyframe>
-          <Time>188.9595</Time>
-          <Value>175</Value>
+          <Time>183.253281</Time>
+          <Value>120</Value>
         </Keyframe>
         <Keyframe>
           <Time>210.8557</Time>
-          <Value>255</Value>
+          <Value>140</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -964,6 +1032,10 @@
         <Keyframe>
           <Time>180.8557</Time>
           <Value>0</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>189.800156</Time>
+          <Value>15</Value>
         </Keyframe>
       </Keyframes>
     </Uniform>
@@ -1122,6 +1194,18 @@
         </Keyframe>
         <Keyframe>
           <Time>137.608337</Time>
+          <Value>8.440047</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>179.508347</Time>
+          <Value>8.440047</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>180.208389</Time>
+          <Value>8.440047</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>187.308823</Time>
           <Value>8.440047</Value>
         </Keyframe>
       </Keyframes>
@@ -2480,6 +2564,45 @@
         </Keyframe>
       </Keyframes>
     </Uniform>
+    <Uniform>
+      <UniformName>iCamPosX</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>0</Time>
+          <Value>0</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>floating1</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>180.1535</Time>
+          <Value>50</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>186.7341</Time>
+          <Value>-25.0495911</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>193.306</Time>
+          <Value>-100</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
+    <Uniform>
+      <UniformName>floating2</UniformName>
+      <Keyframes>
+        <Keyframe>
+          <Time>186.7341</Time>
+          <Value>35</Value>
+        </Keyframe>
+        <Keyframe>
+          <Time>193.306</Time>
+          <Value>-80</Value>
+        </Keyframe>
+      </Keyframes>
+    </Uniform>
   </Uniforms>
   <Tracks>
     <Track>
@@ -2538,8 +2661,20 @@
           <ShaderPath>.\Second_Shader_Backup.glsl</ShaderPath>
         </ShaderKeyframe>
         <ShaderKeyframe>
-          <Time>167.587265</Time>
+          <Time>148.62</Time>
+          <ShaderPath>.\cube_transition.glsl</ShaderPath>
+        </ShaderKeyframe>
+        <ShaderKeyframe>
+          <Time>161.71</Time>
           <ShaderPath>.\RollTheDice.glsl</ShaderPath>
+        </ShaderKeyframe>
+        <ShaderKeyframe>
+          <Time>174.77</Time>
+          <ShaderPath>.\cube_transition.glsl</ShaderPath>
+        </ShaderKeyframe>
+        <ShaderKeyframe>
+          <Time>181.31</Time>
+          <ShaderPath>.\Outro_Shader.glsl</ShaderPath>
         </ShaderKeyframe>
       </ShaderKeyframes>
     </Track>
