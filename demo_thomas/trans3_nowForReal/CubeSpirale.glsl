@@ -62,7 +62,7 @@ void main(){
 	
 	vec4 res = raymarch(cam.pos, cam.dir, steps);	
 	if(res.a ==1){
-		color = mix(vec4(0.608, 0.780, 0.0  , 1.0), vec4(0.247, 0.278, 0.729, 1.0), abs(uv.x-0.5)) ;
+		color = mix(vec4(0.608, 0.780, 0.0  , 1.0), vec4(0.247, 0.278, 0.729, 1.0), abs((uv.x-0.5) * 1.5)) ;
 		//color = vec4(0.247, 0.278, 0.729, 1.0); 
 		vec3 n = getNormal(res.xyz);
 		color *= max(AMBIENT, dot(n, lightDir));
