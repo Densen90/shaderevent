@@ -11,7 +11,7 @@ uniform sampler2D tex1;
 
 in vec2 uv;
 
-float cubeSize = 3;
+float cubeSize = 1;
 uniform float camPosZ;
 
 float cubeRadius = cubeSize/4;

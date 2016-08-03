@@ -84,7 +84,7 @@ float sdTorus88Abstract( vec3 p, vec2 t )
 
 vec3 ColorSceneAbstract(vec3 p)
 {
-	vec3 color = 0.1 *(sin(abs(p)) - p);
+	vec3 color = mix(vec3(0.247, 0.278, 0.729), vec3(0.0, 0.564, 0.671), p.x);
 	return color;
 }
 vec3 RepeatAbstract(vec3 P, vec3 b)

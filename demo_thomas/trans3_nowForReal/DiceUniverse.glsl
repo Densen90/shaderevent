@@ -139,6 +139,7 @@ void main(){
 		color = objColor;
 		vec3 n = getNormal(res.xyz);
 		color *= max(AMBIENT, dot(n, lightDir));
+		// TODO check shadows
 		//color *=shadow(res.xyz,n);
 		//color +=ambientOcclusion(res.xyz,n) * AMBIENT;
 	}
