@@ -292,7 +292,7 @@ vec3 lightingPyramids(vec3 pos, vec3 rd, vec3 n)
 }
 /**************/
 
-vec4 getShaderPyramidsColor(vec2 resolution)
+vec4 getShaderPyramidsColor(vec2 resolution, float time2, vec2 fragCoord)
 {
     
  
@@ -301,14 +301,15 @@ vec4 getShaderPyramidsColor(vec2 resolution)
 
     /*cam.pos = vec3(0,0.0,-20.0);
     cam.dir = normalize(vec4( p.x, p.y, 1,1 )*(rotationMatrix(vec3(1.0,0.0,0.0), 0.0))).xyz;*/
-    cam2.pos = vec3(-20,20.0,-25.0);
+    cam2.pos = vec4(40.0, 15.0, -1.0, 1.0)*rotationMatrix(vec3(0.0,1.0,0.0), time2)
+        *translationMatrix(vec3(0,-3,0));
     cam2.dir = normalize(vec3( p.x, p.y, 1));
     cam2.dir = (lookAt(cam2.pos, vec3(0,-3,0), vec3(0.0,1.0,0.0))*vec4(cam2.dir.xyz, 1.0)).xyz;
 
     // marching and shading
 	int steps = -1;
     vec4 res = raymarchPyramids(cam2.pos, cam2.dir, steps);    
-    vec3 currentCol = vec3(0.95);
+    vec3 currentCol = vec3(0.0);
 
     if(res.a==1.0)
     {
@@ -316,10 +317,19 @@ vec4 getShaderPyramidsColor(vec2 resolution)
         vec3 n = getNormalPyramids(res.xyz);
 
         currentCol *= lightingPyramids(res.xyz, cam2.dir, n);
+        return vec4(currentCol, 1.0);
     }
-//    return vec4(1.0);
-
-   return vec4(currentCol, 1.0);
+    else
+    {
+        vec2 uv = fragCoord / resolution.xy;
+        vec2 coord = (uv - 0.5) * (resolution.x/resolution.y) * 2.0;
+        float rf = sqrt(dot(coord, coord)) * 0.25;
+        float rf2_1 = rf * rf + 1.0;
+        float e = 1.0 / (rf2_1 * rf2_1);
+        
+        vec4 src = vec4(1.0,1.0,1.0,1.0);
+        return vec4(src.rgb * e, 1.0);
+    }
 	
 }
 
