@@ -21,6 +21,8 @@ vec3 glowPyramids = vec3(0);
 vec3 lightDirPyramids = normalize(vec3(0.8,0.8,-1));
 vec3 globalColor = vec3(1);
 
+vec3 rot7;
+
 struct Camera
 {
     vec3 pos;
@@ -137,7 +139,7 @@ float distPyramids(vec3 p)
 {
     //rotation around given axis aroud standard position, then translation
     float cubeSize = 3.5;
-    
+    p = rotatePyramids(p, rot7);
     float pyramid1 = sdPyramid((vec4(p,1.0) //back pyramid
         *translationMatrix(vec3(0.0,2.0,p16Translation)) //line a
         *rotationMatrix(vec3(1.0,0.0,0.0), p1Rotation*RAD)).xyz //line b
@@ -292,10 +294,10 @@ vec3 lightingPyramids(vec3 pos, vec3 rd, vec3 n)
 }
 /**************/
 
-vec4 getShaderPyramidsColor(vec2 resolution)
+vec4 getShaderPyramidsColor(vec2 resolution, vec3 cubeRotation)
 {
     
- 
+	rot7 = cubeRotation;
     float tanFov = tan(60.0 / 2.0 * 3.14159 / 180.0) / resolution.x;
     vec2 p = tanFov * (gl_FragCoord.xy * 2.0 - resolution.xy);
 

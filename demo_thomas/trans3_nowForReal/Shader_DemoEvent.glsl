@@ -1,12 +1,24 @@
 #include "func_collections.h"
 
 uniform float iGlobalTime;
+//Cam Position
+uniform float diamondCamPosX;
+uniform float diamondCamPosY;
+uniform float diamondCamPosZ;
+
+//Cam Uniform Rotation
+uniform float diamondCamRotateX;
+uniform float diamondCamRotateY;
+uniform float diamondCamRotateZ;
+//uniform float colorUniform;
 
 #define SPECULAR 20
+in vec2 uv;
 
 vec3 lightDir = vec3(0.0, 5.0, -5.0);
 vec3 color = vec3(1.0);
 vec3 glow = vec3(0);
+float interpolate;
 
 
 vec3 Repeat(vec3 P, vec3 b){
@@ -15,14 +27,14 @@ vec3 Repeat(vec3 P, vec3 b){
 
 vec3 ColorScene(vec3 p)
 {
-	vec3 color = 0.1 *(sin(abs(p)) - p);
+	vec3 color = mix(vec3(0.247, 0.278, 0.729), vec3(0.0, 0.564, 0.671), p.x);
 	return color;
 }
 
 float dist(vec3 p)
 {
 	//p = abs(sin(p));
-	float interpolate = iGlobalTime/2 + 10;	
+	interpolate = iGlobalTime/10;	
 	float boxes = distRoundBox(Repeat(p, vec3(5, 5, 5)), vec3(0.5, 0.5, 0.5), 5.0); //5.0
 	float boxes1 = distRoundBox(Repeat(p, vec3(10, 10, 10)), vec3(0.5, 0.5, 0.5), .0);
 	float temp = fOpIntersectionStairs(boxes, boxes1, 0, .5 )  * interpolate  * 0.5;
@@ -53,8 +65,8 @@ void main()
 	vec2 p = getScreenPos(60);
 
 	Camera cam;
-	cam.pos = vec3(0.0, 0.0, -0.0);
-	cam.dir = normalize(vec3(p.x, p.y, 1.0));
+	cam.pos = vec3(diamondCamPosX, diamondCamPosY, diamondCamPosZ);
+	cam.dir = rotate(normalize(vec3(p.x, p.y, 1.0)), vec3(diamondCamRotateX, diamondCamRotateY, diamondCamRotateZ));
 
 	int steps = -1;
 

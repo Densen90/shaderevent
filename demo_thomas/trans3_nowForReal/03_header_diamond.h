@@ -1,4 +1,5 @@
 uniform float iGlobalTime;
+uniform float colorUniform;
 
 #define PI 3.14159
 #define AMBIENT 0.1
@@ -12,7 +13,7 @@ uniform float iGlobalTime;
 vec3 lightDir3 = normalize(vec3(0.5,0.5,-1));
 float shaderTime1;
 
-vec3 color4 = vec3(1.0);
+vec3 color3 = vec3(1.0);
 vec3 glow = vec3(0);
 vec3 rot3;
 
@@ -29,7 +30,7 @@ vec3 Repeat(vec3 P, vec3 b)
 
 vec3 ColorScene(vec3 p)
 {
-    vec3 color = 0.1 *(sin(abs(p)) - p);
+    vec3 color = mix(vec3(0.247, 0.278, 0.729), vec3(0.0, 0.564, 0.671), p.x);
     return color;
 }
 
@@ -70,12 +71,12 @@ vec3 rotate3( vec3 p, vec3 r )
 float dist3(vec3 p) 
 { 
     p = rotate3(p, rot3);
-    float interpolate = (iGlobalTime/2 +10);	
+    float interpolate = iGlobalTime/10;	
     float boxes = distRoundBox3(Repeat(p, vec3(5, 5, 5)), vec3(0.5, 0.5, 0.5), 5.0); //5.0
     float boxes1 = distRoundBox3(Repeat(p, vec3(10, 10, 10)), vec3(0.5, 0.5, 0.5), .0);
     float temp = fOpIntersectionStairs1(boxes, boxes1, 0, .5 )  * interpolate  * 0.5;
 
-    color4 = ColorScene(p);// vec3(0.1, 0.3, 0.66);
+    color3 = ColorScene(p);// vec3(0.1, 0.3, 0.66);
     return abs(sin(temp)) + cos(temp );
 }
 
@@ -163,7 +164,7 @@ vec4 getDiamondColor(Camera cam, vec3 cubeRotation)
     vec3 currentCol = vec3(1);
     if(res.a == 1.0)
     {
-        currentCol = color4;
+        currentCol = color3;
         vec3 n = getNormal3(res.xyz);
 
         currentCol *= lighting3(res.xyz, cam1.dir, n);

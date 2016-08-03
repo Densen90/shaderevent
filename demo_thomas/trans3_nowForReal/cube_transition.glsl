@@ -3,13 +3,13 @@
 #include "02_header_CubeSpirale.h"
 #include "03_header_diamond.h"
 #include "04_header_dices.h"
-#include "05_header_twistDice.h"
+#include "05_header_twistDice.h" 
 #include "06_header_knobs.h"
-#include "07_header_pyramids.h"
+#include "07_header_pyramids.h"    
 
 
 /******************************************************
-	THE CALCULATIONS FOR THE SINGLE CUBE // //#include ""
+	THE CALCULATIONS FOR THE SINGLE CUBE //
 *******************************************************/
 vec4 col1 = vec4(0.878, 0.239, 0.659, 1.0);
 vec4 col2 = vec4(0.247, 0.278, 0.729, 1.0);
@@ -135,7 +135,7 @@ void main()
 
 		else if(sideHitShaderSix){
 			cam.pos = vec3(-6,10.0,-25.0);
-			currentCol = getShaderPyramidsColor(iResolution);
+			currentCol = getShaderPyramidsColor(iResolution, cubeRotation);
 		}
 		else {
 			currentCol = vec4(lighting(res.xyz, cam.dir, getNormal(res.xyz)), 0);
