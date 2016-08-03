@@ -124,7 +124,7 @@ void main()
 		}
 		else if(sideHitShaderSix){
 			//cam.dir = normalize(vec4( p.x, p.y, 1,1 )*(rotationMatrix(vec3(1.0,1.0,0.0), 0.6))).xyz;
-			currentCol = getShaderPyramidsColor(iResolution, cubeRotation);
+			currentCol = getShaderPyramidsColor(iResolution);
 		}
 		else
 		{

@@ -2,32 +2,20 @@
 
 uniform float iGlobalTime;
 uniform float p1Rotation;
-uniform float p1XRotation;
-uniform float p1ZTranslation;
-uniform float p2Rotation;
-uniform float p2XRotation;
-uniform float p2YTranslation;
+uniform float p16Translation;
 uniform float p3Rotation;
-uniform float p3XRotation;
-uniform float p3YTranslation;
+uniform float p23Translation;
 uniform float p4Rotation;
-uniform float p4ZRotation;
-uniform float p4XTranslation;
-uniform float p5Rotation;
-uniform float p5ZRotation;
-uniform float p5XTranslation;
-uniform float p6Rotation;
-uniform float p6XRotation;
-uniform float p6ZTranslation;
+uniform float p45Translation;
 
-uniform float p16YZRotation;
-uniform float p23XYRotation;
-uniform float p45XYRotation;
 #define SPECULAR 20
 #define RAD PI / 180.0
 
 const vec3 lightDir = normalize(vec3(0.8, 0.8, -1.0));
+const float glowEpsiolon = 0.2;
 
+vec3 glow = vec3(0);
+vec3 globalColor = vec3(1);
 vec3 color = vec3(1.0,0.5,0.5);
 
 mat4 rotationMatrix(vec3 axis, float angle)
@@ -41,6 +29,36 @@ mat4 rotationMatrix(vec3 axis, float angle)
             	oc * axis.x * axis.y + axis.z * s,  oc * axis.y * axis.y + c,           oc * axis.y * axis.z - axis.x * s,  0.0,
                 oc * axis.z * axis.x - axis.y * s,  oc * axis.y * axis.z + axis.x * s,  oc * axis.z * axis.z + c,           0.0,
                 0.0,                                0.0,                                0.0,                                1.0);
+}
+mat4 lookAt(vec3 eye, vec3 center, vec3 up)
+{
+    vec3 zaxis = normalize(center - eye);
+    vec3 xaxis = normalize(cross(up, zaxis));
+    vec3 yaxis = cross(zaxis, xaxis);
+
+    mat4 matrix;
+    //Column Major
+    matrix[0][0] = xaxis.x;
+    matrix[1][0] = yaxis.x;
+    matrix[2][0] = zaxis.x;
+    matrix[3][0] = 0;
+
+    matrix[0][1] = xaxis.y;
+    matrix[1][1] = yaxis.y;
+    matrix[2][1] = zaxis.y;
+    matrix[3][1] = 0;
+
+    matrix[0][2] = xaxis.z;
+    matrix[1][2] = yaxis.z;
+    matrix[2][2] = zaxis.z;
+    matrix[3][2] = 0;
+
+    matrix[0][3] = -dot(xaxis, eye);
+    matrix[1][3] = -dot(yaxis, eye);
+    matrix[2][3] = -dot(zaxis, eye);
+    matrix[3][3] = 1;
+
+    return matrix;
 }
 mat4 translationMatrix(vec3 delta)
 {
@@ -86,69 +104,88 @@ float udBox( vec3 p, vec3 b )
 {
   return length(max(abs(p)-b,0.0));
 }
+vec4 raymarchPyramids(vec3 rayOrigin, vec3 rayDir, out int steps)
+{
+	float totalDist = 0.0;
+	glow = vec3(0);
+	for(int j=0; j<MAXSTEPS; j++)
+	{
+		steps = j;
+		vec3 p = rayOrigin + totalDist*rayDir;
+		float d = dist(p);
+		if(abs(d)<EPSILON)	//if it is near the surface, return an intersection
+		{
+			return vec4(p, 1.0);
+		}
+		if(d < glowEpsiolon)
+		{
+			glow +=  globalColor;
+		}
+		totalDist += d;
+		if(totalDist>=MAXDEPTH) break;
+	}
+	return vec4(0);
+}
 
 float dist(vec3 p)
 {
 	//rotation around given axis aroud standard position, then translation
 	float cubeSize = 3.5;
 	
-	float pyramid1 = sdPyramid((vec4(p,1.0) //front pyramid
-		*translationMatrix(vec3(0.0,2.0,p1ZTranslation)) //line a
-		*rotationMatrix(vec3(p1XRotation,0.0,p16YZRotation), p1Rotation*RAD)).xyz //line b
+	float pyramid1 = sdPyramid((vec4(p,1.0) //back pyramid
+		*translationMatrix(vec3(0.0,2.0,p16Translation)) //line a
+		*rotationMatrix(vec3(1.0,0.0,0.0), p1Rotation*RAD)).xyz //line b
 		,0.5, 3.5, 3.5); //height is 3.5 - 0.5 (because of block under pyramid)
 	float cube1 = udBox(((vec4(p,1.0)
-		*translationMatrix(vec3(0.0,2.0,p1ZTranslation))) //line a
-		*rotationMatrix(vec3(p1XRotation,0.0,p16YZRotation), p1Rotation*RAD) //line b
+		*translationMatrix(vec3(0.0,2.0,p16Translation))) //line a
+		*rotationMatrix(vec3(1.0,0.0,0.0), p1Rotation*RAD) //line b
 		*translationMatrix(vec3(0.0,-3.5,0.0))
 		).xyz, vec3(cubeSize));
-
-	float pyramid6 = sdPyramid((vec4(p,1.0) //back pyramid
-		*translationMatrix(vec3(0.0,2.0,p6ZTranslation)) //line a
-		*rotationMatrix(vec3(p6XRotation,p16YZRotation,0.0), p6Rotation*RAD)).xyz //line b
+	float pyramid6 = sdPyramid((vec4(p,1.0) //front pyramid
+		*translationMatrix(vec3(0.0,2.0,-p16Translation+7)) //line a
+		*rotationMatrix(vec3(1.0,0.0,0.0), -p1Rotation*RAD)).xyz //line b
 		,0.5, 3.5, 3.5);
 	float cube6 = udBox(((vec4(p,1.0)
-		*translationMatrix(vec3(0.0,2.0,p6ZTranslation))) //line a
-		*rotationMatrix(vec3(p6XRotation,p16YZRotation,0.0), p6Rotation*RAD) //line b
+		*translationMatrix(vec3(0.0,2.0,-p16Translation+7))) //line a
+		*rotationMatrix(vec3(1.0,0.0,0.0), -p1Rotation*RAD) //line b
 		*translationMatrix(vec3(0.0,-3.5,0.0))
 		).xyz, vec3(cubeSize));
 	
 	float pyramid2 = sdPyramid((vec4(p,1.0) //upper pyramid
-		*translationMatrix(vec3(0.0,p2YTranslation,3.5)) //line a
-		*rotationMatrix(vec3(p2XRotation,p23XYRotation,0.0), p2Rotation*RAD)).xyz //line b
+		*translationMatrix(vec3(0.0,p23Translation,3.5)) //line a
+		*rotationMatrix(vec3(1.0,0.0,0.0), (p3Rotation+180)*RAD)).xyz //line b
 		,0.5, 3.5, 3.5);
 	float cube2 = udBox(((vec4(p,1.0)
-		*translationMatrix(vec3(0.0,p2YTranslation,3.5))) //line a
-		*rotationMatrix(vec3(p2XRotation,p23XYRotation,0.0), p2Rotation*RAD) //line b
+		*translationMatrix(vec3(0.0,p23Translation,3.5))) //line a
+		*rotationMatrix(vec3(1.0,0.0,0.0), (p3Rotation+180)*RAD) //line b
 		*translationMatrix(vec3(0.0,-3.5,0.0))
 		).xyz, vec3(cubeSize));
-	
 	float pyramid3 = sdPyramid((vec4(p,1.0) //lower pyramid
-		*translationMatrix(vec3(0.0,p3YTranslation,3.5)) //line a
-		*rotationMatrix(vec3(p3XRotation,0.0,p23XYRotation), p3Rotation*RAD)).xyz //line b
+		*translationMatrix(vec3(0.0,-p23Translation+4,3.5)) //line a
+		*rotationMatrix(vec3(1.0,0.0,0.0), p3Rotation*RAD)).xyz //line b
 		,0.5, 3.5, 3.5);
 	float cube3 = udBox(((vec4(p,1.0)
-		*translationMatrix(vec3(0.0,p3YTranslation,3.5))) //line a
-		*rotationMatrix(vec3(p3XRotation,0.0,p23XYRotation), p3Rotation*RAD) //line b
+		*translationMatrix(vec3(0.0,-p23Translation+4,3.5))) //line a
+		*rotationMatrix(vec3(1.0,0.0,0.0), p3Rotation*RAD) //line b
 		*translationMatrix(vec3(0.0,-3.5,0.0))
 		).xyz, vec3(cubeSize));
 	
 	float pyramid4 = sdPyramid((vec4(p,1.0) //left pyramid
-		*translationMatrix(vec3(p4XTranslation,2.0,3.5)) //line a
-		*rotationMatrix(vec3(p45XYRotation,0.0,p4ZRotation), p4Rotation*RAD)).xyz //line b
+		*translationMatrix(vec3(p45Translation,2.0,3.5)) //line a
+		*rotationMatrix(vec3(0.0,0.0,1.0), p4Rotation*RAD)).xyz //line b
 		,0.5, 3.5, 3.5);
 	float cube4 = udBox(((vec4(p,1.0)
-		*translationMatrix(vec3(p4XTranslation,2.0,3.5))) //line a
-		*rotationMatrix(vec3(p45XYRotation,0.0,p4ZRotation), p4Rotation*RAD) //line b
+		*translationMatrix(vec3(p45Translation,2.0,3.5))) //line a
+		*rotationMatrix(vec3(0.0,0.0,1.0), p4Rotation*RAD) //line b
 		*translationMatrix(vec3(0.0,-3.5,0.0))
 		).xyz, vec3(cubeSize));
-
 	float pyramid5 = sdPyramid((vec4(p,1.0) //right pyramid
-		*translationMatrix(vec3(p5XTranslation,2.0,3.5)) //line a
-		*rotationMatrix(vec3(p45XYRotation,0.0,p5ZRotation), p5Rotation*RAD)).xyz //line b
+		*translationMatrix(vec3(-p45Translation,2.0,3.5)) //line a
+		*rotationMatrix(vec3(0.0,0.0,1.0), -p4Rotation*RAD)).xyz //line b
 		,0.5, 3.5, 3.5);
 	float cube5 = udBox(((vec4(p,1.0)
-		*translationMatrix(vec3(p5XTranslation,2.0,3.5))) //line a
-		*rotationMatrix(vec3(p45XYRotation,0.0,p5ZRotation), p5Rotation*RAD) //line b
+		*translationMatrix(vec3(-p45Translation,2.0,3.5))) //line a
+		*rotationMatrix(vec3(0.0,0.0,1.0), -p4Rotation*RAD) //line b
 		*translationMatrix(vec3(0.0,-3.5,0.0))
 		).xyz, vec3(cubeSize));
 
@@ -159,11 +196,16 @@ float dist(vec3 p)
 	float pyramid6Subtracted = opI(cube6, pyramid6);
 	float pyramid5Subtracted = opI(cube5, pyramid5);
 
-	float a = min(pyramid1Subtracted, pyramid2Subtracted);
-	float b = min(a, pyramid3Subtracted);
-	float c = min(b, pyramid4Subtracted);
-	float d = min(c, pyramid5Subtracted);
-	float e = min(d, pyramid6Subtracted);
+	float a = min(pyramid1Subtracted, pyramid6Subtracted);
+	globalColor = vec3(0,0.69,0.55);
+	float b = min(a, pyramid2Subtracted);
+	globalColor = b < a ? vec3(0,0.56,0.67) : globalColor;
+	float c = min(b, pyramid3Subtracted);
+	globalColor = c < b ? vec3(0,0.56,0.67) : globalColor;
+	float d = min(c, pyramid4Subtracted);
+	globalColor = d < c ?    vec3(0.61, 0.78, 0) : globalColor;
+	float e = min(d, pyramid5Subtracted);
+	globalColor = e < d ? vec3(0.61, 0.78, 0) : globalColor;
 
 	return e;
 }
@@ -192,16 +234,18 @@ void main()
 	Camera cam;
 	/*cam.pos = vec3(0,0.0,-20.0);
 	cam.dir = normalize(vec4( p.x, p.y, 1,1 )*(rotationMatrix(vec3(1.0,0.0,0.0), 0.0))).xyz;*/
-	cam.pos = vec3(-6,10.0,-25.0);
-	cam.dir = normalize(vec4( p.x, p.y, 1,1 )*(rotationMatrix(vec3(1.0,1.0,0.0), 0.6))).xyz;
+	
+	cam.pos = vec3(-20,20.0,-25.0);
+	cam.dir = normalize(vec3( p.x, p.y, 1));
+	cam.dir = (lookAt(cam.pos, vec3(0,-3,0), vec3(0.0,1.0,0.0))*vec4(cam.dir.xyz, 1.0)).xyz;
 	int steps = -1;
 
-	vec4 res = raymarch(cam.pos, cam.dir, steps);
-	vec3 currentCol = vec3(1);
+	vec4 res = raymarchPyramids(cam.pos, cam.dir, steps);
+	vec3 currentCol = vec3(0.95);
 
 	if(res.a==1.0)
 	{
-		currentCol = color;
+		currentCol = globalColor+glow*0.1 ;
 		vec3 n = getNormal(res.xyz);
 
 		currentCol *= lighting(res.xyz, cam.dir, n);

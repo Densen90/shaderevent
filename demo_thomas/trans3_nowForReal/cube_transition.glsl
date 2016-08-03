@@ -134,16 +134,14 @@ void main()
 			currentCol = getKnobsColor(iResolution, cubeRotation);
 			//currentCol = vec4(1,0,0,0);
 		}
-<<<<<<< HEAD
 		else if(sideHitShaderTwo){
 			cam.pos = vec3(0,0,0);
 			currentCol = getDiceUniverseColor(cam2, uv, cubeRotation);
 			//currentCol = vec4(1);
-=======
+		}
 		else if(sideHitShaderSix){
 			cam.pos = vec3(-6,10.0,-25.0);
-			currentCol = getShaderPyramidsColor(iResolution, cubeRotation);
->>>>>>> d5328d5bf83c853bbeb83c0e8db3fea32e1d70cb
+			//currentCol = getShaderPyramidsColor(iResolution);
 		}
 		else {
 			currentCol = vec4(lighting(res.xyz, cam.dir, getNormal(res.xyz)), 0);

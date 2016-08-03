@@ -20,7 +20,6 @@ const float glowEpsiolon = 0.2;
 vec3 glowPyramids = vec3(0);
 vec3 lightDirPyramids = normalize(vec3(0.8,0.8,-1));
 vec3 globalColor = vec3(1);
-float shaderTimePyramids;
 
 struct Camera
 {
@@ -293,9 +292,9 @@ vec3 lightingPyramids(vec3 pos, vec3 rd, vec3 n)
 }
 /**************/
 
-vec4 getShaderPyramidsColor(vec2 resolution, float time)
+vec4 getShaderPyramidsColor(vec2 resolution)
 {
-    shaderTimePyramids = time;
+    
  
     float tanFov = tan(60.0 / 2.0 * 3.14159 / 180.0) / resolution.x;
     vec2 p = tanFov * (gl_FragCoord.xy * 2.0 - resolution.xy);
