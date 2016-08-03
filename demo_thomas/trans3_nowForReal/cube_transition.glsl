@@ -7,6 +7,12 @@
 #include "06_header_knobs.h"
 #include "07_header_pyramids.h"    
 
+/*
+ * TODO fix rep
+ * fly inside cube 30.24
+ * 2nd rotation (transition) 
+ * roll the dice ... 
+ */
 
 /******************************************************
 	THE CALCULATIONS FOR THE SINGLE CUBE //

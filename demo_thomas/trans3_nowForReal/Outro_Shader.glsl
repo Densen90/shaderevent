@@ -46,7 +46,7 @@ float dist(vec3 p){
 	float box1 = distRoundBox(p, vec3(1, 5, 2), 2);
 
 	float temp = fOpUnionChamfer(box, box2, 8);		
-	float res = Union(temp, box1);	
+	float res = min(temp, box1);	
 	return res;
 }
 
@@ -88,8 +88,8 @@ void main()
 
 		currentCol.xyz *= lighting(res.xyz, cam.dir, n);
 	}
-	currentCol += getOutroColor(cam2, uv);
-	currentCol += getOutroColor2(cam2, uv);	
+	currentCol += getOutroColor(cam2);
+	currentCol += getOutroColor2(cam2);	
 	
 
 	gl_FragColor = currentCol/3;
