@@ -1,5 +1,7 @@
 #include "func_collections.h"
 
+in vec2 uv;
+
 uniform float iGlobalTime;
 uniform float p1Rotation;
 uniform float p16Translation;
@@ -126,6 +128,14 @@ vec4 raymarchPyramids(vec3 rayOrigin, vec3 rayDir, out int steps)
 	}
 	return vec4(0);
 }
+vec3 getNormal(vec3 p)
+{
+	float h = EPSILON;
+	return normalize(vec3(
+		dist(p + vec3(h, 0, 0)) - dist(p - vec3(h, 0, 0)),
+		dist(p + vec3(0, h, 0)) - dist(p - vec3(0, h, 0)),
+		dist(p + vec3(0, 0, h)) - dist(p - vec3(0, 0, h))));
+}
 
 float dist(vec3 p)
 {
@@ -235,13 +245,15 @@ void main()
 	/*cam.pos = vec3(0,0.0,-20.0);
 	cam.dir = normalize(vec4( p.x, p.y, 1,1 )*(rotationMatrix(vec3(1.0,0.0,0.0), 0.0))).xyz;*/
 	
-	cam.pos = vec3(-20,20.0,-25.0);
+	//cam.pos = vec3(-20,20.0,-25.0);
+	cam.pos = vec4(40.0, 15.0, -1.0, 1.0)*rotationMatrix(vec3(0.0,1.0,0.0), iGlobalTime)
+		*translationMatrix(vec3(0,-3,0));
 	cam.dir = normalize(vec3( p.x, p.y, 1));
 	cam.dir = (lookAt(cam.pos, vec3(0,-3,0), vec3(0.0,1.0,0.0))*vec4(cam.dir.xyz, 1.0)).xyz;
 	int steps = -1;
 
 	vec4 res = raymarchPyramids(cam.pos, cam.dir, steps);
-	vec3 currentCol = vec3(0.95);
+	vec3 currentCol = vec3(0.0);
 
 	if(res.a==1.0)
 	{
@@ -249,7 +261,17 @@ void main()
 		vec3 n = getNormal(res.xyz);
 
 		currentCol *= lighting(res.xyz, cam.dir, n);
+		gl_FragColor = vec4(currentCol, 1.0);
 	}
-
-	gl_FragColor = vec4(currentCol, 1.0);
+	else
+	{
+		vec2 uv = gl_FragCoord.xy / iResolution.xy;
+	    vec2 coord = (uv - 0.5) * (iResolution.x/iResolution.y) * 2.0;
+	    float rf = sqrt(dot(coord, coord)) * 0.25;
+	    float rf2_1 = rf * rf + 1.0;
+	    float e = 1.0 / (rf2_1 * rf2_1);
+	    
+	    vec4 src = vec4(1.0,1.0,1.0,1.0);
+		gl_FragColor = vec4(src.rgb * e, 1.0);
+	}
 }
