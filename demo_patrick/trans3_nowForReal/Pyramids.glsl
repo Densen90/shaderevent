@@ -128,7 +128,7 @@ vec4 raymarchPyramids(vec3 rayOrigin, vec3 rayDir, out int steps)
 	}
 	return vec4(0);
 }
-vec3 getNormal(vec3 p)
+vec3 getNormalPyramids(vec3 p)
 {
 	float h = EPSILON;
 	return normalize(vec3(
@@ -257,10 +257,10 @@ void main()
 
 	if(res.a==1.0)
 	{
-		currentCol = globalColor+glow*0.1 ;
-		vec3 n = getNormal(res.xyz);
+		currentCol = globalColor;//+glow*0.1 ;
+		vec3 n = getNormalPyramids(res.xyz);
 
-		currentCol *= lighting(res.xyz, cam.dir, n);
+		currentCol *= lighting(res.xyz, cam.dir, n)*2;
 		gl_FragColor = vec4(currentCol, 1.0);
 	}
 	else
@@ -273,5 +273,6 @@ void main()
 	    
 	    vec4 src = vec4(1.0,1.0,1.0,1.0);
 		gl_FragColor = vec4(src.rgb * e, 1.0);
+		gl_FragColor.y  = gl_FragColor.y*2;
 	}
 }
