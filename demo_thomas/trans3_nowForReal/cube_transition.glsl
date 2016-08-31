@@ -122,15 +122,19 @@ void main()
 	if(res.a==1.0)	{
 		currentCol = color;
 		if(sideHitShaderOne){			
-			//currentCol =  getGridCubeColor(gl_FragCoord.xy, iResolution, iGlobalTime, res.xyz);			 
+			currentCol =  getGridCubeColor(gl_FragCoord.xy, iResolution, iGlobalTime, res.xyz);			 
 				
-		} else if(sideHitShaderTwo){			
-			cam2.pos = vec3(0,diceCamY,0);
-			currentCol = getDiceUniverseColor(cam2, uv, cubeRotation);
-			//currentCol =
-			cam2.pos = vec3(0,0,-10);
-			//currentCol = getTwistDiceColor(cam2, uv, cubeRotation, iGlobalTime);
-		
+		} else if(sideHitShaderTwo){
+			if(iGlobalTime<163.0)
+			{
+				cam2.pos = vec3(0,diceCamY,0);
+				currentCol = getDiceUniverseColor(cam2, uv, cubeRotation);
+			}			
+			else
+			{
+				cam2.pos = vec3(0,0,-10);
+			currentCol = getTwistDiceColor(cam2, uv, cubeRotation, iGlobalTime);
+			}
 			//currentCol = vec4(1);
 		} else if(sideHitShaderThree){
 			cam.pos = vec3(0,0,-10);
@@ -154,7 +158,7 @@ void main()
 		}
 		else {
 			currentCol = vec4(lighting(res.xyz, cam.dir, getNormal(res.xyz)), 0);
-			currentCol = texture2D(tex1, uv);
+			//currentCol = texture2D(tex1, uv);
 		}
 	}
 	gl_FragColor = currentCol;
