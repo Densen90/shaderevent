@@ -150,7 +150,7 @@ void main()
 
 		else if(sideHitShaderSix){
 			cam.pos = vec3(-6,10.0,-25.0);
-			currentCol = getShaderPyramidsColor(iResolution, cubeRotation);
+			currentCol = getShaderPyramidsColor(iResolution, iGlobalTime, gl_FragCoord.xy);
 		}
 		else {
 			currentCol = vec4(lighting(res.xyz, cam.dir, getNormal(res.xyz)), 0);

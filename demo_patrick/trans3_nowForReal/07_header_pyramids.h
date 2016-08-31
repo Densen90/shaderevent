@@ -313,10 +313,10 @@ vec4 getShaderPyramidsColor(vec2 resolution, float time2, vec2 fragCoord)
 
     if(res.a==1.0)
     {
-        currentCol = globalColor+glowPyramids*0.1 ;
+        currentCol = globalColor;//+glowPyramids*0.1 ;
         vec3 n = getNormalPyramids(res.xyz);
 
-        currentCol *= lightingPyramids(res.xyz, cam2.dir, n);
+        currentCol *= lightingPyramids(res.xyz, cam2.dir, n)*2;
         return vec4(currentCol, 1.0);
     }
     else
@@ -328,6 +328,7 @@ vec4 getShaderPyramidsColor(vec2 resolution, float time2, vec2 fragCoord)
         float e = 1.0 / (rf2_1 * rf2_1);
         
         vec4 src = vec4(1.0,1.0,1.0,1.0);
+        src.rgb.y = src.rgb.y*2;
         return vec4(src.rgb * e, 1.0);
     }
 	
