@@ -12,8 +12,7 @@ vec4 objColor = vec4(0);
 
 uniform float divide;
 uniform float rep;
-uniform float camPosY;
-uniform float camPosZ;
+uniform float diceCamY;
 
 float cubeSize = 1;
 float cubeRadius = cubeSize/4;
@@ -82,10 +81,11 @@ float dice(vec3 p, float dots, out float res) {
 	dots = min(dots,dots1);
 	res = min(cube,dots);
 	
-	vec3 color = mix(vec3(0.2,0.2,0.8), vec3(0,0.35,0.3),p.y);
-	vec3 buttonColor = mix(vec3(0.7,0.7,0.4), vec3(0,0.6,0.6),p.z);
 	
-	objColor = (res == dots) ?  vec4(buttonColor,1) : vec4(color,1);
+	vec4 color = mix(vec4(0.247, 0.278, 0.729, 1.0), vec4(0.878, 0.239, 0.659, 1.0),p.y);
+	vec4 buttonColor = mix(vec4(0.608, 0.780, 0.0, 1.0), vec4(0.0, 0.690, 0.553, 1.0),p.z);
+	
+	objColor = (res == dots) ?  buttonColor : color;
 	return min(dots, cube);
 }
 
@@ -130,7 +130,7 @@ float dist(vec3 p){
 void main(){
 	vec2 p = getScreenPos(90);
 	Camera cam;
-	cam.pos = vec3(0,iGlobalTime,0);
+	cam.pos = vec3(0,diceCamY,0);
 	cam.dir = normalize(vec3(p.x, p.y, 1));
 	int steps = -1;
 	vec4 res = raymarch(cam.pos, cam.dir, steps);

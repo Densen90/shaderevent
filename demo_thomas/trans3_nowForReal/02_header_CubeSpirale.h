@@ -129,7 +129,7 @@ vec4 getSpiralColor(Camera cam, vec2 uv, vec3 cubeRotation){
 	uv2 = uv-0.5;
 
 	if(res.a ==1){
-		color = color = mix(vec4(0.608, 0.780, 0.0  , 1.0), vec4(0.247, 0.278, 0.729, 1.0), abs(uv2.x)) ;
+		color = color = mix(vec4(0.608, 0.780, 0.0  , 1.0), vec4(0.247, 0.278, 0.729, 1.0), abs((uv.x-0.5) * 1.5)) ;
 		vec3 n = getNormal2(res.xyz);
 		color *= max(AMBIENT, dot(n, lightDirSpiral));
 		//color *=shadow(res.xyz,n);

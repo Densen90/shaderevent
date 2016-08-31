@@ -7,7 +7,7 @@ vec4 objColor = vec4(0);
 uniform float spinCube;
 uniform float iGlobalTime;
 
-uniform sampler2D tex1;
+uniform sampler2D tex0;
 
 in vec2 uv;
 
@@ -89,15 +89,15 @@ float dice(vec3 p, float dots, out float res) {
 	dots = min(dots,dots1);
 	res = min(cube,dots);
 	
-	vec3 color = mix(vec3(0.2,0.2,0.8), vec3(0,0.35,0.3),p.y);
-	vec3 buttonColor = mix(vec3(0.7,0.7,0.4), vec3(0,0.6,0.6),p.z);
+    vec4 color = mix(vec4(0.247, 0.278, 0.729, 1.0), vec4(0.878, 0.239, 0.659, 1.0),p.y);
+    vec4 buttonColor = mix(vec4(0.608, 0.780, 0.0, 1.0), vec4(0.0, 0.690, 0.553, 1.0),p.z);    
 	
-	objColor = (res == dots) ?  vec4(buttonColor,1) : vec4(color,1);
+	objColor = (res == dots) ?  buttonColor : color;
 	return min(dots, cube);
 }
 
 float chain(vec3 p){
-	p.y += iGlobalTime * 2;	
+	p.y += move * 2;	
 	vec3 pt = p;
 	pt.x += (uv.x * 2);
     pt = rotate(pt, vec3(90,0,0));
@@ -114,7 +114,7 @@ float chain(vec3 p){
 float dist(vec3 p){
     //float plane = distPlane(p + vec3(0,4,0), vec3(0,1,0));
 
-    float rot = move * 50;
+    float rot = iGlobalTime * 50;
     float dots0 = 1000; 
 	float res = 1000;
 	
@@ -128,9 +128,9 @@ float dist(vec3 p){
     vec3 pc = p + vec3(0,2,0);
     pc = rotate(pc, vec3(90,0,0));
     float ch = chain(pc+vec3(-1,0,0));
-    res = min(ch, min(5000,dices));
-    vec3 color = mix(vec3(0.2,0.2,0.8), vec3(0,0.35,0.3),p.y);
-    vec3 buttonColor = mix(vec3(0.7,0.7,0.4), vec3(0,0.6,0.6),p0.z);    
+    res = min(ch, dices);
+
+
     objColor = ( res == ch) ?  vec4(0.3) : objColor;    
 
 	//return p.z > 3  ? ch : res;
@@ -147,7 +147,7 @@ void main(){
     cam.dir = normalize(vec3(p.x, p.y, 1));
     int steps = -1;
     vec4 res = raymarch(cam.pos, cam.dir, steps);
-    vec4 color = texture2D(tex1,uv);
+    vec4 color = texture2D(tex0,uv);
     //vec4 color = vec4(1);
     if(res.a ==1){
         color = objColor;

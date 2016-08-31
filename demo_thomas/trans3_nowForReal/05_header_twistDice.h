@@ -11,12 +11,14 @@ vec3 lightDir5 = normalize(vec3(0.5,0.5,-1));
 
 vec2 uv5;
 
-float cubeSize5 = 1;
-uniform float camPosZ5;
-uniform float spinCube;
 uniform float move;
+uniform float spinCube;
 
-uniform sampler2D tex1;
+float cubeSize5 = 1;
+float globTime;
+
+
+uniform sampler2D tex0;
 
 float cubeRadius5 = 0.25;
 float dotSize5 = 0.25;
@@ -125,10 +127,10 @@ float dice(vec3 p, float dots, out float res) {
 	dots = min(dots,dots1);
 	res = min(cube,dots);
 	
-	vec3 color = mix(vec3(0.2,0.2,0.8), vec3(0,0.35,0.3),p.y);
-	vec3 buttonColor = mix(vec3(0.7,0.7,0.4), vec3(0,0.6,0.6),p.z);
+    vec4 color = mix(vec4(0.247, 0.278, 0.729, 1.0), vec4(0.878, 0.239, 0.659, 1.0),p.y);
+    vec4 buttonColor = mix(vec4(0.608, 0.780, 0.0, 1.0), vec4(0.0, 0.690, 0.553, 1.0),p.z); 
 	
-	objColor = (res == dots) ?  vec4(buttonColor,1) : vec4(color,1);
+	objColor = (res == dots) ?  buttonColor : color;
 	return min(dots, cube);
 }
 
@@ -147,10 +149,10 @@ float chain(vec3 p){
     return min(t2,t3);
 }
 
-float dist5(vec3 p) { 
+float dist5(vec3 p) {	
     p = rotate5(p, rot5);
 	p = rotate5(p, vec3(0,270,0));
-    float rot = move * 50;
+    float rot = globTime * 50;
     float dots0 = 1000; 
 	float res = 1000;
     vec3 p0 = rotate5(p+vec3(0,2,0), vec3(0,rot,0));
@@ -174,7 +176,8 @@ float dist5(vec3 p) {
 
 vec3 getNormal5(vec3 p)
 {
-    float h = EPSILON;
+	//return vec3(1,0,1);
+	float h = EPSILON;
     return normalize(vec3(
         dist5(p + vec3(h, 0, 0)) - dist5(p - vec3(h, 0, 0)),
         dist5(p + vec3(0, h, 0)) - dist5(p - vec3(0, h, 0)),
@@ -226,15 +229,18 @@ float shadow5(vec3 ro, vec3 rd)
     return res;
 }
 
-vec4 getTwistDiceColor(Camera cam, vec2 uv, vec3 cubeRotation){  
+vec4 getTwistDiceColor(Camera cam, vec2 uv, vec3 cubeRotation, float time){  
 	// use uv to draw bg
 	uv5 = uv;
+	globTime = time;
     rot5 = cubeRotation;
     // marching and shading
 	int steps = -1;
     vec4 res = raymarch5(cam.pos, cam.dir, steps); 
-	vec4 color = texture2D(tex1,uv);
-	if(res.a == 1){										
+	vec4 color = texture2D(tex0,uv);
+	
+	if(res.a > 0.99){	
+		color = vec4(1,0,0,0);
         color = objColor;
         vec3 n = getNormal5(res.xyz);
         color *= max(AMBIENT, dot(n, lightDir5));

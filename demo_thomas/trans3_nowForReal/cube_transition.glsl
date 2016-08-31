@@ -12,6 +12,7 @@
  * fly inside cube 30.24
  * 2nd rotation (transition) 
  * roll the dice ... 
+ * farbpalette 
  */
 
 /******************************************************
@@ -37,6 +38,10 @@ uniform float rotateCubeY;
 uniform float rotateCubeZ;
 
 uniform float uCameraZ;
+
+uniform float diceCamY;
+
+uniform sampler2D tex1;
 
 #define SPECULAR 20
 
@@ -117,14 +122,18 @@ void main()
 	if(res.a==1.0)	{
 		currentCol = color;
 		if(sideHitShaderOne){			
-			currentCol =  getGridCubeColor(gl_FragCoord.xy, iResolution, iGlobalTime, res.xyz);			 
+			//currentCol =  getGridCubeColor(gl_FragCoord.xy, iResolution, iGlobalTime, res.xyz);			 
 				
-		} else if(sideHitShaderTwo){
-			cam.pos = vec3(0,0,0);
+		} else if(sideHitShaderTwo){			
+			cam2.pos = vec3(0,diceCamY,0);
 			currentCol = getDiceUniverseColor(cam2, uv, cubeRotation);
+			//currentCol =
+			cam2.pos = vec3(0,0,-10);
+			//currentCol = getTwistDiceColor(cam2, uv, cubeRotation, iGlobalTime);
+		
 			//currentCol = vec4(1);
 		} else if(sideHitShaderThree){
-			cam.pos = vec3(0,0,0);
+			cam.pos = vec3(0,0,-10);
 			currentCol = getDiamondColor(cam, cubeRotation);
 			//currentCol = vec4(1,0,0,0);
 		}
@@ -145,6 +154,7 @@ void main()
 		}
 		else {
 			currentCol = vec4(lighting(res.xyz, cam.dir, getNormal(res.xyz)), 0);
+			currentCol = texture2D(tex1, uv);
 		}
 	}
 	gl_FragColor = currentCol;

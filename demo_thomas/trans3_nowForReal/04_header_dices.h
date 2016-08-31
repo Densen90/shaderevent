@@ -107,11 +107,14 @@ float dice4(vec3 p, float dots, out float res) {
     float dots1 = addDots4(p);
     dots = min(dots,dots1);
     res = min(cube,dots);
-    
+    /* old colors ....
     vec3 color = mix(vec3(0.2,0.2,0.8), vec3(0,0.35,0.3),p.y);
     vec3 buttonColor = mix(vec3(0.7,0.7,0.4), vec3(0,0.6,0.6),p.z);
+	*/
+	vec4 color = mix(vec4(0.247, 0.278, 0.729, 1.0), vec4(0.878, 0.239, 0.659, 1.0),p.y);
+	vec4 buttonColor = mix(vec4(0.608, 0.780, 0.0, 1.0), vec4(0.0, 0.690, 0.553, 1.0),p.z);
     
-    objColor4 = (res == dots) ?  vec4(buttonColor,1) : vec4(color,1);
+    objColor4 = (res == dots) ?  buttonColor : color;
     return min(dots, cube);
 }
 
