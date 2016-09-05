@@ -133,7 +133,7 @@ void main()
 			else
 			{
 				cam2.pos = vec3(0,0,-10);
-			currentCol = getTwistDiceColor(cam2, uv, cubeRotation, iGlobalTime);
+				currentCol = getTwistDiceColor(cam2, uv, cubeRotation, iGlobalTime);
 			}
 			//currentCol = vec4(1);
 		} else if(sideHitShaderThree){

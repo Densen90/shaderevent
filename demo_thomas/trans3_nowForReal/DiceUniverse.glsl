@@ -4,12 +4,12 @@ vec3 lightDir = vec3(0.5,0.5,-1);
 
 //lower tresh to 10 to fade to black
 
-uniform float tresh;
 
 uniform float iGlobalTime;
 
 vec4 objColor = vec4(0);
 
+uniform float tresh;
 uniform float divide;
 uniform float rep;
 uniform float diceCamY;
@@ -134,7 +134,7 @@ void main(){
 	cam.dir = normalize(vec3(p.x, p.y, 1));
 	int steps = -1;
 	vec4 res = raymarch(cam.pos, cam.dir, steps);
-	vec4 color = vec4(0.1,0.2,0.1,1);
+	vec4 color;
 	if(res.a ==1){
 		color = objColor;
 		vec3 n = getNormal(res.xyz);

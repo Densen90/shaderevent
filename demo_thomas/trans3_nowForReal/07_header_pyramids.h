@@ -301,8 +301,9 @@ vec4 getShaderPyramidsColor(vec2 resolution, float time2, vec2 fragCoord)
 
     /*cam.pos = vec3(0,0.0,-20.0);
     cam.dir = normalize(vec4( p.x, p.y, 1,1 )*(rotationMatrix(vec3(1.0,0.0,0.0), 0.0))).xyz;*/
-    cam2.pos = vec4(40.0, 15.0, -1.0, 1.0)*rotationMatrix(vec3(0.0,1.0,0.0), time2)
+    vec4 tmp = vec4(40.0, 15.0, -1.0, 1.0)*rotationMatrix(vec3(0.0,1.0,0.0), time2)
         *translationMatrix(vec3(0,-3,0));
+	cam2.pos = tmp.xyz;
     cam2.dir = normalize(vec3( p.x, p.y, 1));
     cam2.dir = (lookAt(cam2.pos, vec3(0,-3,0), vec3(0.0,1.0,0.0))*vec4(cam2.dir.xyz, 1.0)).xyz;
 

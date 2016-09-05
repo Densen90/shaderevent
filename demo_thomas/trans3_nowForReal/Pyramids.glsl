@@ -246,8 +246,9 @@ void main()
 	cam.dir = normalize(vec4( p.x, p.y, 1,1 )*(rotationMatrix(vec3(1.0,0.0,0.0), 0.0))).xyz;*/
 	
 	//cam.pos = vec3(-20,20.0,-25.0);
-	cam.pos = vec4(40.0, 15.0, -1.0, 1.0)*rotationMatrix(vec3(0.0,1.0,0.0), iGlobalTime)
+	vec4 tmp = vec4(40.0, 15.0, -1.0, 1.0)*rotationMatrix(vec3(0.0,1.0,0.0), iGlobalTime)
 		*translationMatrix(vec3(0,-3,0));
+	cam.pos = tmp.xyz;	
 	cam.dir = normalize(vec3( p.x, p.y, 1));
 	cam.dir = (lookAt(cam.pos, vec3(0,-3,0), vec3(0.0,1.0,0.0))*vec4(cam.dir.xyz, 1.0)).xyz;
 	int steps = -1;
