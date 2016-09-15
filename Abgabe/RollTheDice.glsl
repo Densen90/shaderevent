@@ -1,0 +1,161 @@
+#include "func_collections.h"
+
+vec3 lightDir = vec3(0.5,0.5,-1);
+
+vec4 objColor = vec4(0);
+
+uniform float spinCube;
+uniform float iGlobalTime;
+
+uniform sampler2D tex0;
+
+in vec2 uv;
+
+float cubeSize = 1;
+uniform float camPosZ, move;
+
+float cubeRadius = cubeSize/4;
+float dotSize = cubeRadius;
+
+/*
+ * chain in z position, camera flight in z
+*/
+
+float distTorus(vec3 p, vec2 t){
+    p.x *=1.62;
+    vec2 q = vec2(length(p.xz)-t.x,p.y);
+    return length(q)-t.y;
+}
+
+vec3 repeat(vec3 p, vec3 c ){
+    return mod(p, c) - 0.5 * c;
+}
+
+float oneDot(vec3 p, vec3 offset, vec3 cutPlane){
+    float cut = distRoundBox(p + offset, cutPlane,0.01);
+    float sphere = distSphere(p + offset, dotSize);
+    return max(cut,sphere);
+}
+
+float addDots(in vec3 p) {  
+    float one = oneDot(p, vec3(0,cubeSize + cubeRadius,0), vec3(1,0.0001,1));
+
+    float two = oneDot(p, vec3(-cubeSize - cubeRadius, cubeSize/2,cubeSize/2), vec3(0.0001,1,1));
+    two = min(two,oneDot(p, vec3(-cubeSize - cubeRadius,-cubeSize/2,-cubeSize/2), vec3(0.0001,1,1)));
+
+    float three = oneDot(p, vec3(0,0,cubeSize + cubeRadius), vec3(1,1,0.0001));
+    three = min(three,oneDot(p, vec3(-cubeSize/2,-cubeSize/2,cubeSize + cubeRadius), vec3(1,1,0.0001)));
+    three = min(three,oneDot(p, vec3(cubeSize/2,cubeSize/2,cubeSize + cubeRadius), vec3(1,1,0.0001)));
+
+    float four = oneDot(p, vec3(-cubeSize/2,cubeSize/2,-cubeSize - cubeRadius), vec3(1,1,0.0001));
+    four = min(four,oneDot(p, vec3(-cubeSize/2,-cubeSize/2,-cubeSize - cubeRadius), vec3(1,1,0.0001)));
+    four = min(four,oneDot(p, vec3(cubeSize/2,cubeSize/2,-cubeSize - cubeRadius), vec3(1,1,0.0001)));
+    four = min(four,oneDot(p, vec3(cubeSize/2,-cubeSize/2,-cubeSize - cubeRadius), vec3(1,1,0.0001)));
+
+    float five = oneDot(p, vec3(cubeSize + cubeRadius,0.,0.), vec3(0.0001,1,1));
+    five = min(five,oneDot(p, vec3(cubeSize + cubeRadius,-cubeSize/2,-cubeSize/2), vec3(0.0001,1,1)));
+    five = min(five,oneDot(p, vec3(cubeSize + cubeRadius,cubeSize/2,cubeSize/2), vec3(0.0001,1,1)));
+    five = min(five,oneDot(p, vec3(cubeSize + cubeRadius,-cubeSize/2,cubeSize/2), vec3(0.0001,1,1)));
+    five = min(five,oneDot(p, vec3(cubeSize + cubeRadius,cubeSize/2,-cubeSize/2), vec3(0.0001,1,1)));
+
+    float six = oneDot(p, vec3(cubeSize/2 - cubeSize/10,-cubeSize - cubeRadius,cubeSize/2 + cubeSize/10), vec3(1,0.0001,1));
+    six = min(six,oneDot(p, vec3(-cubeSize/2 - cubeSize/10,-cubeSize - cubeRadius,cubeSize/2 + cubeSize/10), vec3(1,0.0001,1)));
+
+    six = min(six,oneDot(p, vec3(-cubeSize/2 - cubeSize/10,-cubeSize - cubeRadius,-0.), vec3(1,0.0001,1)));
+    six = min(six,oneDot(p, vec3(cubeSize/2 - cubeSize/10,-cubeSize - cubeRadius,-0.), vec3(1,0.0001,1)));
+
+    six = min(six,oneDot(p, vec3(-cubeSize/2 - cubeSize/10,-cubeSize - cubeRadius,-cubeSize/2 - cubeSize/10), vec3(1,0.0001,1)));
+    six = min(six,oneDot(p, vec3(cubeSize/2 - cubeSize/10,-cubeSize - cubeRadius,-cubeSize/2 - cubeSize/10), vec3(1,0.0001,1)));
+    /*
+    float seven = oneDot(p, vec3(cubeSize/2 - cubeSize/2,-cubeSize - cubeRadius,-cubeSize/2 - cubeSize/4), vec3(1,0.0001,1));
+    seven = min(seven,oneDot(p, vec3(cubeSize/2 + cubeSize/4,-cubeSize - cubeRadius,(-cubeSize/2 - cubeSize/3)/2.6), vec3(1,0.0001,1)));
+    seven = min(seven,oneDot(p, vec3(-cubeSize/2 - cubeSize/4,-cubeSize - cubeRadius,(-cubeSize/2 - cubeSize/3)/2.6), vec3(1,0.0001,1)));
+
+    seven = min(seven,oneDot(p, vec3(0,-cubeSize - cubeRadius,0), vec3(1,0.0001,1)));
+
+    seven = min(seven,oneDot(p, vec3(cubeSize/2 + cubeSize/4,-cubeSize - cubeRadius,(cubeSize/2 + cubeSize/3)/2.6), vec3(1,0.0001,1)));
+    seven = min(seven,oneDot(p, vec3(-cubeSize/2 - cubeSize/5,-cubeSize - cubeRadius,(cubeSize/2 + cubeSize/3)/2.6), vec3(1,0.0001,1)));
+    seven = min(seven,oneDot(p, vec3(cubeSize/2 - cubeSize/2,-cubeSize - cubeRadius,cubeSize/2 + cubeSize/4), vec3(1,0.0001,1)));
+    */
+
+    float dots = min(one,min(two,min(three, min(four, min(five, six))))); 
+//  objColor = (res == dots) ?  vec4(0) : vec4(1);
+    return dots;
+}
+
+float dice(vec3 p, float dots, out float res) {
+	float cube = distRoundBox(p, vec3(cubeSize),0.25);
+	float dots1 = addDots(p);
+	dots = min(dots,dots1);
+	res = min(cube,dots);
+	
+    vec4 color = mix(vec4(0.247, 0.278, 0.729, 1.0), vec4(0.878, 0.239, 0.659, 1.0),p.y);
+    vec4 buttonColor = mix(vec4(0.608, 0.780, 0.0, 1.0), vec4(0.0, 0.690, 0.553, 1.0),p.z);    
+	
+	objColor = (res == dots) ?  buttonColor : color;
+	return min(dots, cube);
+}
+
+float chain(vec3 p){
+	p.y += move * 2;	
+	vec3 pt = p;
+	pt.x += (uv.x * 2);
+    pt = rotate(pt, vec3(90,0,0));
+	pt.y += sin(iGlobalTime)/3;
+    float t2 = distTorus(repeat(pt + vec3(0,0,0), vec3(0,0,3)),vec2(1,0.2));
+	vec3 pt2 = p;
+	pt2.x += uv.x * 2;
+    pt2 = rotate(pt2, vec3(90,45,0));
+	pt2.y += sin(iGlobalTime)/3;
+    float t3 = distTorus(repeat(pt2 - vec3(0,0,1.5), vec3(0,0,3)),vec2(1,0.2));	
+    return min(t2,t3);
+}
+
+float dist(vec3 p){
+    //float plane = distPlane(p + vec3(0,4,0), vec3(0,1,0));
+
+    float rot = iGlobalTime * 50;
+    float dots0 = 1000; 
+	float res = 1000;
+	
+
+    vec3 p0 = rotate(p+vec3(0,2,0), vec3(0,rot,0));
+    p0 = rotate(p0, vec3(0,rot * p.y/spinCube,0));
+    p0 = rotate(p0, vec3(45, 0, 45));
+    float dices = dice(p0, dots0, res);
+    //float torus = distTorus(pt, vec2(3,1));
+
+    vec3 pc = p + vec3(0,2,0);
+    pc = rotate(pc, vec3(90,0,0));
+    float ch = chain(pc+vec3(-1,0,0));
+    res = min(ch, dices);
+
+
+    objColor = ( res == ch) ?  vec4(0.3) : objColor;    
+
+	//return p.z > 3  ? ch : res;
+	
+    return res;
+}
+
+
+void main(){
+	//uv-=0.5;
+    vec2 p = getScreenPos(90);
+    Camera cam;
+    cam.pos = vec3(0,0,-10);
+    cam.dir = normalize(vec3(p.x, p.y, 1));
+    int steps = -1;
+    vec4 res = raymarch(cam.pos, cam.dir, steps);
+    vec4 color = texture2D(tex0,uv);
+    //vec4 color = vec4(1);
+    if(res.a ==1){
+        color = objColor;
+        vec3 n = getNormal(res.xyz);
+        color *= max(AMBIENT, dot(n, lightDir));
+        color *=shadow(res.xyz,n);
+        color +=ambientOcclusion(res.xyz,n) * AMBIENT;
+    }
+    gl_FragColor = color;
+
+}
